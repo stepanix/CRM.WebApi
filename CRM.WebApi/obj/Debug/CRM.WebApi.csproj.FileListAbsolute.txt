@@ -1,0 +1,1 @@
+C:\Practice Projects\CRM\CRM.WebApi\CRM.WebApi\obj\Debug\CRM.WebApi.csprojResolveAssemblyReference.cache

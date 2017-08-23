@@ -1,0 +1,21 @@
+C:\LiquidChairProjects\CRM\CRM.Domain\CRM.Domain\bin\Debug\CRM.Domain.dll
+C:\LiquidChairProjects\CRM\CRM.Domain\CRM.Domain\bin\Debug\CRM.Domain.pdb
+C:\LiquidChairProjects\CRM\CRM.Domain\CRM.Domain\obj\Debug\CRM.Domain.dll
+C:\LiquidChairProjects\CRM\CRM.Domain\CRM.Domain\obj\Debug\CRM.Domain.pdb
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\obj\Debug\CRM.Domain.dll
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\obj\Debug\CRM.Domain.pdb
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\CRM.Domain.dll
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\CRM.Domain.pdb
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\CRM.Domain.dll.config
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\EntityFramework.dll
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\EntityFramework.xml
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\Autofac.dll
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\AutoMapper.dll
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\Autofac.xml
+C:\Practice Projects\CRM\CRM.WebApi\CRM.Domain\bin\Debug\AutoMapper.xml

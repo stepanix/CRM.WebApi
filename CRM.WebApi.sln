@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.Domain", "CRM.Domain\CRM.Domain.csproj", "{7CCE555D-0A8E-4DE7-82F0-89B2157D31F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.EntityFramework", "CRM.EntityFramework\CRM.EntityFramework.csproj", "{0EF15402-DB95-4C11-9402-E615E11C604B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.Service", "CRM.Service\CRM.Service.csproj", "{E77DE7A8-7F8C-42B4-9474-04BB22FF21F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.WebApi", "CRM.WebApi\CRM.WebApi.csproj", "{B2A386D7-CDB6-4ED9-B8D8-650DE4162226}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CCE555D-0A8E-4DE7-82F0-89B2157D31F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CCE555D-0A8E-4DE7-82F0-89B2157D31F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CCE555D-0A8E-4DE7-82F0-89B2157D31F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CCE555D-0A8E-4DE7-82F0-89B2157D31F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EF15402-DB95-4C11-9402-E615E11C604B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EF15402-DB95-4C11-9402-E615E11C604B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EF15402-DB95-4C11-9402-E615E11C604B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EF15402-DB95-4C11-9402-E615E11C604B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E77DE7A8-7F8C-42B4-9474-04BB22FF21F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E77DE7A8-7F8C-42B4-9474-04BB22FF21F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E77DE7A8-7F8C-42B4-9474-04BB22FF21F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E77DE7A8-7F8C-42B4-9474-04BB22FF21F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2A386D7-CDB6-4ED9-B8D8-650DE4162226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A386D7-CDB6-4ED9-B8D8-650DE4162226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2A386D7-CDB6-4ED9-B8D8-650DE4162226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2A386D7-CDB6-4ED9-B8D8-650DE4162226}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
