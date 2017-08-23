@@ -7,6 +7,8 @@ using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using System.Web.Http.Cors;
 using System.Net.Http.Headers;
+using System.Web.Http.ExceptionHandling;
+using CRM.WebApi.GlobalException.Global;
 
 namespace CRM.WebApi
 {

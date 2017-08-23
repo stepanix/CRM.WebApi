@@ -4,12 +4,9 @@ using Autofac.Integration.WebApi;
 using CRM.Domain.Repositories;
 using CRM.EntityFramework;
 using CRM.EntityFramework.Repositories.Base;
-
 using System;
-
-
+using Owin;
 using System.Reflection;
-
 using CRM.Domain;
 using CRM.Domain.RequestIdentity;
 using System.Web.Http;
