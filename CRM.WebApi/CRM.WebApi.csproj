@@ -259,10 +259,17 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\FormController.cs" />
+    <Compile Include="Controllers\FormValueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NoteController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DtoMapperModule.cs" />
     <Compile Include="DtoMapperProfile.cs" />
+    <Compile Include="Dto\Forms\In\FormDtoIn.cs" />
+    <Compile Include="Dto\FormValues\In\FormValueDtoIn.cs" />
+    <Compile Include="Dto\Notes\In\NoteDtoIn.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -337,6 +344,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\FormValue\" />
+    <Folder Include="Views\Form\" />
+    <Folder Include="Views\Note\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -354,6 +365,10 @@
     <ProjectReference Include="..\CRM.EntityFramework\CRM.EntityFramework.csproj">
       <Project>{0ef15402-db95-4c11-9402-e615e11c604b}</Project>
       <Name>CRM.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CRM.Service\CRM.Service.csproj">
+      <Project>{e77de7a8-7f8c-42b4-9474-04bb22ff21f7}</Project>
+      <Name>CRM.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using CRM.Domain.Model;
+using CRM.WebApi.Dto.FormValues.In;
+using CRM.WebApi.Dto.Notes.In;
 
 namespace CRM.WebApi
 {
@@ -6,8 +9,8 @@ namespace CRM.WebApi
     {
         public DtoMapperProfile()
         {
-            //CreateMap<ProductModel, ProductDtoIn>().ReverseMap();
-            //CreateMap<ProductModel, ProductDtoUpdateIn>().ReverseMap();
+            CreateMap<FormValueModel, FormValueDtoIn>().ReverseMap();
+            CreateMap<NoteModel, NoteDtoIn>().ReverseMap();
         }
     }
 }
