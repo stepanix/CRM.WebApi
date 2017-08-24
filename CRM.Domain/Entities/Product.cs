@@ -8,7 +8,7 @@ namespace CRM.Domain.Entities
     {
         [Required]
         [Column(TypeName = "VARCHAR")]
-        [StringLength(300)]
+        [StringLength(500)]
         public string Name { get; set; }
     }
 }

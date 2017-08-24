@@ -67,10 +67,13 @@
     <Compile Include="Repositories\Base\BaseRepository.cs" />
     <Compile Include="Repositories\Base\ORMBaseRepository.cs" />
     <Compile Include="Repositories\FormRepository.cs" />
+    <Compile Include="Repositories\FormValueRepository.cs" />
     <Compile Include="Repositories\NoteRepository.cs" />
     <Compile Include="Repositories\PlaceRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ProductRetailAuditRepository.cs" />
     <Compile Include="Repositories\QuestionTypeRepository.cs" />
+    <Compile Include="Repositories\RetailAuditFormRepository.cs" />
     <Compile Include="Repositories\ScheduleRepository.cs" />
   </ItemGroup>
   <ItemGroup>

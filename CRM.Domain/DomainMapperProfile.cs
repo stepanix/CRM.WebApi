@@ -10,8 +10,11 @@ namespace CRM.Domain
         {
             CreateMap<Product, ProductModel>().ReverseMap();
             CreateMap<Form, FormModel>().ReverseMap();
+            CreateMap<FormValue, FormValueModel>().ReverseMap();
             CreateMap<Place, PlaceModel>().ReverseMap();
             CreateMap<QuestionType, QuestionTypeModel>().ReverseMap();
+            CreateMap<ProductRetailAudit, ProductRetailAuditModel>().ReverseMap();
+            CreateMap<RetailAuditForm, RetailAuditFormModel>().ReverseMap();
             CreateMap<Schedule, ScheduleModel>().ReverseMap();
         }
     }

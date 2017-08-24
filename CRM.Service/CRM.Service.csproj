@@ -47,14 +47,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Forms\FormService.cs" />
     <Compile Include="Services\Forms\IFormService.cs" />
+    <Compile Include="Services\FormValues\FormValueService.cs" />
+    <Compile Include="Services\FormValues\IFormValueService.cs" />
     <Compile Include="Services\Notes\INoteService.cs" />
     <Compile Include="Services\Notes\NoteService.cs" />
     <Compile Include="Services\Places\IPlaceService.cs" />
     <Compile Include="Services\Places\PlaceService.cs" />
+    <Compile Include="Services\ProductRetailAudits\IProductRetailAuditService.cs" />
+    <Compile Include="Services\ProductRetailAudits\ProductRetailAuditService.cs" />
     <Compile Include="Services\Products\IProductService.cs" />
     <Compile Include="Services\Products\ProductService.cs" />
     <Compile Include="Services\QuestionTypes\IQuestionTypeService.cs" />
     <Compile Include="Services\QuestionTypes\QuestionTypeService.cs" />
+    <Compile Include="Services\RetailAuditForms\IRetailAuditFormService.cs" />
+    <Compile Include="Services\RetailAuditForms\RetailAuditFormService.cs" />
     <Compile Include="Services\Schedules\IScheduleService.cs" />
     <Compile Include="Services\Schedules\ScheduleService.cs" />
   </ItemGroup>
