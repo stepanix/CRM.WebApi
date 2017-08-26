@@ -263,11 +263,19 @@
     <Compile Include="Controllers\FormValueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
+    <Compile Include="Controllers\PlaceController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductRetailAuditController.cs" />
+    <Compile Include="Controllers\QuestionTypeController.cs" />
+    <Compile Include="Controllers\RetailAuditFormController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="DtoMapperModule.cs" />
     <Compile Include="DtoMapperProfile.cs" />
     <Compile Include="Dto\Forms\In\FormDtoIn.cs" />
     <Compile Include="Dto\FormValues\In\FormValueDtoIn.cs" />
     <Compile Include="Dto\Notes\In\NoteDtoIn.cs" />
+    <Compile Include="Dto\ProductretailAudits\In\ProductRetailAuditDtoIn.cs" />
+    <Compile Include="Dto\Schedules\In\ScheduleDtoIn.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -347,6 +355,12 @@
     <Folder Include="Views\FormValue\" />
     <Folder Include="Views\Form\" />
     <Folder Include="Views\Note\" />
+    <Folder Include="Views\Place\" />
+    <Folder Include="Views\ProductRetailAudit\" />
+    <Folder Include="Views\Product\" />
+    <Folder Include="Views\QuestionType\" />
+    <Folder Include="Views\RetailAuditForm\" />
+    <Folder Include="Views\Schedule\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
