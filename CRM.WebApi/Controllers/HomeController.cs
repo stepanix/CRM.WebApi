@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace CRM.WebApi.Controllers
 {
+
+    [RoutePrefix("api/Home")]
     public class HomeController : Controller
     {
         public ActionResult Index()

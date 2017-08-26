@@ -105,3 +105,5 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\Microsoft.Owin.Security.M
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\System.Web.Http.Owin.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\obj\Debug\CRM.WebApi.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\obj\Debug\CRM.WebApi.pdb
+C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\CRM.Service.dll
+C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\CRM.Service.pdb

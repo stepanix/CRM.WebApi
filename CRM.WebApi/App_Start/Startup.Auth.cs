@@ -11,6 +11,7 @@ using Owin;
 using CRM.WebApi.Providers;
 using CRM.WebApi.Models;
 using CRM.EntityFramework;
+using CRM.WebApi.Identity;
 
 namespace CRM.WebApi
 {

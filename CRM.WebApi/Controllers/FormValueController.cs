@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace CRM.WebApi.Controllers
 {
+    [RoutePrefix("api/FormValue")]
     public class FormValueController : BaseController
     {
         IFormValueService formValueService;

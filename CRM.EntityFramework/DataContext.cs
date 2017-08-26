@@ -32,6 +32,9 @@ namespace CRM.EntityFramework
         public virtual DbSet<Place> Places { get; set; }
         public virtual DbSet<QuestionType> QuestionTypes { get; set; }
         public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<FormValue> FormValues { get; set; }
+        public virtual DbSet<ProductRetailAudit> ProductRetailAudits { get; set; }
+        public virtual DbSet<RetailAuditForm> RetailAuditForms { get; set; }
         public virtual DbSet<Status> Statuses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
