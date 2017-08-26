@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace CRM.WebApi.Controllers
 {
+    [RoutePrefix("api/Schedule")]
     public class ScheduleController : BaseController
     {
         IScheduleService scheduleService;

@@ -11,7 +11,7 @@ using CRM.Domain;
 using CRM.Domain.RequestIdentity;
 using System.Web.Http;
 
-namespace CRM.WebApi.App_Start
+namespace CRM.WebApi
 {
     public partial class Startup
     {

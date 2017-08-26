@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CRM.WebApi.Controllers
 {
-    [RoutePrefix("api/QuestionType")]
+    [RoutePrefix("api/RetailAuditForm")]
     public class RetailAuditFormController : BaseController
     {
         IRetailAuditFormService retailAuditFormService;
