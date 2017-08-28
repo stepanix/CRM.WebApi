@@ -21,6 +21,7 @@ namespace CRM.WebApi
             //Enable cors for the api
             var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
+            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();

@@ -5,6 +5,7 @@ using CRM.Service.Services.Forms;
 using AutoMapper;
 using CRM.Domain.Model;
 using System.Threading.Tasks;
+using CRM.WebApi.Dto.Form.In;
 
 namespace CRM.WebApi.Controllers
 {
@@ -22,28 +23,28 @@ namespace CRM.WebApi.Controllers
 
         [HttpPost]
         [Route("")]
-        public async Task<IHttpActionResult> Create([FromBody]FormModel form)
+        public async Task<IHttpActionResult> Create([FromBody]FormDtoIn form)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await formService.InsertFormAsync(form);
+            var created = await formService.InsertFormAsync(mapper.Map<FormModel>(form));
             return Ok(created);
         }
 
 
         [HttpPut]
         [Route("")]
-        public async Task<IHttpActionResult> Update([FromBody]FormModel form)
+        public async Task<IHttpActionResult> Update([FromBody]FormDtoIn form)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await formService.UpdateFormAsync(form);
+            var created = await formService.UpdateFormAsync(mapper.Map<FormModel>(form));
             return Ok(created);
         }
 
