@@ -47,7 +47,8 @@ namespace CRM.Service.Services.Forms
             var formForUpdate = await formRepository.GetAsync(form.Id);
             formForUpdate.ModifiedDate = DateTime.Now;
             formForUpdate.Description = form.Description;
-
+            formForUpdate.Title = form.Title;
+            formForUpdate.Fields = form.Fields;
             await formRepository.SaveChangesAsync();
             return mapper.Map<FormModel>(formForUpdate);
         }
