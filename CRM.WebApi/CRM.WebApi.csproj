@@ -278,6 +278,7 @@
     <Compile Include="Controllers\QuestionTypeController.cs" />
     <Compile Include="Controllers\RetailAuditFormController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="DtoMapperModule.cs" />
     <Compile Include="DtoMapperProfile.cs" />
     <Compile Include="Dto\Forms\In\FormDtoIn.cs" />
@@ -370,6 +371,7 @@
     <Folder Include="Views\QuestionType\" />
     <Folder Include="Views\RetailAuditForm\" />
     <Folder Include="Views\Schedule\" />
+    <Folder Include="Views\Status\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

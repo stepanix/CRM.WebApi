@@ -80,6 +80,7 @@
     <Compile Include="Repositories\QuestionTypeRepository.cs" />
     <Compile Include="Repositories\RetailAuditFormRepository.cs" />
     <Compile Include="Repositories\ScheduleRepository.cs" />
+    <Compile Include="Repositories\StatusRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CRM.Domain\CRM.Domain.csproj">

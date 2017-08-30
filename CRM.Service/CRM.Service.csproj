@@ -63,6 +63,8 @@
     <Compile Include="Services\RetailAuditForms\RetailAuditFormService.cs" />
     <Compile Include="Services\Schedules\IScheduleService.cs" />
     <Compile Include="Services\Schedules\ScheduleService.cs" />
+    <Compile Include="Services\Statuses\IStatusService.cs" />
+    <Compile Include="Services\Statuses\StatusService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

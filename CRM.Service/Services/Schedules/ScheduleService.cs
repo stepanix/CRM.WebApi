@@ -55,7 +55,8 @@ namespace CRM.Service.Services.Schedules
 
         public void DeleteSchedule(int id)
         {
-            throw new NotImplementedException();
+            scheduleRepository.Delete(id);
         }
+
     }
 }
