@@ -16,6 +16,7 @@ namespace CRM.Domain
             CreateMap<ProductRetailAudit, ProductRetailAuditModel>().ReverseMap();
             CreateMap<RetailAuditForm, RetailAuditFormModel>().ReverseMap();
             CreateMap<Schedule, ScheduleModel>().ReverseMap();
+            CreateMap<RepresentativePlace, RepresentativePlaceModel>().ReverseMap();
         }
     }
 }

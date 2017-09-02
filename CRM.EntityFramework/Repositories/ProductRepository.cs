@@ -3,8 +3,6 @@ using CRM.Domain.Repositories;
 using CRM.EntityFramework.Repositories.Base;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CRM.EntityFramework.Repositories

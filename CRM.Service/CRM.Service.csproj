@@ -59,6 +59,8 @@
     <Compile Include="Services\Products\ProductService.cs" />
     <Compile Include="Services\QuestionTypes\IQuestionTypeService.cs" />
     <Compile Include="Services\QuestionTypes\QuestionTypeService.cs" />
+    <Compile Include="Services\RepresentativePlaces\IRepresentativePlaceService.cs" />
+    <Compile Include="Services\RepresentativePlaces\RepresentativePlaceService.cs" />
     <Compile Include="Services\RetailAuditForms\IRetailAuditFormService.cs" />
     <Compile Include="Services\RetailAuditForms\RetailAuditFormService.cs" />
     <Compile Include="Services\Schedules\IScheduleService.cs" />

@@ -276,6 +276,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductRetailAuditController.cs" />
     <Compile Include="Controllers\QuestionTypeController.cs" />
+    <Compile Include="Controllers\RepresentativePlaceController.cs" />
     <Compile Include="Controllers\RetailAuditFormController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
@@ -285,6 +286,7 @@
     <Compile Include="Dto\FormValues\In\FormValueDtoIn.cs" />
     <Compile Include="Dto\Notes\In\NoteDtoIn.cs" />
     <Compile Include="Dto\ProductretailAudits\In\ProductRetailAuditDtoIn.cs" />
+    <Compile Include="Dto\RepresentativePlaces\In\RepresentativePlaceDtoIn.cs" />
     <Compile Include="Dto\Schedules\In\ScheduleDtoIn.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -369,6 +371,7 @@
     <Folder Include="Views\ProductRetailAudit\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\QuestionType\" />
+    <Folder Include="Views\RepresentativePlace\" />
     <Folder Include="Views\RetailAuditForm\" />
     <Folder Include="Views\Schedule\" />
     <Folder Include="Views\Status\" />

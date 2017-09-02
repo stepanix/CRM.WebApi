@@ -53,6 +53,7 @@ namespace CRM.Service.Services.Statuses
             await statusRepository.SaveChangesAsync();
             return mapper.Map<StatusModel>(statusForUpdate);
         }
+
     }
 }
 
