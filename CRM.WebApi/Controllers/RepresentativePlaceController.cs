@@ -6,6 +6,7 @@ using CRM.Domain.RequestIdentity;
 using CRM.Service.Services.RepresentativePlaces;
 using CRM.WebApi.Controllers.Base;
 using CRM.WebApi.Dto.RepresentativePlaces.In;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -35,6 +36,21 @@ namespace CRM.WebApi.Controllers
             var created = await representativePlaceService.InsertRepresentativePlaceAsync(mapper.Map<RepresentativePlaceModel>(repPlace));
             return Ok(created);
         }
+
+
+        [HttpPost]
+        [Route("List")]
+        public async Task<IHttpActionResult> CreateList([FromBody]IEnumerable<RepresentativePlaceDtoIn> repPlace)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var created = await representativePlaceService.InsertRepresentativePlaceListAsync(mapper.Map<IEnumerable<RepresentativePlaceModel>>(repPlace));
+            return Ok(created);
+        }
+
 
         [HttpPut]
         [Route("")]

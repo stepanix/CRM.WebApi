@@ -45,6 +45,26 @@ namespace CRM.Service.Services.RepresentativePlaces
             return mapper.Map<RepresentativePlaceModel>(newRepresentativePlace);
         }
 
+        public async Task<IEnumerable<RepresentativePlaceModel>> InsertRepresentativePlaceListAsync(IEnumerable<RepresentativePlaceModel> representativePlace)
+        {
+            List<RepresentativePlaceModel> repPlaceList = new List<RepresentativePlaceModel>();
+            
+            foreach (var repPlace in representativePlace)
+            {
+               var repPlaceVar = new RepresentativePlaceModel
+                {
+                    PlaceId = repPlace.PlaceId,
+                    UserId = repPlace.UserId,
+                    AddedDate = DateTime.Now
+                };
+                repPlaceList.Add(repPlaceVar);
+            }
+
+            representativePlaceRepository.InsertRepresentativePlaceList(mapper.Map<IEnumerable<RepresentativePlace>>(repPlaceList));
+            await representativePlaceRepository.SaveChangesAsync();
+            return repPlaceList;
+        }
+
         public async Task<RepresentativePlaceModel> UpdateRepresentativePlaceAsync(RepresentativePlaceModel representativePlace)
         {
             var representativePlaceForUpdate = await representativePlaceRepository.GetAsync(representativePlace.Id);
@@ -60,6 +80,7 @@ namespace CRM.Service.Services.RepresentativePlaces
             return mapper.Map<IEnumerable<RepresentativePlaceModel>>(await representativePlaceRepository.GetRepresentativeByPlaceId(placeId));
         }
 
+       
     }
 
 

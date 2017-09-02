@@ -41,6 +41,12 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public IEnumerable<RepresentativePlace> InsertRepresentativePlaceList(IEnumerable<RepresentativePlace> representativePlace)
+        {
+            GetDataContext().RepresentativePlaces.AddRange(representativePlace);
+            return representativePlace;
+        }
+
         public Task<RepresentativePlace> InsertRepresentativePlace(RepresentativePlace representativePlace)
         {
             throw new NotImplementedException();

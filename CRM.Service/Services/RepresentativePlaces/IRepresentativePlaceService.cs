@@ -10,6 +10,7 @@ namespace CRM.Service.Services.RepresentativePlaces
         Task<RepresentativePlaceModel> GetRepresentativePlaceAsync(int id);
         Task<IEnumerable<RepresentativePlaceModel>> GetRepresentativeByPlaceIdAsync(int placeId);
         Task<RepresentativePlaceModel> InsertRepresentativePlaceAsync(RepresentativePlaceModel representativePlace);
+        Task<IEnumerable<RepresentativePlaceModel>> InsertRepresentativePlaceListAsync(IEnumerable<RepresentativePlaceModel> representativePlace);
         Task<RepresentativePlaceModel> UpdateRepresentativePlaceAsync(RepresentativePlaceModel representativePlace);
         void DeleteRepresentativePlace(int id);
     }
