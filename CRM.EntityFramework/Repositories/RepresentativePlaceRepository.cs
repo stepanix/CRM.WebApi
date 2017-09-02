@@ -26,7 +26,7 @@ namespace CRM.EntityFramework.Repositories
         {
             return await GetDataContext()
                 .RepresentativePlaces
-                .Where(e => e.PlaceId == placeId)
+                .Where(e => e.PlaceId == placeId && e.IsDeleted==false)
                 .Include(u => u.User)
                 .ToListAsync();
         }

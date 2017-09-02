@@ -60,12 +60,12 @@ namespace CRM.EntityFramework.Repositories.Base
 
         public override T Get(int id)
         {
-            return table.FirstOrDefault(s => s.Id == id);
+            return table.FirstOrDefault(s => s.Id == id && s.IsDeleted==false);
         }
 
         public override IEnumerable<T> GetAll()
         {
-            return table.AsEnumerable();
+            return table.AsEnumerable().Where(s=> s.IsDeleted==false);
         }
 
         public override T Insert(T entity)
