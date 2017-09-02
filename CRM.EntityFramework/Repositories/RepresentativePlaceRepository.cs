@@ -4,11 +4,15 @@ using CRM.EntityFramework.Repositories.Base;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Data.Entity;
+
 
 namespace CRM.EntityFramework.Repositories
 {
     public class RepresentativePlaceRepository : ORMBaseRepository<RepresentativePlace, int>, IRepresentativePlaceRepository
     {
+        
         public RepresentativePlaceRepository(DataContext context) : base(context)
         {
         }
@@ -16,6 +20,15 @@ namespace CRM.EntityFramework.Repositories
         public void DeleteProductRetailAudit(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<RepresentativePlace>> GetRepresentativeByPlaceId(int placeId)
+        {
+            return await GetDataContext()
+                .RepresentativePlaces
+                .Where(e => e.PlaceId == placeId)
+                .Include(u => u.User)
+                .ToListAsync();
         }
 
         public Task<RepresentativePlace> GetRepresentativePlace(int id)

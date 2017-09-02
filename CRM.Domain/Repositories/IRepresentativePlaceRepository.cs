@@ -8,6 +8,7 @@ namespace CRM.Domain.Repositories
     {
         Task<IEnumerable<RepresentativePlace>> GetRepresentativePlaces();
         Task<RepresentativePlace> GetRepresentativePlace(int id);
+        Task<IEnumerable<RepresentativePlace>> GetRepresentativeByPlaceId(int placeId);
         Task<RepresentativePlace> InsertRepresentativePlace(RepresentativePlace representativePlace);
         Task<RepresentativePlace> UpdateRepresentativePlace(RepresentativePlace representativePlace);
         void DeleteProductRetailAudit(int id);

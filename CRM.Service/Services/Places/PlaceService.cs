@@ -41,6 +41,13 @@ namespace CRM.Service.Services.Places
         {
             var placeForUpdate = await placeRepository.GetAsync(place.Id);
             placeForUpdate.ModifiedDate = DateTime.Now;
+            placeForUpdate.Name = place.Name;
+            placeForUpdate.StatusId = place.StatusId;
+            placeForUpdate.StreetAddress = place.StreetAddress;
+            placeForUpdate.State = place.State;
+            placeForUpdate.Zip = place.Zip;
+            placeForUpdate.WebSite = place.WebSite;
+            placeForUpdate.Phone = place.Phone;
             placeForUpdate.CellPhone = place.CellPhone;
             placeForUpdate.City = place.City;            
             placeForUpdate.Comment = place.Comment;

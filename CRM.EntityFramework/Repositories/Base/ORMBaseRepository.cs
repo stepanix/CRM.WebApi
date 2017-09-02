@@ -23,6 +23,11 @@ namespace CRM.EntityFramework.Repositories.Base
             table = context.Set<T>();
         }
 
+        public DataContext GetDataContext()
+        {
+            return context;
+        }
+
         public void Delete(T entity)
         {
             throw new NotImplementedException();

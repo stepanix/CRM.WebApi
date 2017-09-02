@@ -55,6 +55,11 @@ namespace CRM.Service.Services.RepresentativePlaces
             return mapper.Map<RepresentativePlaceModel>(representativePlaceForUpdate);
         }
 
+        public async Task<IEnumerable<RepresentativePlaceModel>> GetRepresentativeByPlaceIdAsync(int placeId)
+        {
+            return mapper.Map<IEnumerable<RepresentativePlaceModel>>(await representativePlaceRepository.GetRepresentativeByPlaceId(placeId));
+        }
+
     }
 
 

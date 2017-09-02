@@ -65,6 +65,14 @@ namespace CRM.WebApi.Controllers
             return Ok(created);
         }
 
+        [HttpGet]
+        [Route("ByPlaceId")]
+        public async Task<IHttpActionResult> ReadAllByPlaceId(int id)
+        {
+            var created = await representativePlaceService.GetRepresentativeByPlaceIdAsync(id);
+            return Ok(created);
+        }
+
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CRM.Domain.Entities;
+using CRM.Domain.Identity;
 using CRM.Domain.Model;
 
 namespace CRM.Domain
@@ -18,6 +19,7 @@ namespace CRM.Domain
             CreateMap<Schedule, ScheduleModel>().ReverseMap();
             CreateMap<RepresentativePlace, RepresentativePlaceModel>().ReverseMap();
             CreateMap<Status, StatusModel>().ReverseMap();
+            CreateMap<User, UserModel>().ReverseMap();
         }
     }
 }
