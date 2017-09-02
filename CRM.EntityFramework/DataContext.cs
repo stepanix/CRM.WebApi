@@ -3,14 +3,10 @@ using CRM.Domain.Entities;
 using CRM.Domain.Identity;
 using EntityFramework.Filters;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CRM.EntityFramework
 {
