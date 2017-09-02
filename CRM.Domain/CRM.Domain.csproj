@@ -112,6 +112,7 @@
     <Compile Include="Repositories\IRetailAuditFormRepository.cs" />
     <Compile Include="Repositories\IScheduleRepository.cs" />
     <Compile Include="Repositories\IStatusRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="RequestIdentity\IRequestIdentityProvider.cs" />
     <Compile Include="RequestIdentity\RequestIdentityProvider.cs" />
   </ItemGroup>

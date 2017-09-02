@@ -51,7 +51,7 @@ namespace CRM.Service.Services.RepresentativePlaces
             
             foreach (var repPlace in representativePlace)
             {
-               var repPlaceVar = new RepresentativePlaceModel
+                var repPlaceVar = new RepresentativePlaceModel
                 {
                     PlaceId = repPlace.PlaceId,
                     UserId = repPlace.UserId,
