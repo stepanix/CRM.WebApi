@@ -7,6 +7,7 @@ using CRM.Service.Services.Places;
 using AutoMapper;
 using CRM.Domain.Model;
 using System.Threading.Tasks;
+using CRM.WebApi.Dto.Places.In;
 
 namespace CRM.WebApi.Controllers
 {
@@ -24,27 +25,27 @@ namespace CRM.WebApi.Controllers
 
         [HttpPost]
         [Route("")]
-        public async Task<IHttpActionResult> Create([FromBody]PlaceModel place)
+        public async Task<IHttpActionResult> Create([FromBody]PlaceDtoIn place)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await placeService.InsertPlaceAsync(place);
+            var created = await placeService.InsertPlaceAsync(mapper.Map<PlaceModel>(place));
             return Ok(created);
         }
 
         [HttpPut]
         [Route("")]
-        public async Task<IHttpActionResult> Update([FromBody]PlaceModel place)
+        public async Task<IHttpActionResult> Update([FromBody]PlaceDtoIn place)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await placeService.UpdatePlaceAsync(place);
+            var created = await placeService.UpdatePlaceAsync(mapper.Map<PlaceModel>(place));
             return Ok(created);
         }
 

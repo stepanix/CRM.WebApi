@@ -285,6 +285,7 @@
     <Compile Include="Dto\Forms\In\FormDtoIn.cs" />
     <Compile Include="Dto\FormValues\In\FormValueDtoIn.cs" />
     <Compile Include="Dto\Notes\In\NoteDtoIn.cs" />
+    <Compile Include="Dto\Places\In\PlaceDtoIn.cs" />
     <Compile Include="Dto\ProductretailAudits\In\ProductRetailAuditDtoIn.cs" />
     <Compile Include="Dto\RepresentativePlaces\In\RepresentativePlaceDtoIn.cs" />
     <Compile Include="Dto\Schedules\In\ScheduleDtoIn.cs" />
