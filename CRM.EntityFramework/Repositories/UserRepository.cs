@@ -20,7 +20,7 @@ namespace CRM.EntityFramework.Repositories
         {
             return await context
                 .Users
-                .Where(user => !context.RepresentativePlaces.Any(f => f.UserId == user.Id && f.PlaceId==placeId))
+                .Where(user => !context.RepresentativePlaces.Any(f => f.UserId == user.Id && f.PlaceId==placeId && f.IsDeleted==false))
                 .ToListAsync();
         }
 
