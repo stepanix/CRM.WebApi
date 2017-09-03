@@ -7,13 +7,13 @@ namespace CRM.EntityFramework.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class streetAddress : IMigrationMetadata
+    public sealed partial class updates : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(streetAddress));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updates));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709030635401_streetAddress"; }
+            get { return "201709031206147_updates"; }
         }
         
         string IMigrationMetadata.Source

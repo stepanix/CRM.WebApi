@@ -1,48 +1,49 @@
-﻿using CRM.WebApi.Controllers.Base;
-using System.Web.Http;
-using CRM.Domain.RequestIdentity;
-using CRM.Service.Services.Products;
-using AutoMapper;
+﻿using AutoMapper;
 using CRM.Domain.Model;
+using CRM.Domain.RequestIdentity;
+using CRM.Service.Services.Tenants;
+using CRM.WebApi.Controllers.Base;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace CRM.WebApi.Controllers
 {
-    [RoutePrefix("api/Product")]
-    public class ProductController : BaseController
+    public class TenantController : BaseController
     {
-        IProductService productService;
+
+        ITenantService tenantService;
         IMapper mapper;
 
-        public ProductController(IMapper mapper, IProductService productService, IRequestIdentityProvider requestIdentityProvider) : base(requestIdentityProvider)
+        public TenantController(IMapper mapper,ITenantService tenantService,IRequestIdentityProvider requestIdentityProvider) : base(requestIdentityProvider)
         {
-            this.productService = productService;
+            this.tenantService = tenantService;
             this.mapper = mapper;
         }
 
+
         [HttpPost]
         [Route("")]
-        public async Task<IHttpActionResult> Create([FromBody]ProductModel product)
+        public async Task<IHttpActionResult> Create([FromBody]TenantModel tenant)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await productService.InsertProductAsync(product);
+            var created = await tenantService.InsertTenantAsync(tenant);
             return Ok(created);
         }
 
         [HttpPut]
         [Route("")]
-        public async Task<IHttpActionResult> Update([FromBody]ProductModel product)
+        public async Task<IHttpActionResult> Update([FromBody]TenantModel tenant)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await productService.UpdateProductAsync(product);
+            var created = await tenantService.UpdateTenantAsync(tenant);
             return Ok(created);
         }
 
@@ -50,7 +51,7 @@ namespace CRM.WebApi.Controllers
         [Route("{id:int}")]
         public async Task<IHttpActionResult> Read(int id)
         {
-            var created = await productService.GetProductAsync(id);
+            var created = await tenantService.GetTenantAsync(id);
             return Ok(created);
         }
 
@@ -58,7 +59,7 @@ namespace CRM.WebApi.Controllers
         [Route("")]
         public async Task<IHttpActionResult> ReadAll()
         {
-            var created = await productService.GetProductsAsync();
+            var created = await tenantService.GetTenantsAsync();
             return Ok(created);
         }
 
@@ -66,7 +67,7 @@ namespace CRM.WebApi.Controllers
         [Route("{id:int}")]
         public IHttpActionResult Delete(int id)
         {
-            productService.DeleteProduct(id);
+            tenantService.DeleteTenant(id);
             return Ok("");
         }
 

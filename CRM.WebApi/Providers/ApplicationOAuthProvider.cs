@@ -42,6 +42,13 @@ namespace CRM.WebApi.Providers
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
             User user = await userManager.FindAsync(context.UserName, context.Password);
+            string rolesString = string.Empty;
+
+            if (user != null)
+            {
+                var roles = await userManager.GetRolesAsync(user.Id);
+                rolesString = string.Join(",", roles);
+            }
 
             if (user == null)
             {
@@ -54,7 +61,7 @@ namespace CRM.WebApi.Providers
             ClaimsIdentity cookiesIdentity = await GenerateUserIdentityAsync(userManager, user,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            AuthenticationProperties properties = CreateProperties(user.UserName, rolesString);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -96,11 +103,12 @@ namespace CRM.WebApi.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName)
+        public static AuthenticationProperties CreateProperties(string username, string roles)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "username", username },
+                { "roles", roles }
             };
             return new AuthenticationProperties(data);
         }

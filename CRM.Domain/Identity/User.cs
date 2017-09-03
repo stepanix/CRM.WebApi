@@ -7,5 +7,6 @@ namespace CRM.Domain.Identity
     {
         public string FirstName { get; set; }
         public string Surname { get; set; }
+        public bool IsActive { get; set; }
     }
 }

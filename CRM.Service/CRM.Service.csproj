@@ -67,6 +67,8 @@
     <Compile Include="Services\Schedules\ScheduleService.cs" />
     <Compile Include="Services\Statuses\IStatusService.cs" />
     <Compile Include="Services\Statuses\StatusService.cs" />
+    <Compile Include="Services\Tenants\ITenantService.cs" />
+    <Compile Include="Services\Tenants\TenantService.cs" />
     <Compile Include="Services\Users\IUserService.cs" />
     <Compile Include="Services\Users\UserService.cs" />
   </ItemGroup>

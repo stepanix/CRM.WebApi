@@ -63,25 +63,9 @@
   <ItemGroup>
     <Compile Include="DataContext.cs" />
     <Compile Include="DataContextExecutionStrategy.cs" />
-    <Compile Include="Migrations\201708260504218_initial.cs" />
-    <Compile Include="Migrations\201708260504218_initial.Designer.cs">
-      <DependentUpon>201708260504218_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709020235547_representativeplace.cs" />
-    <Compile Include="Migrations\201709020235547_representativeplace.Designer.cs">
-      <DependentUpon>201709020235547_representativeplace.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709030442387_cordinates.cs" />
-    <Compile Include="Migrations\201709030442387_cordinates.Designer.cs">
-      <DependentUpon>201709030442387_cordinates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709030635401_streetAddress.cs" />
-    <Compile Include="Migrations\201709030635401_streetAddress.Designer.cs">
-      <DependentUpon>201709030635401_streetAddress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709030644366_updates.cs" />
-    <Compile Include="Migrations\201709030644366_updates.Designer.cs">
-      <DependentUpon>201709030644366_updates.cs</DependentUpon>
+    <Compile Include="Migrations\201709031206147_updates.cs" />
+    <Compile Include="Migrations\201709031206147_updates.Designer.cs">
+      <DependentUpon>201709031206147_updates.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +82,7 @@
     <Compile Include="Repositories\RetailAuditFormRepository.cs" />
     <Compile Include="Repositories\ScheduleRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
+    <Compile Include="Repositories\TenantRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -111,20 +96,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708260504218_initial.resx">
-      <DependentUpon>201708260504218_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709020235547_representativeplace.resx">
-      <DependentUpon>201709020235547_representativeplace.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709030442387_cordinates.resx">
-      <DependentUpon>201709030442387_cordinates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709030635401_streetAddress.resx">
-      <DependentUpon>201709030635401_streetAddress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709030644366_updates.resx">
-      <DependentUpon>201709030644366_updates.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709031206147_updates.resx">
+      <DependentUpon>201709031206147_updates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
