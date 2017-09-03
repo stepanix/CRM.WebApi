@@ -5,6 +5,7 @@ using CRM.Domain.Model;
 using CRM.Domain.Repositories;
 using AutoMapper;
 using CRM.Domain.Entities;
+using CRM.Domain.RequestIdentity;
 
 namespace CRM.Service.Services.FormValues
 {
@@ -12,11 +13,15 @@ namespace CRM.Service.Services.FormValues
     {
         IFormValueRepository formValueRepository;
         IMapper mapper;
+        IUserRepository userRepository;
+        IRequestIdentityProvider requestIdentityProvider;
 
-        public FormValueService(IMapper mapper, IFormValueRepository formValueRepository)
+        public FormValueService(IMapper mapper, IFormValueRepository formValueRepository, IUserRepository userRepository, IRequestIdentityProvider requestIdentityProvider)
         {
             this.mapper = mapper;
             this.formValueRepository = formValueRepository;
+            this.userRepository = userRepository;
+            this.requestIdentityProvider = requestIdentityProvider;
         }
 
         public void DeleteFormValue(int id)
@@ -36,7 +41,14 @@ namespace CRM.Service.Services.FormValues
 
         public async Task<FormValueModel> InsertFormValueAsync(FormValueModel formValue)
         {
+            var user = await userRepository.GetUser();
+
             formValue.AddedDate = DateTime.Now;
+
+            formValue.TenantId = user.TenantId;
+            formValue.CreatorUserId = requestIdentityProvider.UserId;
+            formValue.LastModifierUserId = requestIdentityProvider.UserId;
+
             var newFormValue = await formValueRepository.InsertAsync(mapper.Map<FormValue>(formValue));
             await formValueRepository.SaveChangesAsync();
             return mapper.Map<FormValueModel>(newFormValue);
@@ -45,10 +57,14 @@ namespace CRM.Service.Services.FormValues
         public async Task<FormValueModel> UpdateFormValueAsync(FormValueModel formValue)
         {
             var formValueForUpdate = await formValueRepository.GetAsync(formValue.Id);
+            var user = await userRepository.GetUser();
+
             formValueForUpdate.ModifiedDate = DateTime.Now;
             formValueForUpdate.FormFieldValues = formValue.FormFieldValues;
             formValueForUpdate.FormId = formValue.FormId;
             formValueForUpdate.PlaceId = formValue.PlaceId;
+            formValueForUpdate.TenantId = user.TenantId;
+            formValueForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
             await formValueRepository.SaveChangesAsync();
             return mapper.Map<FormValueModel>(formValueForUpdate);
         }

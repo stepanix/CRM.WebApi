@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace CRM.WebApi.Controllers
 {
+    [RoutePrefix("api/Tenant")]
     public class TenantController : BaseController
     {
 

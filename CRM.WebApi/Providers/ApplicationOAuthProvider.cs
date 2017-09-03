@@ -9,7 +9,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using CRM.WebApi.Models;
 using CRM.WebApi.Identity;
 using CRM.Domain.Identity;
 
@@ -43,11 +42,18 @@ namespace CRM.WebApi.Providers
 
             User user = await userManager.FindAsync(context.UserName, context.Password);
             string rolesString = string.Empty;
+           
 
             if (user != null)
             {
                 var roles = await userManager.GetRolesAsync(user.Id);
-                rolesString = string.Join(",", roles);
+                rolesString = string.Join(",", roles);                
+            }
+
+            if (!user.IsActive)
+            {
+                context.SetError("in_active user", "user is currently inactive , please contact administrator");
+                return;
             }
 
             if (user == null)
@@ -61,7 +67,7 @@ namespace CRM.WebApi.Providers
             ClaimsIdentity cookiesIdentity = await GenerateUserIdentityAsync(userManager, user,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName, rolesString);
+            AuthenticationProperties properties = CreateProperties(user.UserName, rolesString,user.TenantId.ToString());
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -103,12 +109,13 @@ namespace CRM.WebApi.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string username, string roles)
+        public static AuthenticationProperties CreateProperties(string username, string roles,string tenantid)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
                 { "username", username },
-                { "roles", roles }
+                { "roles", roles },
+                { "tenantid", tenantid }
             };
             return new AuthenticationProperties(data);
         }

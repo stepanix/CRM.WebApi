@@ -10,6 +10,7 @@ namespace CRM.Domain.Repositories
     {
         Task<IEnumerable<User>> GetUsers();
         Task<IEnumerable<User>> GetUnAssignedRepsByPlaceId(int placeId);
+        Task<User> GetUser();
     }
 
 }

@@ -13,13 +13,16 @@ namespace CRM.Service.Services.Products
     {
         IProductRepository productRepository;
         IMapper mapper;
+        IUserRepository userRepository;
         IRequestIdentityProvider requestIdentityProvider;
 
-        public ProductService(IMapper mapper, IProductRepository productRepository, IRequestIdentityProvider requestIdentityProvider)
+
+        public ProductService(IMapper mapper, ITenantRepository tenantRepository, IUserRepository userRepository, IProductRepository productRepository, IRequestIdentityProvider requestIdentityProvider)
         {
             this.mapper = mapper;
             this.productRepository = productRepository;
             this.requestIdentityProvider = requestIdentityProvider;
+            this.userRepository = userRepository;
         }
 
         public void DeleteProduct(int id)
@@ -40,7 +43,10 @@ namespace CRM.Service.Services.Products
         public async Task<ProductModel> InsertProductAsync(ProductModel product)
         {
             product.AddedDate = DateTime.Now;
+            var user = await userRepository.GetUser();
+            product.TenantId = user.TenantId;
             product.CreatorUserId = requestIdentityProvider.UserId;
+            product.LastModifierUserId = requestIdentityProvider.UserId;
             var newProduct = await productRepository.InsertAsync(mapper.Map<Product>(product));
             await productRepository.SaveChangesAsync();
             return mapper.Map<ProductModel>(newProduct);
@@ -49,9 +55,12 @@ namespace CRM.Service.Services.Products
         public async Task<ProductModel> UpdateProductAsync(ProductModel product)
         {
             var productForUpdate = await productRepository.GetAsync(product.Id);
+            var user = await userRepository.GetUser();
+
             productForUpdate.ModifiedDate = DateTime.Now;
             productForUpdate.Name = product.Name;
-            productForUpdate.LastModifierUserId = product.LastModifierUserId;
+            productForUpdate.TenantId = user.TenantId;
+            productForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
             await productRepository.SaveChangesAsync();
             return mapper.Map<ProductModel>(productForUpdate);
         }

@@ -336,7 +336,9 @@ namespace CRM.WebApi.Controllers
                 UserName = model.Email,
                 Email = model.Email,
                 FirstName = model.FirstName,
-                Surname = model.Surname
+                Surname = model.Surname,
+                TenantId = model.TenantId,
+                IsActive = model.IsActive
             };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);

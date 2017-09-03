@@ -25,7 +25,7 @@ namespace CRM.Domain.Entities
         public User CreatorUser { get; set; }
         [Required]
         [ForeignKey("Tenant")]
-        public int TenantId { get; set; }
+        public int? TenantId { get; set; }
         public Tenant Tenant { get; set; }
     }
 }

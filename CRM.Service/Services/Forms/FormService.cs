@@ -13,12 +13,16 @@ namespace CRM.Service.Services.Forms
     {
         IFormRepository formRepository;
         IMapper mapper;
-        
+        IUserRepository userRepository;
+        IRequestIdentityProvider requestIdentityProvider;
 
-        public FormService(IMapper mapper, IFormRepository formRepository)
+
+        public FormService(IMapper mapper, IFormRepository formRepository, IUserRepository userRepository, IRequestIdentityProvider requestIdentityProvider)
         {
             this.mapper = mapper;
             this.formRepository = formRepository;
+            this.userRepository = userRepository;
+            this.requestIdentityProvider = requestIdentityProvider;
         }
 
         public void DeleteForm(int id)
@@ -39,6 +43,11 @@ namespace CRM.Service.Services.Forms
         public async Task<FormModel> InsertFormAsync(FormModel form)
         {
             form.AddedDate = DateTime.Now;
+            var user = await userRepository.GetUser();
+
+            form.TenantId = user.TenantId;
+            form.CreatorUserId = requestIdentityProvider.UserId;
+            form.LastModifierUserId = requestIdentityProvider.UserId;
             var newForm = await formRepository.InsertAsync(mapper.Map<Form>(form));
             await formRepository.SaveChangesAsync();
             return mapper.Map<FormModel>(newForm);
@@ -47,10 +56,14 @@ namespace CRM.Service.Services.Forms
         public async Task<FormModel> UpdateFormAsync(FormModel form)
         {
             var formForUpdate = await formRepository.GetAsync(form.Id);
+            var user = await userRepository.GetUser();
+
             formForUpdate.ModifiedDate = DateTime.Now;
             formForUpdate.Description = form.Description;
             formForUpdate.Title = form.Title;
             formForUpdate.Fields = form.Fields;
+            formForUpdate.TenantId = user.TenantId;
+            formForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
             await formRepository.SaveChangesAsync();
             return mapper.Map<FormModel>(formForUpdate);
         }

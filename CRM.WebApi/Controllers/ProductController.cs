@@ -5,6 +5,7 @@ using CRM.Service.Services.Products;
 using AutoMapper;
 using CRM.Domain.Model;
 using System.Threading.Tasks;
+using CRM.WebApi.Dto.Products.In;
 
 namespace CRM.WebApi.Controllers
 {
@@ -22,27 +23,27 @@ namespace CRM.WebApi.Controllers
 
         [HttpPost]
         [Route("")]
-        public async Task<IHttpActionResult> Create([FromBody]ProductModel product)
+        public async Task<IHttpActionResult> Create([FromBody]ProductDtoIn product)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await productService.InsertProductAsync(product);
+            var created = await productService.InsertProductAsync(mapper.Map<ProductModel>(product));
             return Ok(created);
         }
 
         [HttpPut]
         [Route("")]
-        public async Task<IHttpActionResult> Update([FromBody]ProductModel product)
+        public async Task<IHttpActionResult> Update([FromBody]ProductDtoIn product)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await productService.UpdateProductAsync(product);
+            var created = await productService.UpdateProductAsync(mapper.Map<ProductModel>(product));
             return Ok(created);
         }
 

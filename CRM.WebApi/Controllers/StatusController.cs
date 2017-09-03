@@ -6,6 +6,7 @@ using CRM.Service.Services.Statuses;
 using AutoMapper;
 using CRM.Domain.Model;
 using System.Threading.Tasks;
+using CRM.WebApi.Dto.Statuses.In;
 
 namespace CRM.WebApi.Controllers
 {
@@ -25,27 +26,27 @@ namespace CRM.WebApi.Controllers
 
         [HttpPost]
         [Route("")]
-        public async Task<IHttpActionResult> Create([FromBody]StatusModel status)
+        public async Task<IHttpActionResult> Create([FromBody]StatusDtoIn status)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await statusService.InsertStatusAsync(status);
+            var created = await statusService.InsertStatusAsync(mapper.Map<StatusModel> (status));
             return Ok(created);
         }
 
         [HttpPut]
         [Route("")]
-        public async Task<IHttpActionResult> Update([FromBody]StatusModel status)
+        public async Task<IHttpActionResult> Update([FromBody]StatusDtoIn status)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await statusService.UpdateStatusAsync(status);
+            var created = await statusService.UpdateStatusAsync(mapper.Map<StatusModel>(status));
             return Ok(created);
         }
 

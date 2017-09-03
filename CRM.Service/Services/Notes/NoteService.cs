@@ -5,6 +5,7 @@ using CRM.Domain.Model;
 using CRM.Domain.Repositories;
 using AutoMapper;
 using CRM.Domain.Entities;
+using CRM.Domain.RequestIdentity;
 
 namespace CRM.Service.Services.Notes
 {
@@ -12,11 +13,15 @@ namespace CRM.Service.Services.Notes
     {
         INoteRepository noteRepository;
         IMapper mapper;
+        IUserRepository userRepository;
+        IRequestIdentityProvider requestIdentityProvider;
 
-        public NoteService(IMapper mapper, INoteRepository noteRepository)
+        public NoteService(IMapper mapper, INoteRepository noteRepository, IUserRepository userRepository, IRequestIdentityProvider requestIdentityProvider)
         {
             this.mapper = mapper;
             this.noteRepository = noteRepository;
+            this.userRepository = userRepository;
+            this.requestIdentityProvider = requestIdentityProvider;
         }
 
 
@@ -37,7 +42,13 @@ namespace CRM.Service.Services.Notes
 
         public async Task<NoteModel> InsertNoteAsync(NoteModel note)
         {
+            var user = await userRepository.GetUser();
+
             note.AddedDate = DateTime.Now;
+            note.TenantId = user.TenantId;
+            note.CreatorUserId = requestIdentityProvider.UserId;
+            note.LastModifierUserId = requestIdentityProvider.UserId;
+
             var newNote = await noteRepository.InsertAsync(mapper.Map<Note>(note));
             await noteRepository.SaveChangesAsync();
             return mapper.Map<NoteModel>(newNote);
@@ -45,10 +56,13 @@ namespace CRM.Service.Services.Notes
 
         public async Task<NoteModel> UpdateNoteAsync(NoteModel note)
         {
+            var user = await userRepository.GetUser();
             var noteForUpdate = await noteRepository.GetAsync(note.Id);
             noteForUpdate.ModifiedDate = DateTime.Now;
             noteForUpdate.PlaceId = note.PlaceId;
-            noteForUpdate.Description = note.Description;           
+            noteForUpdate.Description = note.Description;
+            noteForUpdate.TenantId = user.TenantId;
+            noteForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
 
             await noteRepository.SaveChangesAsync();
             return mapper.Map<NoteModel>(noteForUpdate);

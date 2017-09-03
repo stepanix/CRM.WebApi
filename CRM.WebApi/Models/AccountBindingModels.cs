@@ -42,14 +42,21 @@ namespace CRM.WebApi.Models
         [Display(Name = "UserName")]
         public string UserName { get; set; }
 
+        [Required]
         [Display(Name = "FirstName")]
         public string FirstName { get; set; }
 
+        [Required]
         [Display(Name = "Surname")]
         public string Surname { get; set; }
 
+        [Required]
         [Display(Name = "UserRole")]
         public string Role { get; set; }
+        [Required]
+        public bool IsActive { get; set; }
+        [Required]
+        public int TenantId { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

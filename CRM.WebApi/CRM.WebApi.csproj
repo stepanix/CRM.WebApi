@@ -289,8 +289,10 @@
     <Compile Include="Dto\Notes\In\NoteDtoIn.cs" />
     <Compile Include="Dto\Places\In\PlaceDtoIn.cs" />
     <Compile Include="Dto\ProductretailAudits\In\ProductRetailAuditDtoIn.cs" />
+    <Compile Include="Dto\Products\In\ProductDtoIn.cs" />
     <Compile Include="Dto\RepresentativePlaces\In\RepresentativePlaceDtoIn.cs" />
     <Compile Include="Dto\Schedules\In\ScheduleDtoIn.cs" />
+    <Compile Include="Dto\Statuses\In\StatusDtoIn.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

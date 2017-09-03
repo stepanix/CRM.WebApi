@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CRM.Domain.Model;
 using CRM.Domain.Repositories;
 using AutoMapper;
 using CRM.Domain.Entities;
+using CRM.Domain.RequestIdentity;
 
 namespace CRM.Service.Services.RetailAuditForms
 {
@@ -15,11 +14,15 @@ namespace CRM.Service.Services.RetailAuditForms
 
         IRetailAuditFormRepository retailAuditFormRepository;
         IMapper mapper;
+        IUserRepository userRepository;
+        IRequestIdentityProvider requestIdentityProvider;
 
-        public RetailAuditFormService(IMapper mapper, IRetailAuditFormRepository retailAuditFormRepository)
+        public RetailAuditFormService(IMapper mapper, IRetailAuditFormRepository retailAuditFormRepository, IRequestIdentityProvider requestIdentityProvider, IUserRepository userRepository)
         {
             this.mapper = mapper;
             this.retailAuditFormRepository = retailAuditFormRepository;
+            this.userRepository = userRepository;
+            this.requestIdentityProvider = requestIdentityProvider;
         }
 
         public void DeleteRetailAuditForm(int id)
@@ -39,7 +42,12 @@ namespace CRM.Service.Services.RetailAuditForms
 
         public async Task<RetailAuditFormModel> InsertRetailAuditFormAsync(RetailAuditFormModel retailAuditForm)
         {
+            var user = await userRepository.GetUser();
+
             retailAuditForm.AddedDate = DateTime.Now;
+            retailAuditForm.TenantId = user.TenantId;
+            retailAuditForm.CreatorUserId = requestIdentityProvider.UserId;
+            retailAuditForm.LastModifierUserId = requestIdentityProvider.UserId;
             var newRetailAudit = await retailAuditFormRepository.InsertAsync(mapper.Map<RetailAuditForm>(retailAuditForm));
             await retailAuditFormRepository.SaveChangesAsync();
             return mapper.Map<RetailAuditFormModel>(newRetailAudit);
@@ -47,7 +55,9 @@ namespace CRM.Service.Services.RetailAuditForms
 
         public async  Task<RetailAuditFormModel> UpdateRetailAuditFormAsync(RetailAuditFormModel retailAuditForm)
         {
+            var user = await userRepository.GetUser();
             var retailAuditFormForUpdate = await retailAuditFormRepository.GetAsync(retailAuditForm.Id);
+
             retailAuditFormForUpdate.ModifiedDate = DateTime.Now;
             retailAuditFormForUpdate.Available = retailAuditForm.Available;
             retailAuditFormForUpdate.Description = retailAuditForm.Description;
@@ -57,6 +67,9 @@ namespace CRM.Service.Services.RetailAuditForms
             retailAuditFormForUpdate.Fields = retailAuditForm.Fields;
             retailAuditFormForUpdate.Promoted = retailAuditForm.Promoted;
             retailAuditFormForUpdate.StockLevel = retailAuditForm.StockLevel;
+
+            retailAuditFormForUpdate.TenantId = user.TenantId;
+            retailAuditFormForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
 
             await retailAuditFormRepository.SaveChangesAsync();
             return mapper.Map<RetailAuditFormModel>(retailAuditFormForUpdate);

@@ -5,8 +5,10 @@ using CRM.WebApi.Dto.FormValues.In;
 using CRM.WebApi.Dto.Notes.In;
 using CRM.WebApi.Dto.Places.In;
 using CRM.WebApi.Dto.ProductretailAudits.In;
+using CRM.WebApi.Dto.Products.In;
 using CRM.WebApi.Dto.RepresentativePlaces.In;
 using CRM.WebApi.Dto.Schedules.In;
+using CRM.WebApi.Dto.Statuses.In;
 
 namespace CRM.WebApi
 {
@@ -14,6 +16,8 @@ namespace CRM.WebApi
     {
         public DtoMapperProfile()
         {
+            CreateMap<StatusModel, StatusDtoIn>().ReverseMap();
+            CreateMap<ProductModel, ProductDtoIn>().ReverseMap();
             CreateMap<PlaceModel, PlaceDtoIn>().ReverseMap();
             CreateMap<FormModel, FormDtoIn>().ReverseMap();
             CreateMap<FormValueModel, FormValueDtoIn>().ReverseMap();
