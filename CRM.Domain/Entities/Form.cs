@@ -15,6 +15,5 @@ namespace CRM.Domain.Entities
         [StringLength(2000)]
         public string Description { get; set; }
         public string Fields { get; set; }
-        
     }
 }

@@ -43,3 +43,6 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.Entity
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.pdb
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.representativeplace.resources
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.cordinates.resources
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.streetAddress.resources
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.updates.resources

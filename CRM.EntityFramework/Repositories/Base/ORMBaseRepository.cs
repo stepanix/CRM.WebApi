@@ -35,27 +35,18 @@ namespace CRM.EntityFramework.Repositories.Base
 
         public override void Delete(int id)
         {
-            var entity = table.Local.FirstOrDefault(s => s.Id == id);
+            var entity = table.FirstOrDefault(s => s.Id == id && s.IsDeleted == false);
             if (entity == null)
             {
-                if (entity == null)
-                {
-                    return;
-                }
+                return;
             }
             DeleteSoft(entity);
         }
 
         private void DeleteSoft(T entity)
         {
-            if (entity is ISoftDelete)
-            {
-                (entity as ISoftDelete).IsDeleted = true;
-            }
-            else
-            {
-                table.Remove(entity);
-            }
+            entity.IsDeleted = true;
+            SaveChanges();
         }
 
         public override T Get(int id)
@@ -92,12 +83,12 @@ namespace CRM.EntityFramework.Repositories.Base
 
         public override async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await table.ToListAsync();
+            return await table.Where(s => s.IsDeleted == false).ToListAsync();
         }
 
         public override async Task<T> GetAsync(int id)
         {
-            return await table.FirstOrDefaultAsync(s => s.Id == id);
+            return await table.FirstOrDefaultAsync(s => s.Id == id && s.IsDeleted == false);
         }
 
         public override async Task<T> InsertAsync(T entity)

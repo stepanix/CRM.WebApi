@@ -64,6 +64,14 @@ namespace CRM.WebApi.Controllers
             return Ok(created);
         }
 
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IHttpActionResult Delete(int id)
+        {
+            productService.DeleteProduct(id);
+            return Ok("");
+        }
+
 
     }
 }

@@ -23,7 +23,7 @@ namespace CRM.Service.Services.Products
 
         public void DeleteProduct(int id)
         {
-            productRepository.Delete(id);
+            productRepository.Delete(id);            
         }
 
         public async Task<ProductModel> GetProductAsync(int id)

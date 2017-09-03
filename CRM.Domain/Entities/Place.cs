@@ -10,30 +10,7 @@ namespace CRM.Domain.Entities
         [Column(TypeName = "VARCHAR")]
         [StringLength(200)]
         public string Name { get; set; }
-
-        [Column(TypeName = "VARCHAR")]
-        [StringLength(1000)]
         public string StreetAddress { get; set; }
-
-        [Column(TypeName = "VARCHAR")]
-        [StringLength(500)]
-        public string City { get; set; }
-
-        [Column(TypeName = "VARCHAR")]
-        [StringLength(200)]
-        public string State { get; set; }
-
-        [Column(TypeName = "VARCHAR")]
-        [StringLength(200)]
-        public string Zip { get; set; }
-
-        [Column(TypeName = "VARCHAR")]
-        [StringLength(200)]
-        public string ZipExtension { get; set; }
-
-        [Column(TypeName = "VARCHAR")]
-        [StringLength(200)]
-        public string Country { get; set; }
 
         [ForeignKey("Status")]
         public int? StatusId { get; set; }
@@ -60,6 +37,7 @@ namespace CRM.Domain.Entities
         [Column(TypeName = "VARCHAR")]
         [StringLength(2000)]
         public string Comment { get; set; }
-
+        public decimal? Latitude { get; set; }
+        public decimal? Longitude { get; set; }
     }
 }

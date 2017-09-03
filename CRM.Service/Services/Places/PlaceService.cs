@@ -44,18 +44,15 @@ namespace CRM.Service.Services.Places
             placeForUpdate.Name = place.Name;
             placeForUpdate.StatusId = place.StatusId;
             placeForUpdate.StreetAddress = place.StreetAddress;
-            placeForUpdate.State = place.State;
-            placeForUpdate.Zip = place.Zip;
+            placeForUpdate.Latitude = place.Latitude;
+            placeForUpdate.Longitude = place.Longitude;
             placeForUpdate.WebSite = place.WebSite;
             placeForUpdate.Phone = place.Phone;
-            placeForUpdate.CellPhone = place.CellPhone;
-            placeForUpdate.City = place.City;            
+            placeForUpdate.CellPhone = place.CellPhone;                     
             placeForUpdate.Comment = place.Comment;
             placeForUpdate.ContactName = place.ContactName;
-            placeForUpdate.ContactTitle = place.ContactTitle;
-            placeForUpdate.Country = place.Country;
-            placeForUpdate.Email = place.Email;            
-
+            placeForUpdate.ContactTitle = place.ContactTitle;            
+            placeForUpdate.Email = place.Email;
             await placeRepository.SaveChangesAsync();
             return mapper.Map<PlaceModel>(placeForUpdate);
         }
