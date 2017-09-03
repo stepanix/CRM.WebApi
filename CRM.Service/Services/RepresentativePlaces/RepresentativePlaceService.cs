@@ -49,6 +49,7 @@ namespace CRM.Service.Services.RepresentativePlaces
             representativePlace.AddedDate = DateTime.Now;
             representativePlace.CreatorUserId = requestIdentityProvider.UserId;
             representativePlace.LastModifierUserId = requestIdentityProvider.UserId;
+            representativePlace.TenantId = user.TenantId;
 
             var newRepresentativePlace = await representativePlaceRepository.InsertAsync(mapper.Map<RepresentativePlace>(representativePlace));
             await representativePlaceRepository.SaveChangesAsync();
@@ -68,6 +69,7 @@ namespace CRM.Service.Services.RepresentativePlaces
                         PlaceId = repPlace.PlaceId,
                         UserId = repPlace.UserId,
                         AddedDate = DateTime.Now,
+                        TenantId = user.TenantId,
                         CreatorUserId = requestIdentityProvider.UserId,
                         LastModifierUserId = requestIdentityProvider.UserId
                 };

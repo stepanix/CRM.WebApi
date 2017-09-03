@@ -33,7 +33,7 @@ namespace CRM.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var created = await statusService.InsertStatusAsync(mapper.Map<StatusModel> (status));
+            var created = await statusService.InsertStatusAsync(mapper.Map<StatusModel>(status));
             return Ok(created);
         }
 

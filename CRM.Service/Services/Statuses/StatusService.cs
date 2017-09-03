@@ -45,6 +45,7 @@ namespace CRM.Service.Services.Statuses
             var user = await userRepository.GetUser();
 
             status.AddedDate = DateTime.Now;
+            status.TenantId = user.TenantId;
             status.CreatorUserId = requestIdentityProvider.UserId;
             status.LastModifierUserId = requestIdentityProvider.UserId;
             var newStatus = await statusRepository.InsertAsync(mapper.Map<Status>(status));

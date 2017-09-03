@@ -39,6 +39,7 @@ namespace CRM.Service.Services.Schedules
             var user = await userRepository.GetUser();
 
             schedule.AddedDate = DateTime.Now;
+            schedule.TenantId = user.TenantId;
             schedule.CreatorUserId = requestIdentityProvider.UserId;
             schedule.LastModifierUserId = requestIdentityProvider.UserId;
             var newSchedule = await scheduleRepository.InsertAsync(mapper.Map<Schedule>(schedule));
