@@ -9,5 +9,6 @@ namespace CRM.Domain.Model
         public string Surname { get; set; }
         public bool IsActive { get; set; }
         public int TenantId { get; set; }
+        public TenantModel Tenant { get; set; }
     }
 }
