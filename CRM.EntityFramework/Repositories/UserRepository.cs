@@ -21,9 +21,12 @@ namespace CRM.EntityFramework.Repositories
 
         public async Task<IEnumerable<User>> GetUnAssignedRepsByPlaceId(int placeId)
         {
+            var user = await context.Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await context
                 .Users
-                .Where(user => !context.RepresentativePlaces.Any(f => f.UserId == user.Id && f.PlaceId==placeId && f.IsDeleted==false))
+                .Where(u => !context.RepresentativePlaces.Any(f => f.UserId == u.Id 
+                && f.PlaceId==placeId && f.IsDeleted==false) 
+                && u.TenantId == user.TenantId)
                 .ToListAsync();
         }
 
