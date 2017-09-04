@@ -37,7 +37,7 @@ namespace CRM.Service.Services.Statuses
 
         public async Task<IEnumerable<StatusModel>> GetStatusesAsync()
         {
-            return mapper.Map<IEnumerable<StatusModel>>(await statusRepository.GetAllAsync());
+            return mapper.Map<IEnumerable<StatusModel>>(await statusRepository.GetStatuses());
         }
 
         public async Task<StatusModel> InsertStatusAsync(StatusModel status)
@@ -58,6 +58,7 @@ namespace CRM.Service.Services.Statuses
             var user = await userRepository.GetUser();
 
             var statusForUpdate = await statusRepository.GetAsync(status.Id);
+
             statusForUpdate.ModifiedDate = DateTime.Now;
             statusForUpdate.Name = status.Name;
             statusForUpdate.TenantId = user.TenantId;

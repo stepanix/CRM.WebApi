@@ -37,7 +37,7 @@ namespace CRM.Service.Services.Notes
 
         public async Task<IEnumerable<NoteModel>> GetNotesAsync()
         {
-            return mapper.Map<IEnumerable<NoteModel>>(await noteRepository.GetAllAsync());
+            return mapper.Map<IEnumerable<NoteModel>>(await noteRepository.GetNotes());
         }
 
         public async Task<NoteModel> InsertNoteAsync(NoteModel note)

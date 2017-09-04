@@ -37,7 +37,7 @@ namespace CRM.Service.Services.RetailAuditForms
 
         public async Task<IEnumerable<RetailAuditFormModel>> GetRetailAuditFormsAsync()
         {
-            return mapper.Map<IEnumerable<RetailAuditFormModel>>(await retailAuditFormRepository.GetAllAsync());
+            return mapper.Map<IEnumerable<RetailAuditFormModel>>(await retailAuditFormRepository.GetRetailAuditForms());
         }
 
         public async Task<RetailAuditFormModel> InsertRetailAuditFormAsync(RetailAuditFormModel retailAuditForm)

@@ -4,13 +4,18 @@ using CRM.EntityFramework.Repositories.Base;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Data.Entity;
+using CRM.Domain.RequestIdentity;
 
 namespace CRM.EntityFramework.Repositories
 {
     public class ProductRepository : ORMBaseRepository<Product, int>, IProductRepository
     {
-        public ProductRepository(DataContext context) : base(context)
+        IRequestIdentityProvider requestIdentityProvider;
+        public ProductRepository(DataContext context, IRequestIdentityProvider requestIdentityProvider) : base(context)
         {
+            this.requestIdentityProvider = requestIdentityProvider;
         }
 
         public void DeleteProduct(int id)
@@ -23,9 +28,13 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Product>> GetProducts()
+        public async Task<IEnumerable<Product>> GetProducts()
         {
-            throw new NotImplementedException();
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .Products
+               .Where(t => t.TenantId == user.TenantId)
+               .ToListAsync();
         }
 
         public Task<Product> InsertProduct(Product product)

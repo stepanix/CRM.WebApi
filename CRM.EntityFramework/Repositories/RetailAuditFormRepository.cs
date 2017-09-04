@@ -4,13 +4,18 @@ using CRM.EntityFramework.Repositories.Base;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Data.Entity;
+using CRM.Domain.RequestIdentity;
 
 namespace CRM.EntityFramework.Repositories
 {
     public class RetailAuditFormRepository : ORMBaseRepository<RetailAuditForm, int>, IRetailAuditFormRepository
     {
-        public RetailAuditFormRepository(DataContext context) : base(context)
+        IRequestIdentityProvider requestIdentityProvider;
+        public RetailAuditFormRepository(DataContext context, IRequestIdentityProvider requestIdentityProvider) : base(context)
         {
+            this.requestIdentityProvider = requestIdentityProvider;
         }
 
         public void DeleteRetailAuditForm(int id)
@@ -23,9 +28,13 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<RetailAuditForm>> GetRetailAuditForms()
+        public async Task<IEnumerable<RetailAuditForm>> GetRetailAuditForms()
         {
-            throw new NotImplementedException();
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .RetailAuditForms
+               .Where(t => t.TenantId == user.TenantId)
+               .ToListAsync();
         }
 
         public Task<RetailAuditForm> InsertRetailAuditForm(RetailAuditForm retailAuditForm)

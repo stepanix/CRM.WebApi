@@ -47,8 +47,11 @@ namespace CRM.EntityFramework.Repositories
 
         public async Task<IEnumerable<User>> GetUsers()
         {
+            var user = await context.Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+
             return await context
                 .Users
+                .Where(t => t.TenantId == user.TenantId)
                 .Include(t => t.Tenant)
                 .ToListAsync();
         }

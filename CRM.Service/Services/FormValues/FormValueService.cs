@@ -36,7 +36,7 @@ namespace CRM.Service.Services.FormValues
 
         public async Task<IEnumerable<FormValueModel>> GetFormValuesAsync()
         {
-            return mapper.Map<IEnumerable<FormValueModel>>(await formValueRepository.GetAllAsync());
+            return mapper.Map<IEnumerable<FormValueModel>>(await formValueRepository.GetFormValues());
         }
 
         public async Task<FormValueModel> InsertFormValueAsync(FormValueModel formValue)

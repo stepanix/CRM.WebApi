@@ -34,7 +34,7 @@ namespace CRM.Service.Services.RepresentativePlaces
 
         public async Task<IEnumerable<RepresentativePlaceModel>> GetRepresentativePlaceAsync()
         {
-            return mapper.Map<IEnumerable<RepresentativePlaceModel>>(await representativePlaceRepository.GetAllAsync());
+            return mapper.Map<IEnumerable<RepresentativePlaceModel>>(await representativePlaceRepository.GetRepresentativePlaces());
         }
 
         public async Task<RepresentativePlaceModel> GetRepresentativePlaceAsync(int id)

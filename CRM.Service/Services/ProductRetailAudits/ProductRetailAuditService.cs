@@ -37,7 +37,7 @@ namespace CRM.Service.Services.ProductRetailAudits
 
         public async Task<IEnumerable<ProductRetailAuditModel>> GetProductRetailAuditsAsync()
         {
-            return mapper.Map<IEnumerable<ProductRetailAuditModel>>(await productRetailAuditRepository.GetAllAsync());
+            return mapper.Map<IEnumerable<ProductRetailAuditModel>>(await productRetailAuditRepository.GetProductRetailAudits());
         }
 
         public async Task<ProductRetailAuditModel> InsertProductRetailAuditAsync(ProductRetailAuditModel productRetailAudit)

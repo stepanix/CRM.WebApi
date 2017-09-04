@@ -10,5 +10,6 @@ namespace CRM.Domain.RequestIdentity
     {
         string UserId { get; set; }
         string UserName { get; }
+        string UserRole { get; }
     }
 }

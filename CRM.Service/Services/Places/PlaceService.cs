@@ -26,7 +26,7 @@ namespace CRM.Service.Services.Places
 
         public async Task<IEnumerable<PlaceModel>> GetPlacesAsync()
         {
-            return mapper.Map<IEnumerable<PlaceModel>>(await placeRepository.GetAllAsync());
+            return mapper.Map<IEnumerable<PlaceModel>>(await placeRepository.GetPlaces());
         }
 
         public async Task<PlaceModel> GetPlaceAsync(int id)

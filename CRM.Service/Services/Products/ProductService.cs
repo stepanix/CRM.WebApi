@@ -37,7 +37,7 @@ namespace CRM.Service.Services.Products
 
         public async Task<IEnumerable<ProductModel>> GetProductsAsync()
         {
-            return mapper.Map<IEnumerable<ProductModel>>(await productRepository.GetAllAsync());
+            return mapper.Map<IEnumerable<ProductModel>>(await productRepository.GetProducts());
         }
 
         public async Task<ProductModel> InsertProductAsync(ProductModel product)

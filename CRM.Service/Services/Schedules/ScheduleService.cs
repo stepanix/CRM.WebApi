@@ -26,7 +26,7 @@ namespace CRM.Service.Services.Schedules
 
         public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync()
         {
-            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetAllAsync());
+            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules());
         }
 
         public async Task<ScheduleModel> GetScheduleAsync(int id)

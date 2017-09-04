@@ -2,6 +2,8 @@
 using System.Web;
 using Microsoft.AspNet.Identity;
 using System.Threading;
+using System.Web.Security;
+using System.Linq;
 
 namespace CRM.Domain.RequestIdentity
 {
@@ -27,6 +29,14 @@ namespace CRM.Domain.RequestIdentity
             set
             {
                 userId = value;
+            }
+        }
+
+        public string UserRole
+        {
+            get
+            {
+                return "";
             }
         }
 

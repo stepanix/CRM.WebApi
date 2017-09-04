@@ -4,13 +4,19 @@ using CRM.EntityFramework.Repositories.Base;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Data.Entity;
+using CRM.Domain.RequestIdentity;
 
 namespace CRM.EntityFramework.Repositories
 {
     public class FormValueRepository : ORMBaseRepository<FormValue, int>, IFormValueRepository
     {
-        public FormValueRepository(DataContext context) : base(context)
+        IRequestIdentityProvider requestIdentityProvider;
+
+        public FormValueRepository(DataContext context, IRequestIdentityProvider requestIdentityProvider) : base(context)
         {
+            this.requestIdentityProvider = requestIdentityProvider;
         }
 
         public void DeleteFormValue(int id)
@@ -23,9 +29,13 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<FormValue>> GetFormValues()
+        public async Task<IEnumerable<FormValue>> GetFormValues()
         {
-            throw new NotImplementedException();
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .FormValues
+               .Where(t => t.TenantId == user.TenantId)
+               .ToListAsync();
         }
 
         public Task<FormValue> InsertFormValue(FormValue formValue)

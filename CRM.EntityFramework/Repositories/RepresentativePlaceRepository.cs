@@ -6,15 +6,17 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Data.Entity;
+using CRM.Domain.RequestIdentity;
 
 
 namespace CRM.EntityFramework.Repositories
 {
     public class RepresentativePlaceRepository : ORMBaseRepository<RepresentativePlace, int>, IRepresentativePlaceRepository
     {
-        
-        public RepresentativePlaceRepository(DataContext context) : base(context)
+        IRequestIdentityProvider requestIdentityProvider;
+        public RepresentativePlaceRepository(DataContext context, IRequestIdentityProvider requestIdentityProvider) : base(context)
         {
+            this.requestIdentityProvider = requestIdentityProvider;
         }
 
         public void DeleteProductRetailAudit(int id)
@@ -24,9 +26,10 @@ namespace CRM.EntityFramework.Repositories
 
         public async Task<IEnumerable<RepresentativePlace>> GetRepresentativeByPlaceId(int placeId)
         {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
                 .RepresentativePlaces
-                .Where(e => e.PlaceId == placeId && e.IsDeleted==false)
+                .Where(e => e.PlaceId == placeId && e.IsDeleted==false && e.TenantId == user.TenantId)
                 .Include(u => u.User)
                 .ToListAsync();
         }
