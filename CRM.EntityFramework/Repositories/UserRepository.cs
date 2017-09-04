@@ -1,6 +1,5 @@
 ﻿using CRM.Domain.Repositories;
 using CRM.Domain.Identity;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
@@ -42,6 +41,7 @@ namespace CRM.EntityFramework.Repositories
                 .Users
                 .Where(user => user.Id == userId)
                 .Include(t => t.Tenant)
+                .Include(r=> r.Roles)
                 .FirstOrDefaultAsync();
         }
 

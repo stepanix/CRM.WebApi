@@ -97,7 +97,6 @@
     <Compile Include="Model\QuestionTypeModel.cs" />
     <Compile Include="Model\RepresentativePlaceModel.cs" />
     <Compile Include="Model\RetailAuditFormModel.cs" />
-    <Compile Include="Model\RoleModel.cs" />
     <Compile Include="Model\ScheduleModel.cs" />
     <Compile Include="Model\StatusModel.cs" />
     <Compile Include="Model\TenantModel.cs" />

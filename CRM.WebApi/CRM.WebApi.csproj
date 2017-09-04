@@ -282,6 +282,7 @@
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\TenantController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserWithRolesController.cs" />
     <Compile Include="DtoMapperModule.cs" />
     <Compile Include="DtoMapperProfile.cs" />
     <Compile Include="Dto\Forms\In\FormDtoIn.cs" />
@@ -381,6 +382,7 @@
     <Folder Include="Views\Schedule\" />
     <Folder Include="Views\Status\" />
     <Folder Include="Views\Tenant\" />
+    <Folder Include="Views\UserWithRoles\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
