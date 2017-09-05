@@ -3,57 +3,51 @@ using CRM.Domain.Repositories;
 using CRM.EntityFramework.Repositories.Base;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Text;
 using System.Data.Entity;
+using System.Threading.Tasks;
 using CRM.Domain.RequestIdentity;
 
 namespace CRM.EntityFramework.Repositories
 {
-    public class ScheduleRepository : ORMBaseRepository<Schedule, int>, IScheduleRepository
+    public class VisitLogRepository : ORMBaseRepository<VisitLog, int>, IVisitLogRepository
     {
         IRequestIdentityProvider requestIdentityProvider;
-        public ScheduleRepository(DataContext context, IRequestIdentityProvider requestIdentityProvider) : base(context)
+
+        public VisitLogRepository(DataContext context, IRequestIdentityProvider requestIdentityProvider) : base(context)
         {
             this.requestIdentityProvider = requestIdentityProvider;
         }
 
-        public void DeleteSchedule(int id)
+        public void DeleteVisitLog(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Schedule>> GetMySchedules()
+        public async Task<VisitLog> GetVisitLog(int scheduleid)
         {
             return await GetDataContext()
-               .Schedules
-               .Where(u => u.UserId == requestIdentityProvider.UserId)
-               .Include(p => p.Place)
-               .ToListAsync();
+               .VisitLogs
+               .Where(t => t.ScheduleId == scheduleid)
+               .FirstOrDefaultAsync();
         }
 
-        public Task<Schedule> GetSchedule(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<Schedule>> GetSchedules()
+        public async Task<IEnumerable<VisitLog>> GetVisitLogs()
         {
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
-               .Schedules
+               .VisitLogs
                .Where(t => t.TenantId == user.TenantId)
-               .Include(p => p.Place)
-               .Include(u => u.User)
                .ToListAsync();
         }
 
-        public Task<Schedule> InsertSchedule(Schedule schedule)
+        public Task<VisitLog> InsertVisitLog(VisitLog visitlog)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Schedule> UpdateSchedule(Schedule schedule)
+        public Task<VisitLog> UpdateVisitLog(VisitLog visitlog)
         {
             throw new NotImplementedException();
         }

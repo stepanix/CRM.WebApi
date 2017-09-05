@@ -9,6 +9,7 @@ namespace CRM.Domain
     {
         public DomainMapperProfile()
         {
+            CreateMap<VisitLog, VisitLogModel>().ReverseMap();
             CreateMap<Tenant, TenantModel>().ReverseMap();
             CreateMap<Product, ProductModel>().ReverseMap();
             CreateMap<Form, FormModel>().ReverseMap();

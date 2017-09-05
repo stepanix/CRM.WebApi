@@ -64,17 +64,9 @@
   <ItemGroup>
     <Compile Include="DataContext.cs" />
     <Compile Include="DataContextExecutionStrategy.cs" />
-    <Compile Include="Migrations\201709031206147_updates.cs" />
-    <Compile Include="Migrations\201709031206147_updates.Designer.cs">
-      <DependentUpon>201709031206147_updates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709031345562_update2.cs" />
-    <Compile Include="Migrations\201709031345562_update2.Designer.cs">
-      <DependentUpon>201709031345562_update2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709031414467_update4.cs" />
-    <Compile Include="Migrations\201709031414467_update4.Designer.cs">
-      <DependentUpon>201709031414467_update4.cs</DependentUpon>
+    <Compile Include="Migrations\201709050413000_updates.cs" />
+    <Compile Include="Migrations\201709050413000_updates.Designer.cs">
+      <DependentUpon>201709050413000_updates.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +85,7 @@
     <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="Repositories\TenantRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\VisitLogRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CRM.Domain\CRM.Domain.csproj">
@@ -105,14 +98,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709031206147_updates.resx">
-      <DependentUpon>201709031206147_updates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709031345562_update2.resx">
-      <DependentUpon>201709031345562_update2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709031414467_update4.resx">
-      <DependentUpon>201709031414467_update4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709050413000_updates.resx">
+      <DependentUpon>201709050413000_updates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

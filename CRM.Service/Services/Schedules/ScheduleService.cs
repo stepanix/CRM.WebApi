@@ -54,12 +54,14 @@ namespace CRM.Service.Services.Schedules
 
             scheduleForUpdate.ModifiedDate = DateTime.Now;
             scheduleForUpdate.PlaceId = shedule.PlaceId;
-            scheduleForUpdate.Recurring = shedule.Recurring;
+            scheduleForUpdate.IsRepeat = shedule.IsRepeat;
             scheduleForUpdate.VisitDate = shedule.VisitDate;
             scheduleForUpdate.VisitNote = shedule.VisitNote;
             scheduleForUpdate.VisitTime = shedule.VisitTime;
-
+            scheduleForUpdate.RepeatCycle = shedule.RepeatCycle;
+            scheduleForUpdate.IsVisited = shedule.IsVisited;
             scheduleForUpdate.TenantId = user.TenantId;
+            scheduleForUpdate.IsScheduled = shedule.IsScheduled;
             scheduleForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
 
             await scheduleRepository.SaveChangesAsync();
@@ -71,5 +73,9 @@ namespace CRM.Service.Services.Schedules
             scheduleRepository.Delete(id);
         }
 
+        public async Task<IEnumerable<ScheduleModel>> GetMySchedulesAsync()
+        {
+            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetMySchedules());
+        }
     }
 }

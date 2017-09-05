@@ -13,7 +13,7 @@ namespace CRM.EntityFramework.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201709031206147_updates"; }
+            get { return "201709050413000_updates"; }
         }
         
         string IMigrationMetadata.Source

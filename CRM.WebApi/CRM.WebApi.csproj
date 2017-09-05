@@ -283,6 +283,7 @@
     <Compile Include="Controllers\TenantController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserWithRolesController.cs" />
+    <Compile Include="Controllers\VisitLogController.cs" />
     <Compile Include="DtoMapperModule.cs" />
     <Compile Include="DtoMapperProfile.cs" />
     <Compile Include="Dto\Forms\In\FormDtoIn.cs" />
@@ -294,6 +295,7 @@
     <Compile Include="Dto\RepresentativePlaces\In\RepresentativePlaceDtoIn.cs" />
     <Compile Include="Dto\Schedules\In\ScheduleDtoIn.cs" />
     <Compile Include="Dto\Statuses\In\StatusDtoIn.cs" />
+    <Compile Include="Dto\VisitLogs\In\VisitLogDtoIn.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -384,6 +386,7 @@
     <Folder Include="Views\Tenant\" />
     <Folder Include="Views\UserWithRoles\" />
     <Folder Include="Views\User\" />
+    <Folder Include="Views\VisitLog\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -63,6 +63,14 @@ namespace CRM.WebApi.Controllers
             return Ok(created);
         }
 
+        [HttpGet]
+        [Route("MySchedules")]
+        public async Task<IHttpActionResult> ReadMyAll()
+        {
+            var created = await scheduleService.GetMySchedulesAsync();
+            return Ok(created);
+        }
+
         [HttpDelete]
         [Route("{id:int}")]
         public IHttpActionResult Delete(int id)

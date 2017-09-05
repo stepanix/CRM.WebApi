@@ -71,6 +71,8 @@
     <Compile Include="Services\Tenants\TenantService.cs" />
     <Compile Include="Services\Users\IUserService.cs" />
     <Compile Include="Services\Users\UserService.cs" />
+    <Compile Include="Services\VisitLogs\IVisitLogService.cs" />
+    <Compile Include="Services\VisitLogs\VisitLogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
