@@ -19,9 +19,9 @@ namespace CRM.Domain.Entities
         [Required]
         [Column(TypeName = "Date")]
         public DateTime VisitDate { get; set; }
-        [Required]
+       
         [Column(TypeName = "DateTime")]
-        public DateTime VisitTime { get; set; }
+        public DateTime? VisitTime { get; set; }
         [Required]
         [Column(TypeName = "VARCHAR")]
         [StringLength(1000)]

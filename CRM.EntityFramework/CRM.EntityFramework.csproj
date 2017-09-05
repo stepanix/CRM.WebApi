@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201709050413000_updates.Designer.cs">
       <DependentUpon>201709050413000_updates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709051849425_visitTimeUpdate.cs" />
+    <Compile Include="Migrations\201709051849425_visitTimeUpdate.Designer.cs">
+      <DependentUpon>201709051849425_visitTimeUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\BaseRepository.cs" />
@@ -100,6 +104,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709050413000_updates.resx">
       <DependentUpon>201709050413000_updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709051849425_visitTimeUpdate.resx">
+      <DependentUpon>201709051849425_visitTimeUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

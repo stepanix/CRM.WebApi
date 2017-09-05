@@ -11,7 +11,7 @@ namespace CRM.Domain.Model
         public string UserId { get; set; }
         public UserModel User { get; set; }
         public DateTime VisitDate { get; set; }
-        public DateTime VisitTime { get; set; }
+        public DateTime? VisitTime { get; set; }
         public string VisitNote { get; set; }
         public DateTime AddedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
