@@ -24,9 +24,9 @@ namespace CRM.Service.Services.Schedules
             this.requestIdentityProvider = requestIdentityProvider;
         }
 
-        public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(bool isVisited, bool isScheduled)
+        public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(bool isVisited, bool isScheduled, bool isUnScheduled, bool isMissed)
         {
-            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(isVisited, isScheduled));
+            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(isVisited, isScheduled, isUnScheduled, isMissed));
         }
 
         public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync()
@@ -67,6 +67,8 @@ namespace CRM.Service.Services.Schedules
             scheduleForUpdate.IsVisited = shedule.IsVisited;
             scheduleForUpdate.TenantId = user.TenantId;
             scheduleForUpdate.IsScheduled = shedule.IsScheduled;
+            scheduleForUpdate.IsMissed = shedule.IsMissed;
+            scheduleForUpdate.IsUnScheduled = shedule.IsUnScheduled;
             scheduleForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
 
             await scheduleRepository.SaveChangesAsync();

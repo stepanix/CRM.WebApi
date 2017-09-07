@@ -42,5 +42,7 @@ namespace CRM.Domain.Entities
         public int? RepeatCycle { get; set; }
         public bool IsVisited { get; set; }
         public bool IsScheduled { get; set; }
+        public bool IsMissed { get; set; }
+        public bool IsUnScheduled { get; set; }
     }
 }

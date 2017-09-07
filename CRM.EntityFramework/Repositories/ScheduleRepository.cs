@@ -59,12 +59,12 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
-        public async Task<IEnumerable<Schedule>> GetSchedules(bool isVisited, bool isScheduled)
+        public async Task<IEnumerable<Schedule>> GetSchedules(bool isVisited, bool isScheduled, bool isUnScheduled, bool isMissed)
         {
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
                .Schedules
-               .Where( t => t.TenantId == user.TenantId  && (t.IsScheduled==isScheduled || t.IsVisited==isVisited))
+               .Where( t => t.TenantId == user.TenantId  && (t.IsScheduled==isScheduled && t.IsVisited==isVisited && t.IsUnScheduled == isUnScheduled && t.IsMissed == isMissed))
                .Include(p => p.Place)
                .Include(u => u.User)
                .ToListAsync();

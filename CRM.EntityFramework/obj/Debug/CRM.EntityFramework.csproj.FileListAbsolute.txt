@@ -44,3 +44,4 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.Entity
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.csproj.GenerateResource.Cache
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.visitTimeUpdate.resources
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.newupdate.resources
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.parameters.resources

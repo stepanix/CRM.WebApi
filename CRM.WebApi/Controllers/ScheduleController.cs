@@ -58,9 +58,9 @@ namespace CRM.WebApi.Controllers
 
         [HttpGet]
         [Route("ByStatus")]
-        public async Task<IHttpActionResult> ReadByStatus(bool isVisited, bool isScheduled)
+        public async Task<IHttpActionResult> ReadByStatus(bool isVisited, bool isScheduled, bool isUnScheduled, bool isMissed)
         {
-            var created = await scheduleService.GetSchedulesAsync(isVisited, isScheduled);
+            var created = await scheduleService.GetSchedulesAsync(isVisited, isScheduled, isUnScheduled, isMissed);
             return Ok(created);
         }
 
