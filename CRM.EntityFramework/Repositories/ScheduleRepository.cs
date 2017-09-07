@@ -34,7 +34,7 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
-        public async Task<IEnumerable<Schedule>> GetMySchedules(DateTime date)
+        public async Task<IEnumerable<Schedule>> GetMySchedules()
         {
             return await GetDataContext()
                .Schedules
@@ -48,7 +48,7 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Schedule>> GetSchedules(DateTime date)
+        public async Task<IEnumerable<Schedule>> GetSchedules()
         {
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
@@ -59,7 +59,7 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
-        public async Task<IEnumerable<Schedule>> GetSchedules(bool isVisited, bool isScheduled, DateTime date)
+        public async Task<IEnumerable<Schedule>> GetSchedules(bool isVisited, bool isScheduled)
         {
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()

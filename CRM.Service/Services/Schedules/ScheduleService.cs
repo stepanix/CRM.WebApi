@@ -24,14 +24,14 @@ namespace CRM.Service.Services.Schedules
             this.requestIdentityProvider = requestIdentityProvider;
         }
 
-        public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(bool isVisited, bool isScheduled, DateTime date)
+        public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(bool isVisited, bool isScheduled)
         {
-            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(isVisited, isScheduled, date));
+            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(isVisited, isScheduled));
         }
 
-        public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(DateTime date)
+        public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync()
         {
-            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(date));
+            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules());
         }
 
         public async Task<ScheduleModel> GetScheduleAsync(int id)
@@ -78,9 +78,9 @@ namespace CRM.Service.Services.Schedules
             scheduleRepository.Delete(id);
         }
 
-        public async Task<IEnumerable<ScheduleModel>> GetMySchedulesAsync(DateTime date)
+        public async Task<IEnumerable<ScheduleModel>> GetMySchedulesAsync()
         {
-            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetMySchedules(date));
+            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetMySchedules());
         }
 
         

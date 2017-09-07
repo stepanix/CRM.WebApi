@@ -7,9 +7,9 @@ namespace CRM.Service.Services.Schedules
 {
     public interface IScheduleService
     {
-        Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(DateTime date);
-        Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(bool isVisited, bool isScheduled, DateTime date);
-        Task<IEnumerable<ScheduleModel>> GetMySchedulesAsync(DateTime date);
+        Task<IEnumerable<ScheduleModel>> GetSchedulesAsync();
+        Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(bool isVisited, bool isScheduled);
+        Task<IEnumerable<ScheduleModel>> GetMySchedulesAsync();
         Task<ScheduleModel> GetScheduleAsync(int id);
         Task<ScheduleModel> InsertScheduleAsync(ScheduleModel schedule);
         Task<ScheduleModel> UpdateScheduleAsync(ScheduleModel shedule);
