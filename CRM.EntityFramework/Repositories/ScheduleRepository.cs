@@ -23,7 +23,18 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Schedule>> GetMySchedules()
+        public async Task<IEnumerable<Schedule>> GetMissedSchedules()
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .Schedules
+               .Where(t => t.TenantId == user.TenantId && t.IsVisited == false)
+               .Include(p => p.Place)
+               .Include(u => u.User)
+               .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Schedule>> GetMySchedules(DateTime date)
         {
             return await GetDataContext()
                .Schedules
@@ -37,12 +48,23 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Schedule>> GetSchedules()
+        public async Task<IEnumerable<Schedule>> GetSchedules(DateTime date)
         {
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
                .Schedules
                .Where(t => t.TenantId == user.TenantId)
+               .Include(p => p.Place)
+               .Include(u => u.User)
+               .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Schedule>> GetSchedules(bool isVisited, bool isScheduled, DateTime date)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .Schedules
+               .Where( t => t.TenantId == user.TenantId  && (t.IsScheduled==isScheduled || t.IsVisited==isVisited))
                .Include(p => p.Place)
                .Include(u => u.User)
                .ToListAsync();

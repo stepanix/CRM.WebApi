@@ -22,7 +22,7 @@ namespace CRM.Domain.Entities
        
         [Column(TypeName = "DateTime")]
         public DateTime? VisitTime { get; set; }
-        [Required]
+        
         [Column(TypeName = "VARCHAR")]
         [StringLength(1000)]
         public string VisitNote { get; set; }

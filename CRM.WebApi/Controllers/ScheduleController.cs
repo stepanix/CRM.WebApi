@@ -4,6 +4,7 @@ using CRM.Domain.RequestIdentity;
 using CRM.Service.Services.Schedules;
 using CRM.WebApi.Controllers.Base;
 using CRM.WebApi.Dto.Schedules.In;
+using System;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -56,18 +57,26 @@ namespace CRM.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("")]
-        public async Task<IHttpActionResult> ReadAll()
+        [Route("ByStatus")]
+        public async Task<IHttpActionResult> ReadByStatus(bool isVisited, bool isScheduled, DateTime date)
         {
-            var created = await scheduleService.GetSchedulesAsync();
+            var created = await scheduleService.GetSchedulesAsync(isVisited, isScheduled,date);
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("")]
+        public async Task<IHttpActionResult> ReadAll(DateTime date)
+        {
+            var created = await scheduleService.GetSchedulesAsync(date);
             return Ok(created);
         }
 
         [HttpGet]
         [Route("MySchedules")]
-        public async Task<IHttpActionResult> ReadMyAll()
+        public async Task<IHttpActionResult> ReadMyAll(DateTime date)
         {
-            var created = await scheduleService.GetMySchedulesAsync();
+            var created = await scheduleService.GetMySchedulesAsync(date);
             return Ok(created);
         }
 
