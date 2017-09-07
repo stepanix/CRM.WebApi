@@ -34,7 +34,7 @@ namespace CRM.EntityFramework.Repositories
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
                .Places
-               .Where(t => t.TenantId == user.TenantId)
+               .Where(t => t.TenantId == user.TenantId && t.IsDeleted == false)
                .ToListAsync();
         }
 

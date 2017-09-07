@@ -38,14 +38,19 @@ namespace CRM.EntityFramework.Repositories
         {
             return await GetDataContext()
                .Schedules
-               .Where(u => u.UserId == requestIdentityProvider.UserId)
+               .Where(u => u.UserId == requestIdentityProvider.UserId && u.IsDeleted == false)
                .Include(p => p.Place)
                .ToListAsync();
         }
 
-        public Task<Schedule> GetSchedule(int id)
+        public async Task<Schedule> GetSchedule(int id)
         {
-            throw new NotImplementedException();
+            return await GetDataContext()
+               .Schedules
+               .Where(t => t.Id == id && t.IsDeleted == false)
+               .Include(p => p.Place)
+               .Include(u => u.User)
+               .FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<Schedule>> GetSchedules()
@@ -53,7 +58,7 @@ namespace CRM.EntityFramework.Repositories
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
                .Schedules
-               .Where(t => t.TenantId == user.TenantId)
+               .Where(t => t.TenantId == user.TenantId && t.IsDeleted==false)
                .Include(p => p.Place)
                .Include(u => u.User)
                .ToListAsync();
@@ -64,7 +69,7 @@ namespace CRM.EntityFramework.Repositories
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
                .Schedules
-               .Where( t => t.TenantId == user.TenantId  && (t.IsScheduled==isScheduled && t.IsVisited==isVisited && t.IsUnScheduled == isUnScheduled && t.IsMissed == isMissed))
+               .Where( t => t.TenantId == user.TenantId  && (t.IsScheduled==isScheduled && t.IsVisited==isVisited && t.IsUnScheduled == isUnScheduled && t.IsMissed == isMissed && t.IsDeleted == false))
                .Include(p => p.Place)
                .Include(u => u.User)
                .ToListAsync();

@@ -36,7 +36,7 @@ namespace CRM.Service.Services.Schedules
 
         public async Task<ScheduleModel> GetScheduleAsync(int id)
         {
-            return mapper.Map<ScheduleModel>(await scheduleRepository.GetAsync(id));
+            return mapper.Map<ScheduleModel>(await scheduleRepository.GetSchedule(id));
         }
 
         public async Task<ScheduleModel> InsertScheduleAsync(ScheduleModel schedule)
