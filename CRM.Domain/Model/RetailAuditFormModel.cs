@@ -9,9 +9,9 @@ namespace CRM.Domain.Model
         public string Description { get; set; }
         public bool? Available { get; set; }
         public bool? Promoted { get; set; }
-        public decimal? Price { get; set; }
-        public int? StockLevel { get; set; }
-        public string Note { get; set; }
+        public bool? Price { get; set; }
+        public bool? StockLevel { get; set; }
+        public bool? Note { get; set; }
         public string Fields { get; set; }
         public DateTime AddedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }

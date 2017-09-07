@@ -17,11 +17,9 @@ namespace CRM.Domain.Entities
         public string Description { get; set; }
         public bool? Available { get; set; }
         public bool? Promoted { get; set; }
-        public decimal? Price { get; set; }
-        public int? StockLevel { get; set; }
-        [Column(TypeName = "VARCHAR")]
-        [StringLength(2000)]
-        public string Note { get; set; }
+        public bool? Price { get; set; }
+        public bool? StockLevel { get; set; }
+        public bool? Note { get; set; }
         public string Fields { get; set; }
         [Required]
         [ForeignKey("CreatorUser")]
