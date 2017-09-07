@@ -70,7 +70,9 @@ namespace CRM.WebApi.Providers
             ClaimsIdentity cookiesIdentity = await GenerateUserIdentityAsync(userManager, user,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName, rolesString,user.TenantId.ToString());
+            string fullName = user.FirstName + " " + user.Surname;
+
+            AuthenticationProperties properties = CreateProperties(user.UserName, rolesString,user.TenantId.ToString(), fullName);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -112,10 +114,11 @@ namespace CRM.WebApi.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string username, string roles,string tenantid)
+        public static AuthenticationProperties CreateProperties(string username, string roles,string tenantid,string fullname)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
+                { "fullname", fullname },
                 { "username", username },
                 { "roles", roles },
                 { "tenantid", tenantid }
