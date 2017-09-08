@@ -46,3 +46,4 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.Entity
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.newupdate.resources
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.parameters.resources
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.fieldupdates.resources
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.tenantupdate.resources

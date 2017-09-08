@@ -48,6 +48,12 @@ namespace CRM.Service.Services.Tenants
             var tenantForUpdate = await tenantRepository.GetAsync(tenant.Id);
             tenantForUpdate.ModifiedDate = DateTime.Now;
             tenantForUpdate.Name = tenant.Name;
+            tenantForUpdate.Address = tenant.Address;
+            tenantForUpdate.Phone = tenant.Phone;
+            tenantForUpdate.Email = tenant.Email;
+            tenantForUpdate.WebSite = tenant.WebSite;
+            tenantForUpdate.ContactPerson = tenant.ContactPerson;
+            tenantForUpdate.ContactNumber = tenant.ContactNumber;
             await tenantRepository.SaveChangesAsync();
             return mapper.Map<TenantModel>(tenantForUpdate);
         }
