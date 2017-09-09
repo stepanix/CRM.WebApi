@@ -57,6 +57,14 @@ namespace CRM.WebApi.Controllers
             return Ok(created);
         }
 
+        [HttpGet]
+        [Route("Rep")]
+        public async Task<IHttpActionResult> ReadByRep(DateTime dateFrom, DateTime dateTo,string rep)
+        {
+            var created = await timeMileageService.GetTimeMileageAsync(dateFrom, dateTo,rep);
+            return Ok(created);
+        }
+
 
     }
 }

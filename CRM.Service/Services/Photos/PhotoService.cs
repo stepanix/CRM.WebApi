@@ -70,5 +70,20 @@ namespace CRM.Service.Services.Photos
             await photoRepository.SaveChangesAsync();
             return mapper.Map<PhotoModel>(photoForUpdate);
         }
+
+        public async Task<IEnumerable<PhotoModel>> GetPhotosAsync(DateTime dateFrom, DateTime dateTo, string rep)
+        {
+            return mapper.Map<IEnumerable<PhotoModel>>(await photoRepository.GetPhotos(dateFrom, dateTo,rep));
+        }
+
+        public async Task<IEnumerable<PhotoModel>> GetPhotosAsync(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            return mapper.Map<IEnumerable<PhotoModel>>(await photoRepository.GetPhotos(dateFrom, dateTo,place));
+        }
+
+        public async Task<IEnumerable<PhotoModel>> GetPhotosAsync(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            return mapper.Map<IEnumerable<PhotoModel>>(await photoRepository.GetPhotos(dateFrom, dateTo,rep,place));
+        }
     }
 }

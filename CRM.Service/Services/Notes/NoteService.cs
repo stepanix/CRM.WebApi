@@ -72,5 +72,20 @@ namespace CRM.Service.Services.Notes
         {
             return mapper.Map<IEnumerable<NoteModel>>(await noteRepository.GetNotes(dateFrom,dateTo));
         }
+
+        public async Task<IEnumerable<NoteModel>> GetNotesAsync(DateTime dateFrom, DateTime dateTo, string rep)
+        {
+            return mapper.Map<IEnumerable<NoteModel>>(await noteRepository.GetNotes(dateFrom, dateTo,rep));
+        }
+
+        public async Task<IEnumerable<NoteModel>> GetNotesAsync(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            return mapper.Map<IEnumerable<NoteModel>>(await noteRepository.GetNotes(dateFrom, dateTo, place));
+        }
+
+        public async Task<IEnumerable<NoteModel>> GetNotesAsync(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            return mapper.Map<IEnumerable<NoteModel>>(await noteRepository.GetNotes(dateFrom, dateTo, rep, place));
+        }
     }
 }

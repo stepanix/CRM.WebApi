@@ -70,7 +70,31 @@ namespace CRM.WebApi.Controllers
         [Route("DateRange")]
         public async Task<IHttpActionResult> ReadAllByDateRange(DateTime dateFrom, DateTime dateTo)
         {
-            var created = await photoService.GetPhotosAsync();
+            var created = await photoService.GetPhotosAsync(dateFrom, dateTo);
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("Rep")]
+        public async Task<IHttpActionResult> ReadAllByRep(DateTime dateFrom, DateTime dateTo,string rep)
+        {
+            var created = await photoService.GetPhotosAsync(dateFrom, dateTo,rep);
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("Place")]
+        public async Task<IHttpActionResult> ReadAllByPlace(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            var created = await photoService.GetPhotosAsync(dateFrom, dateTo, place);
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("RepAndPlace")]
+        public async Task<IHttpActionResult> ReadAllByRepAndPlace(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            var created = await photoService.GetPhotosAsync(dateFrom, dateTo, rep, place);
             return Ok(created);
         }
 

@@ -73,5 +73,20 @@ namespace CRM.Service.Services.FormValues
         {
             return mapper.Map<IEnumerable<FormValueModel>>(await formValueRepository.GetFormValues(dateFrom,dateTo));
         }
+
+        public async Task<IEnumerable<FormValueModel>> GetFormValuesAsync(DateTime dateFrom, DateTime dateTo, string rep)
+        {
+            return mapper.Map<IEnumerable<FormValueModel>>(await formValueRepository.GetFormValues(dateFrom, dateTo,rep));
+        }
+
+        public async Task<IEnumerable<FormValueModel>> GetFormValuesAsync(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            return mapper.Map<IEnumerable<FormValueModel>>(await formValueRepository.GetFormValues(dateFrom, dateTo, place));
+        }
+
+        public async Task<IEnumerable<FormValueModel>> GetFormValuesAsync(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            return mapper.Map<IEnumerable<FormValueModel>>(await formValueRepository.GetFormValues(dateFrom, dateTo, rep,place));
+        }
     }
 }

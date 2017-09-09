@@ -92,6 +92,10 @@
     <Compile Include="Migrations\201709090427055_timemileage.Designer.cs">
       <DependentUpon>201709090427055_timemileage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709090829271_photos.cs" />
+    <Compile Include="Migrations\201709090829271_photos.Designer.cs">
+      <DependentUpon>201709090829271_photos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\BaseRepository.cs" />
@@ -144,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709090427055_timemileage.resx">
       <DependentUpon>201709090427055_timemileage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709090829271_photos.resx">
+      <DependentUpon>201709090829271_photos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

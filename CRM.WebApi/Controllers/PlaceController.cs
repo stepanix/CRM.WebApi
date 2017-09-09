@@ -71,7 +71,15 @@ namespace CRM.WebApi.Controllers
         [Route("DateRange")]
         public async Task<IHttpActionResult> ReadAllByDateRange(DateTime dateFrom, DateTime dateTo)
         {
-            var created = await placeService.GetPlacesAsync();
+            var created = await placeService.GetPlacesAsync(dateFrom,dateTo);
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("Rep")]
+        public async Task<IHttpActionResult> ReadAllByDateRange(DateTime dateFrom, DateTime dateTo,string rep)
+        {
+            var created = await placeService.GetPlacesAsync(dateFrom, dateTo,rep);
             return Ok(created);
         }
 

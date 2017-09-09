@@ -80,5 +80,20 @@ namespace CRM.Service.Services.Places
         {
             return mapper.Map<IEnumerable<PlaceModel>>(await placeRepository.GetPlaces(dateFrom,dateTo));
         }
+
+        public async Task<IEnumerable<PlaceModel>> GetPlacesAsync(DateTime dateFrom, DateTime dateTo, string rep)
+        {
+            return mapper.Map<IEnumerable<PlaceModel>>(await placeRepository.GetPlaces(dateFrom, dateTo,rep));
+        }
+
+        public async Task<IEnumerable<PlaceModel>> GetPlacesAsync(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            return mapper.Map<IEnumerable<PlaceModel>>(await placeRepository.GetPlaces(dateFrom, dateTo,place));
+        }
+
+        public async Task<IEnumerable<PlaceModel>> GetPlacesAsync(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            return mapper.Map<IEnumerable<PlaceModel>>(await placeRepository.GetPlaces(dateFrom, dateTo,rep, place));
+        }
     }
 }

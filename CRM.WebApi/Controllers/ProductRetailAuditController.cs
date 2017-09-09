@@ -73,6 +73,31 @@ namespace CRM.WebApi.Controllers
             return Ok(created);
         }
 
+        [HttpGet]
+        [Route("Rep")]
+        public async Task<IHttpActionResult> ReadAllByRep(DateTime dateFrom, DateTime dateTo,string rep)
+        {
+            var created = await productRetailAuditService.GetProductRetailAuditsAsync(dateFrom, dateTo,rep);
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("Place")]
+        public async Task<IHttpActionResult> ReadAllByPlace(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            var created = await productRetailAuditService.GetProductRetailAuditsAsync(dateFrom, dateTo, place);
+            return Ok(created);
+        }
+
+
+        [HttpGet]
+        [Route("RepAndPlace")]
+        public async Task<IHttpActionResult> ReadAllByRepAndPlace(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            var created = await productRetailAuditService.GetProductRetailAuditsAsync(dateFrom, dateTo, rep, place);
+            return Ok(created);
+        }
+
         [HttpDelete]
         [Route("{id:int}")]
         public IHttpActionResult Delete(int id)

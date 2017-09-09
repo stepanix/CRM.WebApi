@@ -89,5 +89,20 @@ namespace CRM.Service.Services.Schedules
         {
             return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(dateFrom,dateTo));
         }
+
+        public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(DateTime dateFrom, DateTime dateTo, string rep)
+        {
+            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(dateFrom, dateTo, rep));
+        }
+
+        public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(dateFrom, dateTo, place));
+        }
+
+        public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(dateFrom, dateTo, rep, place));
+        }
     }
 }

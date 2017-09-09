@@ -69,5 +69,10 @@ namespace CRM.Service.Services.TimeMileages
             await timeMileageRepository.SaveChangesAsync();
             return mapper.Map<TimeMileageModel>(timeMileageForUpdate);
         }
+
+        public async Task<IEnumerable<TimeMileageModel>> GetTimeMileageAsync(DateTime dateFrom, DateTime dateTo, string rep)
+        {
+            return mapper.Map<IEnumerable<TimeMileageModel>>(await timeMileageRepository.GetTimeMileage(dateFrom, dateTo,rep));
+        }
     }
 }

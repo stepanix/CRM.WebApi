@@ -71,5 +71,20 @@ namespace CRM.Service.Services.ProductRetailAudits
         {
             return mapper.Map<IEnumerable<ProductRetailAuditModel>>(await productRetailAuditRepository.GetProductRetailAudits(dateFrom,dateTo));
         }
+
+        public async Task<IEnumerable<ProductRetailAuditModel>> GetProductRetailAuditsAsync(DateTime dateFrom, DateTime dateTo, string rep)
+        {
+            return mapper.Map<IEnumerable<ProductRetailAuditModel>>(await productRetailAuditRepository.GetProductRetailAudits(dateFrom, dateTo, rep));
+        }
+
+        public async Task<IEnumerable<ProductRetailAuditModel>> GetProductRetailAuditsAsync(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            return mapper.Map<IEnumerable<ProductRetailAuditModel>>(await productRetailAuditRepository.GetProductRetailAudits(dateFrom, dateTo, place));
+        }
+
+        public async Task<IEnumerable<ProductRetailAuditModel>> GetProductRetailAuditsAsync(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            return mapper.Map<IEnumerable<ProductRetailAuditModel>>(await productRetailAuditRepository.GetProductRetailAudits(dateFrom, dateTo, rep, place));
+        }
     }
 }
