@@ -38,6 +38,15 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
+        public async Task<IEnumerable<FormValue>> GetFormValues(DateTime dateFrom, DateTime dateTo)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .FormValues
+               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo))
+               .ToListAsync();
+        }
+
         public Task<FormValue> InsertFormValue(FormValue formValue)
         {
             throw new NotImplementedException();

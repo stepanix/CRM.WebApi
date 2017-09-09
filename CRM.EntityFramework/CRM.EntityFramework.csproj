@@ -88,6 +88,10 @@
     <Compile Include="Migrations\201709080245472_tenantupdate.Designer.cs">
       <DependentUpon>201709080245472_tenantupdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709090427055_timemileage.cs" />
+    <Compile Include="Migrations\201709090427055_timemileage.Designer.cs">
+      <DependentUpon>201709090427055_timemileage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\BaseRepository.cs" />
@@ -136,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709080245472_tenantupdate.resx">
       <DependentUpon>201709080245472_tenantupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709090427055_timemileage.resx">
+      <DependentUpon>201709090427055_timemileage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -39,6 +39,15 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
+        public async Task<IEnumerable<Note>> GetNotes(DateTime dateFrom, DateTime dateTo)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .Notes
+               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo))
+               .ToListAsync();
+        }
+
         public Task<Note> InsertNote(Note note)
         {
             throw new NotImplementedException();

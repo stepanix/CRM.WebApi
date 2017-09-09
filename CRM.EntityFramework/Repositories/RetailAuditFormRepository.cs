@@ -37,6 +37,15 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
+        public async Task<IEnumerable<RetailAuditForm>> GetRetailAuditForms(DateTime dateFrom, DateTime dateTo)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .RetailAuditForms
+               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo))
+               .ToListAsync();
+        }
+
         public Task<RetailAuditForm> InsertRetailAuditForm(RetailAuditForm retailAuditForm)
         {
             throw new NotImplementedException();

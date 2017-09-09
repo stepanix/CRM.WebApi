@@ -6,6 +6,7 @@ using AutoMapper;
 using CRM.WebApi.Dto.TimeMileages.In;
 using System.Threading.Tasks;
 using CRM.Domain.Model;
+using System;
 
 namespace CRM.WebApi.Controllers
 {
@@ -45,6 +46,14 @@ namespace CRM.WebApi.Controllers
             }
 
             var created = await timeMileageService.UpdateTimeMileageAsync(mapper.Map<TimeMileageModel>(timeMileage));
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("DateRange")]
+        public async Task<IHttpActionResult> Read(DateTime dateFrom, DateTime dateTo)
+        {
+            var created = await timeMileageService.GetTimeMileageAsync(dateFrom, dateTo);
             return Ok(created);
         }
 

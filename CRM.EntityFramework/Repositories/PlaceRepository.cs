@@ -38,6 +38,16 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
+        public async Task<IEnumerable<Place>> GetPlaces(DateTime dateFrom, DateTime dateTo)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .Places
+               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo)
+               && !GetDataContext().Schedules.Any(p => p.PlaceId == t.Id && p.IsDeleted == false))
+               .ToListAsync();
+        }
+
         public Task<Place> InsertPlace(Place place)
         {
             throw new NotImplementedException();
