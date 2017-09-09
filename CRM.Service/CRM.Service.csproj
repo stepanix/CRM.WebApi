@@ -69,6 +69,8 @@
     <Compile Include="Services\Statuses\StatusService.cs" />
     <Compile Include="Services\Tenants\ITenantService.cs" />
     <Compile Include="Services\Tenants\TenantService.cs" />
+    <Compile Include="Services\TimeMileages\ITimeMileageService.cs" />
+    <Compile Include="Services\TimeMileages\TimeMileageService.cs" />
     <Compile Include="Services\Users\IUserService.cs" />
     <Compile Include="Services\Users\UserService.cs" />
     <Compile Include="Services\VisitLogs\IVisitLogService.cs" />

@@ -281,6 +281,7 @@
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\TenantController.cs" />
+    <Compile Include="Controllers\TimeMileageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserWithRolesController.cs" />
     <Compile Include="Controllers\VisitLogController.cs" />
@@ -295,6 +296,7 @@
     <Compile Include="Dto\RepresentativePlaces\In\RepresentativePlaceDtoIn.cs" />
     <Compile Include="Dto\Schedules\In\ScheduleDtoIn.cs" />
     <Compile Include="Dto\Statuses\In\StatusDtoIn.cs" />
+    <Compile Include="Dto\TimeMileages\In\TimeMileageDtoIn.cs" />
     <Compile Include="Dto\VisitLogs\In\VisitLogDtoIn.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -384,6 +386,7 @@
     <Folder Include="Views\Schedule\" />
     <Folder Include="Views\Status\" />
     <Folder Include="Views\Tenant\" />
+    <Folder Include="Views\TimeMileage\" />
     <Folder Include="Views\UserWithRoles\" />
     <Folder Include="Views\User\" />
     <Folder Include="Views\VisitLog\" />

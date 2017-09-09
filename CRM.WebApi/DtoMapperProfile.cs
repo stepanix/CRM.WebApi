@@ -9,6 +9,7 @@ using CRM.WebApi.Dto.Products.In;
 using CRM.WebApi.Dto.RepresentativePlaces.In;
 using CRM.WebApi.Dto.Schedules.In;
 using CRM.WebApi.Dto.Statuses.In;
+using CRM.WebApi.Dto.TimeMileages.In;
 using CRM.WebApi.Dto.VisitLogs.In;
 
 namespace CRM.WebApi
@@ -17,6 +18,7 @@ namespace CRM.WebApi
     {
         public DtoMapperProfile()
         {
+            CreateMap<TimeMileageModel, TimeMileageDtoIn>().ReverseMap();
             CreateMap<VisitLogModel, VisitLogDtoIn>().ReverseMap();
             CreateMap<StatusModel, StatusDtoIn>().ReverseMap();
             CreateMap<ProductModel, ProductDtoIn>().ReverseMap();

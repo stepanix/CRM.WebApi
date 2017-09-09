@@ -104,6 +104,7 @@
     <Compile Include="Repositories\ScheduleRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="Repositories\TenantRepository.cs" />
+    <Compile Include="Repositories\TimeMileageRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\VisitLogRepository.cs" />
   </ItemGroup>

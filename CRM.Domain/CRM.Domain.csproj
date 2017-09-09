@@ -82,6 +82,7 @@
     <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Entities\Status.cs" />
     <Compile Include="Entities\Tenant.cs" />
+    <Compile Include="Entities\TimeMileage.cs" />
     <Compile Include="Entities\VisitLog.cs" />
     <Compile Include="Entity\Base\BaseEntity.cs" />
     <Compile Include="Identity\Role.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Model\ScheduleModel.cs" />
     <Compile Include="Model\StatusModel.cs" />
     <Compile Include="Model\TenantModel.cs" />
+    <Compile Include="Model\TimeMileageModel.cs" />
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Model\VisitLogModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="Repositories\IScheduleRepository.cs" />
     <Compile Include="Repositories\IStatusRepository.cs" />
     <Compile Include="Repositories\ITenantRepository.cs" />
+    <Compile Include="Repositories\ITimeMileageRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\IVisitLogRepository.cs" />
     <Compile Include="RequestIdentity\IRequestIdentityProvider.cs" />
