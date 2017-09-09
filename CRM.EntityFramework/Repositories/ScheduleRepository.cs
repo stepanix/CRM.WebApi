@@ -73,6 +73,38 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
+        public async Task<IEnumerable<Schedule>> GetSchedules(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .Schedules
+               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo) && t.IsVisited == true
+               && t.PlaceId == place
+               )
+               .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Schedule>> GetSchedules(DateTime dateFrom, DateTime dateTo, string rep)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .Schedules
+               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo) && t.IsVisited == true
+               && t.CreatorUserId == rep)
+               .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Schedule>> GetSchedules(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .Schedules
+               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo) && t.IsVisited == true
+               && t.PlaceId == place && t.CreatorUserId == rep
+               )
+               .ToListAsync();
+        }
+
         public async Task<IEnumerable<Schedule>> GetSchedules(bool isVisited, bool isScheduled, bool isUnScheduled, bool isMissed)
         {
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();

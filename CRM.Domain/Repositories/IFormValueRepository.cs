@@ -8,6 +8,9 @@ namespace CRM.Domain.Repositories
     public interface IFormValueRepository : IBaseRepository<FormValue>
     {
         Task<IEnumerable<FormValue>> GetFormValues();
+        Task<IEnumerable<FormValue>> GetFormValues(DateTime dateFrom, DateTime dateTo,string rep,int place);
+        Task<IEnumerable<FormValue>> GetFormValues(DateTime dateFrom, DateTime dateTo, int place);
+        Task<IEnumerable<FormValue>> GetFormValues(DateTime dateFrom, DateTime dateTo, string rep);
         Task<IEnumerable<FormValue>> GetFormValues(DateTime dateFrom, DateTime dateTo);
         Task<FormValue> GetFormValue(int id);
         Task<FormValue> InsertFormValue(FormValue formValue);

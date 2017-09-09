@@ -48,6 +48,26 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
+        public async Task<IEnumerable<Place>> GetPlaces(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Place>> GetPlaces(DateTime dateFrom, DateTime dateTo, string rep)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .Places
+               .Where(t => t.TenantId == user.TenantId && t.CreatorUserId==rep && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo)
+               && !GetDataContext().Schedules.Any(p => p.PlaceId == t.Id && p.IsDeleted == false))
+               .ToListAsync();
+        }
+
+        public Task<IEnumerable<Place>> GetPlaces(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Place> InsertPlace(Place place)
         {
             throw new NotImplementedException();

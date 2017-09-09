@@ -9,6 +9,9 @@ namespace CRM.Domain.Repositories
     {
         Task<IEnumerable<Note>> GetNotes();
         Task<IEnumerable<Note>> GetNotes(DateTime dateFrom, DateTime dateTo);
+        Task<IEnumerable<Note>> GetNotes(DateTime dateFrom, DateTime dateTo, string rep, int place);
+        Task<IEnumerable<Note>> GetNotes(DateTime dateFrom, DateTime dateTo, string rep);
+        Task<IEnumerable<Note>> GetNotes(DateTime dateFrom, DateTime dateTo, int place);
         Task<Note> GetNote(int id);
         Task<Note> InsertNote(Note note);
         Task<Note> UpdateNote(Note note);

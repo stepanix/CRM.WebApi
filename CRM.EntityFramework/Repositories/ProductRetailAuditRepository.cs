@@ -47,6 +47,40 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
+        public async Task<IEnumerable<ProductRetailAudit>> GetProductRetailAudits(DateTime dateFrom, DateTime dateTo, int place)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .ProductRetailAudits
+               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo)
+               && t.PlaceId == place
+               )
+               .ToListAsync();
+        }
+
+        public async Task<IEnumerable<ProductRetailAudit>> GetProductRetailAudits(DateTime dateFrom, DateTime dateTo, string rep)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .ProductRetailAudits
+               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo)
+               && t.CreatorUserId == rep
+               )
+               .ToListAsync();
+        }
+
+        public async Task<IEnumerable<ProductRetailAudit>> GetProductRetailAudits(DateTime dateFrom, DateTime dateTo, string rep, int place)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .ProductRetailAudits
+               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo)
+               && t.CreatorUserId == rep
+               && t.PlaceId == place
+               )
+               .ToListAsync();
+        }
+
         public Task<ProductRetailAudit> InsertProductRetailAudit(ProductRetailAudit productRetailAudit)
         {
             throw new NotImplementedException();
