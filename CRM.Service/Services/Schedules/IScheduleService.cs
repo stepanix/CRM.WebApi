@@ -8,6 +8,7 @@ namespace CRM.Service.Services.Schedules
     public interface IScheduleService
     {
         Task<IEnumerable<ScheduleModel>> GetSchedulesAsync();
+        Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(DateTime dateFrom, DateTime dateTo);
         Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(bool isVisited, bool isScheduled, bool isUnScheduled, bool isMissed);
         Task<IEnumerable<ScheduleModel>> GetMySchedulesAsync();
         Task<ScheduleModel> GetScheduleAsync(int id);

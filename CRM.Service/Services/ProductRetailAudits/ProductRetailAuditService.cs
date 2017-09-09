@@ -66,5 +66,10 @@ namespace CRM.Service.Services.ProductRetailAudits
             await productRetailAuditRepository.SaveChangesAsync();
             return mapper.Map<ProductRetailAuditModel>(productRetailAuditForUpdate);
         }
+
+        public async Task<IEnumerable<ProductRetailAuditModel>> GetProductRetailAuditsAsync(DateTime dateFrom, DateTime dateTo)
+        {
+            return mapper.Map<IEnumerable<ProductRetailAuditModel>>(await productRetailAuditRepository.GetProductRetailAudits(dateFrom,dateTo));
+        }
     }
 }

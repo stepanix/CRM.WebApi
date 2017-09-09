@@ -73,6 +73,14 @@ namespace CRM.WebApi.Controllers
         }
 
         [HttpGet]
+        [Route("DateRange")]
+        public async Task<IHttpActionResult> ReadAllByDateRange(DateTime dateFrom,DateTime dateTo)
+        {
+            var created = await scheduleService.GetSchedulesAsync(dateFrom,dateTo);
+            return Ok(created);
+        }
+
+        [HttpGet]
         [Route("MySchedules")]
         public async Task<IHttpActionResult> ReadMyAll()
         {

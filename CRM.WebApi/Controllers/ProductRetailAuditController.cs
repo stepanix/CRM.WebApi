@@ -7,6 +7,7 @@ using AutoMapper;
 using CRM.WebApi.Dto.ProductretailAudits.In;
 using System.Threading.Tasks;
 using CRM.Domain.Model;
+using System;
 
 namespace CRM.WebApi.Controllers
 {
@@ -61,6 +62,14 @@ namespace CRM.WebApi.Controllers
         public async Task<IHttpActionResult> ReadAll()
         {
             var created = await productRetailAuditService.GetProductRetailAuditsAsync();
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("DateRange")]
+        public async Task<IHttpActionResult> ReadAllByDateRange(DateTime dateFrom,DateTime dateTo)
+        {
+            var created = await productRetailAuditService.GetProductRetailAuditsAsync(dateFrom,dateTo);
             return Ok(created);
         }
 

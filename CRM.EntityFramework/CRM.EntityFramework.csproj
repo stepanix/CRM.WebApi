@@ -99,6 +99,7 @@
     <Compile Include="Repositories\FormRepository.cs" />
     <Compile Include="Repositories\FormValueRepository.cs" />
     <Compile Include="Repositories\NoteRepository.cs" />
+    <Compile Include="Repositories\PhotoRepository.cs" />
     <Compile Include="Repositories\PlaceRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\ProductRetailAuditRepository.cs" />

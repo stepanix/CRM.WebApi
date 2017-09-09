@@ -68,5 +68,10 @@ namespace CRM.Service.Services.FormValues
             await formValueRepository.SaveChangesAsync();
             return mapper.Map<FormValueModel>(formValueForUpdate);
         }
+
+        public async Task<IEnumerable<FormValueModel>> GetFormValuesAsync(DateTime dateFrom, DateTime dateTo)
+        {
+            return mapper.Map<IEnumerable<FormValueModel>>(await formValueRepository.GetFormValues(dateFrom,dateTo));
+        }
     }
 }

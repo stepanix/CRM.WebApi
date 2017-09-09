@@ -1,61 +1,60 @@
 ﻿
 
-using CRM.WebApi.Controllers.Base;
-using System.Web.Http;
-using CRM.Domain.RequestIdentity;
-using CRM.Service.Services.Places;
 using AutoMapper;
 using CRM.Domain.Model;
-using System.Threading.Tasks;
-using CRM.WebApi.Dto.Places.In;
+using CRM.Domain.RequestIdentity;
+using CRM.Service.Services.Photos;
+using CRM.WebApi.Controllers.Base;
+using CRM.WebApi.Dto.Photos.In;
 using System;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace CRM.WebApi.Controllers
 {
-    [RoutePrefix("api/Place")]
-    public class PlaceController : BaseController
+    [RoutePrefix("api/Photo")]
+    public class PhotoController : BaseController
     {
-        IPlaceService placeService;
+        IPhotoService photoService;
         IMapper mapper;
 
-        public PlaceController(IMapper mapper, IPlaceService placeService, IRequestIdentityProvider requestIdentityProvider) : base(requestIdentityProvider)
+        public PhotoController(IMapper mapper, IPhotoService photoService, IRequestIdentityProvider requestIdentityProvider) : base(requestIdentityProvider)
         {
-            this.placeService = placeService;
+            this.photoService = photoService;
             this.mapper = mapper;
         }
 
         [HttpPost]
         [Route("")]
-        public async Task<IHttpActionResult> Create([FromBody]PlaceDtoIn place)
+        public async Task<IHttpActionResult> Create([FromBody]PhotoDtoIn photo)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await placeService.InsertPlaceAsync(mapper.Map<PlaceModel>(place));
+            var created = await photoService.InsertPhotoAsync(mapper.Map<PhotoModel>(photo));
             return Ok(created);
         }
 
         [HttpPut]
         [Route("")]
-        public async Task<IHttpActionResult> Update([FromBody]PlaceDtoIn place)
+        public async Task<IHttpActionResult> Update([FromBody]PhotoDtoIn photo)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var created = await placeService.UpdatePlaceAsync(mapper.Map<PlaceModel>(place));
+            var created = await photoService.UpdatePhotoAsync(mapper.Map<PhotoModel>(photo));
             return Ok(created);
         }
-
 
         [HttpGet]
         [Route("{id:int}")]
         public async Task<IHttpActionResult> Read(int id)
         {
-            var created = await placeService.GetPlaceAsync(id);
+            var created = await photoService.GetPhotoAsync(id);
             return Ok(created);
         }
 
@@ -63,7 +62,7 @@ namespace CRM.WebApi.Controllers
         [Route("")]
         public async Task<IHttpActionResult> ReadAll()
         {
-            var created = await placeService.GetPlacesAsync();
+            var created = await photoService.GetPhotosAsync();
             return Ok(created);
         }
 
@@ -71,19 +70,19 @@ namespace CRM.WebApi.Controllers
         [Route("DateRange")]
         public async Task<IHttpActionResult> ReadAllByDateRange(DateTime dateFrom, DateTime dateTo)
         {
-            var created = await placeService.GetPlacesAsync();
+            var created = await photoService.GetPhotosAsync();
             return Ok(created);
         }
-
 
         [HttpDelete]
         [Route("{id:int}")]
         public IHttpActionResult Delete(int id)
         {
-            placeService.DeletePlace(id);
+            photoService.DeletePhoto(id);
             return Ok("");
         }
 
-    }
 
+
+    }
 }

@@ -67,5 +67,10 @@ namespace CRM.Service.Services.Notes
             await noteRepository.SaveChangesAsync();
             return mapper.Map<NoteModel>(noteForUpdate);
         }
+
+        public async Task<IEnumerable<NoteModel>> GetNotesAsync(DateTime dateFrom, DateTime dateTo)
+        {
+            return mapper.Map<IEnumerable<NoteModel>>(await noteRepository.GetNotes(dateFrom,dateTo));
+        }
     }
 }

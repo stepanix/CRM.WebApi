@@ -22,6 +22,7 @@ namespace CRM.EntityFramework
             return new DataContext();
         }
 
+        public virtual DbSet<Photo> Photos { get; set; }
         public virtual DbSet<TimeMileage> TimeMileages { get; set; }
         public virtual DbSet<VisitLog> VisitLogs { get; set; }
         public virtual DbSet<Tenant> Tenants { get; set; }

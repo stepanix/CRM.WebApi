@@ -6,6 +6,7 @@ using CRM.Domain.RequestIdentity;
 using CRM.Service.Services.FormValues;
 using CRM.WebApi.Controllers.Base;
 using CRM.WebApi.Dto.FormValues.In;
+using System;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -63,6 +64,14 @@ namespace CRM.WebApi.Controllers
         public async Task<IHttpActionResult> ReadAll()
         {
             var created = await formValueService.GetFormValuesAsync();
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("DateRange")]
+        public async Task<IHttpActionResult> ReadAllByDateRange(DateTime dateFrom, DateTime dateTo)
+        {
+            var created = await formValueService.GetFormValuesAsync(dateFrom,dateTo);
             return Ok(created);
         }
 

@@ -75,5 +75,10 @@ namespace CRM.Service.Services.Places
         {
             placeRepository.Delete(id);
         }
+
+        public async Task<IEnumerable<PlaceModel>> GetPlacesAsync(DateTime dateFrom, DateTime dateTo)
+        {
+            return mapper.Map<IEnumerable<PlaceModel>>(await placeRepository.GetPlaces(dateFrom,dateTo));
+        }
     }
 }
