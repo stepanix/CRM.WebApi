@@ -43,8 +43,9 @@ namespace CRM.EntityFramework.Repositories
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
                .Places
-               .Where(t => t.TenantId == user.TenantId && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo)
+               .Where(t => t.TenantId == user.TenantId && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo)
                && !GetDataContext().Schedules.Any(p => p.PlaceId == t.Id && p.IsDeleted == false))
+               .Include(u=>u.CreatorUser)
                .ToListAsync();
         }
 
@@ -58,8 +59,9 @@ namespace CRM.EntityFramework.Repositories
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
                .Places
-               .Where(t => t.TenantId == user.TenantId && t.CreatorUserId==rep && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo)
+               .Where(t => t.TenantId == user.TenantId && t.CreatorUserId==rep && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo)
                && !GetDataContext().Schedules.Any(p => p.PlaceId == t.Id && p.IsDeleted == false))
+               .Include(u=>u.CreatorUser)
                .ToListAsync();
         }
 

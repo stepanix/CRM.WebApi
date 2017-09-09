@@ -45,7 +45,9 @@ namespace CRM.EntityFramework.Repositories
             return await GetDataContext()
                .FormValues
                .Where(t => t.TenantId == user.TenantId 
-               && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo))
+               && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo))
+               .Include(u=>u.CreatorUser)
+               .Include(p=>p.Place)
                .ToListAsync();
         }
 
@@ -56,8 +58,10 @@ namespace CRM.EntityFramework.Repositories
             return await GetDataContext()
                .FormValues
                .Where(t => t.TenantId == user.TenantId
-               && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo)
+               && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo)
                && t.PlaceId == place)
+               .Include(u=>u.CreatorUser)
+               .Include(p=>p.Place)
                .ToListAsync();
         }
 
@@ -68,8 +72,10 @@ namespace CRM.EntityFramework.Repositories
             return await GetDataContext()
                .FormValues
                .Where(t => t.TenantId == user.TenantId
-               && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo)
+               && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo)
                && t.CreatorUserId== rep)
+               .Include(u=>u.CreatorUser)
+               .Include(p=>p.Place)
                .ToListAsync();
         }
 
@@ -80,8 +86,10 @@ namespace CRM.EntityFramework.Repositories
             return await GetDataContext()
                .FormValues
                .Where(t => t.TenantId == user.TenantId
-               && (t.AddedDate >= dateFrom && t.AddedDate <= dateTo)
+               && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo)
                && t.CreatorUserId == rep && t.PlaceId == place)
+               .Include(u=>u.CreatorUser)
+               .Include(p=>p.Place)
                .ToListAsync();
         }
 

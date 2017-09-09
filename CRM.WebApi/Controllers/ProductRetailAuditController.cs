@@ -11,7 +11,7 @@ using System;
 
 namespace CRM.WebApi.Controllers
 {
-    [RoutePrefix("api/ProductRetailAudit")]
+    [RoutePrefix("api/ProductAuditRetail")]
     public class ProductRetailAuditController : BaseController
     {
         IProductRetailAuditService productRetailAuditService;
