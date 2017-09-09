@@ -48,6 +48,7 @@ namespace CRM.EntityFramework.Repositories
                && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo))
                .Include(u=>u.CreatorUser)
                .Include(p=>p.Place)
+               .Include(f=> f.Form)
                .ToListAsync();
         }
 
@@ -62,6 +63,7 @@ namespace CRM.EntityFramework.Repositories
                && t.PlaceId == place)
                .Include(u=>u.CreatorUser)
                .Include(p=>p.Place)
+               .Include(f => f.Form)
                .ToListAsync();
         }
 
@@ -76,6 +78,7 @@ namespace CRM.EntityFramework.Repositories
                && t.CreatorUserId== rep)
                .Include(u=>u.CreatorUser)
                .Include(p=>p.Place)
+               .Include(f => f.Form)
                .ToListAsync();
         }
 
@@ -90,6 +93,7 @@ namespace CRM.EntityFramework.Repositories
                && t.CreatorUserId == rep && t.PlaceId == place)
                .Include(u=>u.CreatorUser)
                .Include(p=>p.Place)
+               .Include(f => f.Form)
                .ToListAsync();
         }
 

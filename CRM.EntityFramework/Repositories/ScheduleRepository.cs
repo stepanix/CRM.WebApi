@@ -70,7 +70,7 @@ namespace CRM.EntityFramework.Repositories
             return await GetDataContext()
                .Schedules
                .Where(t => t.TenantId == user.TenantId && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo) && t.IsVisited==true)
-               .Include(p => p.Place)
+               .Include(p => p.Place)               
                .Include(u => u.CreatorUser)
                .ToListAsync();
         }

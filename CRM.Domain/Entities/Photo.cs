@@ -9,6 +9,9 @@ namespace CRM.Domain.Entities
 {
     public class Photo : BaseEntity<int>
     {
+        [ForeignKey("Schedule")]
+        public int ScheduleId { get; set; }
+        public Schedule Schedule { get; set; }
         public string PictureUrl { get; set; }
         public string Note { get; set; }
         [Required]

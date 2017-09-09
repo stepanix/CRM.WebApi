@@ -60,6 +60,7 @@ namespace CRM.Service.Services.Notes
             var noteForUpdate = await noteRepository.GetAsync(note.Id);
             noteForUpdate.ModifiedDate = DateTime.Now;
             noteForUpdate.PlaceId = note.PlaceId;
+            noteForUpdate.ScheduleId = note.ScheduleId;
             noteForUpdate.Description = note.Description;
             noteForUpdate.TenantId = user.TenantId;
             noteForUpdate.LastModifierUserId = requestIdentityProvider.UserId;

@@ -62,6 +62,7 @@ namespace CRM.Service.Services.ProductRetailAudits
             productRetailAuditForUpdate.RetailAuditFormId = productRetailAudit.RetailAuditFormId;
             productRetailAuditForUpdate.RetailAuditFormFieldValues = productRetailAudit.RetailAuditFormFieldValues;
             productRetailAuditForUpdate.TenantId = user.TenantId;
+            productRetailAuditForUpdate.ScheduleId = productRetailAudit.ScheduleId;
             productRetailAuditForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
             await productRetailAuditRepository.SaveChangesAsync();
             return mapper.Map<ProductRetailAuditModel>(productRetailAuditForUpdate);

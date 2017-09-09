@@ -8,5 +8,6 @@ namespace CRM.WebApi.Dto.FormValues.In
         public int PlaceId { get; set; }
         public int FormId { get; set; }
         public string FormFieldValues { get; set; }
+        public int ScheduleId { get; set; }
     }
 }

@@ -65,6 +65,7 @@ namespace CRM.Service.Services.Photos
             var photoForUpdate = await photoRepository.GetAsync(photo.Id);
             photoForUpdate.ModifiedDate = DateTime.Now;
             photoForUpdate.Note = photo.Note;
+            photoForUpdate.ScheduleId = photo.ScheduleId;
             photoForUpdate.TenantId = user.TenantId;
             photoForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
             await photoRepository.SaveChangesAsync();

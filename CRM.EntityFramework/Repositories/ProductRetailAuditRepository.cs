@@ -46,6 +46,7 @@ namespace CRM.EntityFramework.Repositories
                .Where(t => t.TenantId == user.TenantId && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo))
                .Include(u=>u.CreatorUser)
                .Include(p=>p.Place)
+               .Include(r => r.RetailAuditForm)
                .ToListAsync();
         }
 
@@ -58,6 +59,7 @@ namespace CRM.EntityFramework.Repositories
                && t.PlaceId == place)
                .Include(u => u.CreatorUser)
                .Include(p => p.Place)
+               .Include(r => r.RetailAuditForm)
                .ToListAsync();
         }
 
@@ -70,6 +72,7 @@ namespace CRM.EntityFramework.Repositories
                && t.CreatorUserId == rep)
                .Include(u => u.CreatorUser)
                .Include(p => p.Place)
+                .Include(r => r.RetailAuditForm)
                .ToListAsync();
         }
 
@@ -83,6 +86,7 @@ namespace CRM.EntityFramework.Repositories
                && t.PlaceId == place)
                .Include(u => u.CreatorUser)
                .Include(p => p.Place)
+               .Include(r=>r.RetailAuditForm)
                .ToListAsync();
         }
 

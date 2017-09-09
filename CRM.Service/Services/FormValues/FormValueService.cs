@@ -63,6 +63,7 @@ namespace CRM.Service.Services.FormValues
             formValueForUpdate.FormFieldValues = formValue.FormFieldValues;
             formValueForUpdate.FormId = formValue.FormId;
             formValueForUpdate.PlaceId = formValue.PlaceId;
+            formValueForUpdate.ScheduleId = formValue.ScheduleId;
             formValueForUpdate.TenantId = user.TenantId;
             formValueForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
             await formValueRepository.SaveChangesAsync();

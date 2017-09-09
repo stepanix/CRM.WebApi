@@ -7,6 +7,9 @@ namespace CRM.Domain.Entities
 {
     public class ProductRetailAudit : BaseEntity<int>
     {
+        [ForeignKey("Schedule")]
+        public int ScheduleId { get; set; }
+        public Schedule Schedule { get; set; }
         [ForeignKey("Place")]
         public int PlaceId { get; set; }
         public Place Place { get; set; }

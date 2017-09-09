@@ -6,7 +6,7 @@ namespace CRM.Domain.Model
 {
     public class FormValueModel
     {
-        public int Id { get; set; }
+        public int Id { get; set; }        
         public int PlaceId { get; set; }
         public PlaceModel Place { get; set; }
         public int FormId { get; set; }
@@ -17,5 +17,7 @@ namespace CRM.Domain.Model
         public string CreatorUserId { get; set; }
         public string LastModifierUserId { get; set; }
         public int TenantId { get; set; }
+        public int ScheduleId { get; set; }
+        public ScheduleModel Schedule { get; set; }
     }
 }
