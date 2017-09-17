@@ -70,7 +70,9 @@ namespace CRM.Service.Services.Schedules
             scheduleForUpdate.IsMissed = shedule.IsMissed;
             scheduleForUpdate.IsUnScheduled = shedule.IsUnScheduled;
             scheduleForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
-
+            scheduleForUpdate.VisitStatus = shedule.VisitStatus;
+            scheduleForUpdate.CheckInTime = shedule.CheckInTime;
+            scheduleForUpdate.CheckOutTime = shedule.CheckOutTime;
             await scheduleRepository.SaveChangesAsync();
             return mapper.Map<ScheduleModel>(scheduleForUpdate);
         }
@@ -80,9 +82,9 @@ namespace CRM.Service.Services.Schedules
             scheduleRepository.Delete(id);
         }
 
-        public async Task<IEnumerable<ScheduleModel>> GetMySchedulesAsync()
+        public async Task<IEnumerable<ScheduleModel>> GetMySchedulesAsync(DateTime scheduleDate)
         {
-            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetMySchedules());
+            return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetMySchedules(scheduleDate));
         }
 
         public async Task<IEnumerable<ScheduleModel>> GetSchedulesAsync(DateTime dateFrom, DateTime dateTo)

@@ -106,9 +106,9 @@ namespace CRM.WebApi.Controllers
 
         [HttpGet]
         [Route("MySchedules")]
-        public async Task<IHttpActionResult> ReadMyAll()
+        public async Task<IHttpActionResult> ReadMyAll(DateTime scheduleDate)
         {
-            var created = await scheduleService.GetMySchedulesAsync();
+            var created = await scheduleService.GetMySchedulesAsync(scheduleDate);
             return Ok(created);
         }
 

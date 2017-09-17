@@ -14,7 +14,7 @@ namespace CRM.Domain.Repositories
         Task<IEnumerable<Schedule>> GetSchedules(DateTime dateFrom, DateTime dateTo,string rep);
         Task<IEnumerable<Schedule>> GetSchedules(DateTime dateFrom, DateTime dateTo, int place);
         Task<IEnumerable<Schedule>> GetSchedules(DateTime dateFrom, DateTime dateTo,string rep,int place);
-        Task<IEnumerable<Schedule>> GetMySchedules();
+        Task<IEnumerable<Schedule>> GetMySchedules(DateTime scheduleDate);
         Task<Schedule> GetSchedule(int id);
         Task<Schedule> InsertSchedule(Schedule schedule);
         Task<Schedule> UpdateSchedule(Schedule schedule);

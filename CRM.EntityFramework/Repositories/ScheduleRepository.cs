@@ -34,11 +34,11 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
-        public async Task<IEnumerable<Schedule>> GetMySchedules()
+        public async Task<IEnumerable<Schedule>> GetMySchedules(DateTime scheduleDate)
         {
             return await GetDataContext()
                .Schedules
-               .Where(u => u.UserId == requestIdentityProvider.UserId && u.IsDeleted == false)
+               .Where(u => u.UserId == requestIdentityProvider.UserId && u.IsDeleted == false && u.VisitDate== scheduleDate)
                .Include(p => p.Place)
                .ToListAsync();
         }

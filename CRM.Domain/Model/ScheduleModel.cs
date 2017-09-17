@@ -24,5 +24,8 @@ namespace CRM.Domain.Model
         public bool IsScheduled { get; set; }
         public bool IsMissed { get; set; }
         public bool IsUnScheduled { get; set; }
+        public string VisitStatus { get; set; }
+        public DateTime? CheckInTime { get; set; }
+        public DateTime? CheckOutTime { get; set; }
     }
 }
