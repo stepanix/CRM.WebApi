@@ -8,6 +8,8 @@ namespace CRM.Domain.Model
         public int Id { get; set; }
         public string UserId { get; set; }
         public UserModel User { get; set; }
+        public int PlaceId { get; set; }
+        public PlaceModel Place { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime? EndTime { get; set; }
         public double Duration { get; set; }

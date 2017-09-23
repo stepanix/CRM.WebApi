@@ -7,13 +7,13 @@ namespace CRM.EntityFramework.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class photos : IMigrationMetadata
+    public sealed partial class place_id_field : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(photos));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(place_id_field));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709090829271_photos"; }
+            get { return "201709230430134_place_id_field"; }
         }
         
         string IMigrationMetadata.Source
