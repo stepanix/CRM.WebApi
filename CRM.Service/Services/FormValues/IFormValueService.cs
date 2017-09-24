@@ -14,6 +14,7 @@ namespace CRM.Service.Services.FormValues
         Task<IEnumerable<FormValueModel>> GetFormValuesAsync(DateTime dateFrom, DateTime dateTo, string rep,int place);
         Task<FormValueModel> GetFormValueAsync(int id);
         Task<FormValueModel> InsertFormValueAsync(FormValueModel formValue);
+        Task<IEnumerable<FormValueModel>> InsertFormValueListAsync(IEnumerable<FormValueModel> formValue);
         Task<FormValueModel> UpdateFormValueAsync(FormValueModel formValue);
         void DeleteFormValue(int id);
     }

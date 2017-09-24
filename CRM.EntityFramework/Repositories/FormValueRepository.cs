@@ -102,6 +102,12 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public IEnumerable<FormValue> InsertFormValueList(IEnumerable<FormValue> formValues)
+        {
+            GetDataContext().FormValues.AddRange(formValues);
+            return formValues;
+        }
+
         public Task<FormValue> UpdateFormValue(FormValue formValue)
         {
             throw new NotImplementedException();

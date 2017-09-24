@@ -7,6 +7,7 @@ using CRM.Service.Services.FormValues;
 using CRM.WebApi.Controllers.Base;
 using CRM.WebApi.Dto.FormValues.In;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -34,6 +35,19 @@ namespace CRM.WebApi.Controllers
             }
 
             var created = await formValueService.InsertFormValueAsync(mapper.Map<FormValueModel>(formValue));
+            return Ok(created);
+        }
+
+        [HttpPost]
+        [Route("List")]
+        public async Task<IHttpActionResult> CreateList([FromBody]IEnumerable<FormValueDtoIn> formValues)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var created = await formValueService.InsertFormValueListAsync(mapper.Map<IEnumerable<FormValueModel>>(formValues));
             return Ok(created);
         }
 

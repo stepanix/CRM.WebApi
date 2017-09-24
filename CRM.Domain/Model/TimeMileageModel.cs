@@ -13,8 +13,8 @@ namespace CRM.Domain.Model
         public DateTime StartTime { get; set; }
         public DateTime? EndTime { get; set; }
         public double Duration { get; set; }
-        public double Mileage { get; set; }        
-        public string CreatorUserId { get; set; }        
+        public double Mileage { get; set; }
+        public string CreatorUserId { get; set; }
         public string LastModifierUserId { get; set; }
         public int TenantId { get; set; }
         public DateTime AddedDate { get; set; }

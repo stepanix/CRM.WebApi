@@ -5,7 +5,7 @@ namespace CRM.EntityFramework.Migrations
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
     
-    public partial class place_id_field : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {

@@ -64,9 +64,9 @@
   <ItemGroup>
     <Compile Include="DataContext.cs" />
     <Compile Include="DataContextExecutionStrategy.cs" />
-    <Compile Include="Migrations\201709230430134_place_id_field.cs" />
-    <Compile Include="Migrations\201709230430134_place_id_field.Designer.cs">
-      <DependentUpon>201709230430134_place_id_field.cs</DependentUpon>
+    <Compile Include="Migrations\201709230549272_init.cs" />
+    <Compile Include="Migrations\201709230549272_init.Designer.cs">
+      <DependentUpon>201709230549272_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,8 +100,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709230430134_place_id_field.resx">
-      <DependentUpon>201709230430134_place_id_field.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709230549272_init.resx">
+      <DependentUpon>201709230549272_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

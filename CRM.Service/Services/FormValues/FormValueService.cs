@@ -54,6 +54,31 @@ namespace CRM.Service.Services.FormValues
             return mapper.Map<FormValueModel>(newFormValue);
         }
 
+        public async Task<IEnumerable<FormValueModel>> InsertFormValueListAsync(IEnumerable<FormValueModel> formValues)
+        {
+            var user = await userRepository.GetUser();
+
+            List<FormValueModel> formValueList = new List<FormValueModel>();
+
+            foreach (var formValue in formValues)
+            {
+                var formValueVar = new FormValueModel
+                {
+                    PlaceId = formValue.PlaceId,
+                    ScheduleId = formValue.ScheduleId,
+                    FormId = formValue.FormId,
+                    AddedDate = DateTime.Now,
+                    TenantId = user.TenantId,
+                    CreatorUserId = requestIdentityProvider.UserId,
+                    LastModifierUserId = requestIdentityProvider.UserId
+                };
+                formValueList.Add(formValueVar);
+            }
+            formValueRepository.InsertFormValueList(mapper.Map<IEnumerable<FormValue>>(formValueList));
+            await formValueRepository.SaveChangesAsync();
+            return formValueList;
+        }
+
         public async Task<FormValueModel> UpdateFormValueAsync(FormValueModel formValue)
         {
             var formValueForUpdate = await formValueRepository.GetAsync(formValue.Id);
@@ -89,5 +114,7 @@ namespace CRM.Service.Services.FormValues
         {
             return mapper.Map<IEnumerable<FormValueModel>>(await formValueRepository.GetFormValues(dateFrom, dateTo, rep,place));
         }
+
+        
     }
 }
