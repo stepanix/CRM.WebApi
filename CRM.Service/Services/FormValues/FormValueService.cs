@@ -67,6 +67,7 @@ namespace CRM.Service.Services.FormValues
                     PlaceId = formValue.PlaceId,
                     ScheduleId = formValue.ScheduleId,
                     FormId = formValue.FormId,
+                    FormFieldValues = formValue.FormFieldValues,
                     AddedDate = DateTime.Now,
                     TenantId = user.TenantId,
                     CreatorUserId = requestIdentityProvider.UserId,
