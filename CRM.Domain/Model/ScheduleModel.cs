@@ -6,6 +6,7 @@ namespace CRM.Domain.Model
     public class ScheduleModel
     {
         public int Id { get; set; }
+        public string SyncId { get; set; }
         public int PlaceId { get; set; }
         public PlaceModel Place { get; set; }
         public string UserId { get; set; }

@@ -5,6 +5,7 @@ using CRM.Service.Services.Schedules;
 using CRM.WebApi.Controllers.Base;
 using CRM.WebApi.Dto.Schedules.In;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -32,6 +33,19 @@ namespace CRM.WebApi.Controllers
             }
 
             var created = await scheduleService.InsertScheduleAsync(mapper.Map<ScheduleModel>(schedule));
+            return Ok(created);
+        }
+
+        [HttpPost]
+        [Route("List")]
+        public async Task<IHttpActionResult> CreateList([FromBody]IEnumerable<ScheduleDtoIn> schedules)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var created = await scheduleService.InsertScheduleListAsync(mapper.Map<IEnumerable<ScheduleModel>>(schedules));
             return Ok(created);
         }
 

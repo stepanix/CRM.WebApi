@@ -5,6 +5,7 @@ namespace CRM.WebApi.Dto.Schedules.In
     public class ScheduleDtoIn
     {
         public int Id { get; set; }
+        public string SyncId { get; set; }
         public int PlaceId { get; set; }
         public string UserId { get; set; }
         public DateTime VisitDate { get; set; }

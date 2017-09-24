@@ -129,6 +129,12 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Schedule> InsertScheduleList(IEnumerable<Schedule> schedules)
+        {
+            GetDataContext().Schedules.AddRange(schedules);
+            return schedules;
+        }
+
         public Task<Schedule> UpdateSchedule(Schedule schedule)
         {
             throw new NotImplementedException();

@@ -16,6 +16,7 @@ namespace CRM.Service.Services.Schedules
         Task<IEnumerable<ScheduleModel>> GetMySchedulesAsync(DateTime scheduleDate);
         Task<ScheduleModel> GetScheduleAsync(int id);
         Task<ScheduleModel> InsertScheduleAsync(ScheduleModel schedule);
+        Task<IEnumerable<ScheduleModel>> InsertScheduleListAsync(IEnumerable<ScheduleModel> schedule);
         Task<ScheduleModel> UpdateScheduleAsync(ScheduleModel shedule);
         void DeleteSchedule(int id);
     }
