@@ -6,7 +6,8 @@ namespace CRM.Domain.Model
 {
     public class FormValueModel
     {
-        public int Id { get; set; }        
+        public int Id { get; set; }
+        public string SyncId { get; set; }
         public int PlaceId { get; set; }
         public PlaceModel Place { get; set; }
         public int FormId { get; set; }

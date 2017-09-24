@@ -64,6 +64,7 @@ namespace CRM.Service.Services.FormValues
             {
                 var formValueVar = new FormValueModel
                 {
+                    SyncId = formValue.SyncId,
                     PlaceId = formValue.PlaceId,
                     ScheduleId = formValue.ScheduleId,
                     FormId = formValue.FormId,
@@ -77,7 +78,7 @@ namespace CRM.Service.Services.FormValues
             }
             var newFormValueList = formValueRepository.InsertFormValueList(mapper.Map<IEnumerable<FormValue>>(formValueList));
             await formValueRepository.SaveChangesAsync();
-            return mapper.Map<IEnumerable<FormValueModel>>(newFormValueList);
+            return formValueList;
         }
 
         public async Task<FormValueModel> UpdateFormValueAsync(FormValueModel formValue)
