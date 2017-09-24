@@ -75,9 +75,9 @@ namespace CRM.Service.Services.FormValues
                 };
                 formValueList.Add(formValueVar);
             }
-            formValueRepository.InsertFormValueList(mapper.Map<IEnumerable<FormValue>>(formValueList));
+            var newFormValueList = formValueRepository.InsertFormValueList(mapper.Map<IEnumerable<FormValue>>(formValueList));
             await formValueRepository.SaveChangesAsync();
-            return formValueList;
+            return mapper.Map<IEnumerable<FormValueModel>>(newFormValueList);
         }
 
         public async Task<FormValueModel> UpdateFormValueAsync(FormValueModel formValue)

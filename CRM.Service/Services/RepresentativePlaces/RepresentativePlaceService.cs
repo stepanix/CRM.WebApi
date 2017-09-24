@@ -76,9 +76,9 @@ namespace CRM.Service.Services.RepresentativePlaces
                 repPlaceList.Add(repPlaceVar);
             }
 
-            representativePlaceRepository.InsertRepresentativePlaceList(mapper.Map<IEnumerable<RepresentativePlace>>(repPlaceList));
+            var newRepresentativePlace = representativePlaceRepository.InsertRepresentativePlaceList(mapper.Map<IEnumerable<RepresentativePlace>>(repPlaceList));
             await representativePlaceRepository.SaveChangesAsync();
-            return repPlaceList;
+            return mapper.Map<IEnumerable<RepresentativePlaceModel>>(newRepresentativePlace);
         }
 
         public async Task<RepresentativePlaceModel> UpdateRepresentativePlaceAsync(RepresentativePlaceModel representativePlace)
