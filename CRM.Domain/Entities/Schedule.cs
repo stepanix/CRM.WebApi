@@ -49,5 +49,6 @@ namespace CRM.Domain.Entities
         public string VisitStatus { get; set; }
         public DateTime? CheckInTime { get; set; }
         public DateTime? CheckOutTime { get; set; }
+        public  string RepoId { get; set; }
     }
 }

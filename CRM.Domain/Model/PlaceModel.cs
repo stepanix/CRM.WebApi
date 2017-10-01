@@ -25,5 +25,6 @@ namespace CRM.Domain.Model
         public string CreatorUserId { get; set; }
         public string LastModifierUserId { get; set; }
         public int TenantId { get; set; }
+        public string RepoId { get; set; }
     }
 }

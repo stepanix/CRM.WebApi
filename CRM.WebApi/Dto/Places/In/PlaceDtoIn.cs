@@ -16,5 +16,6 @@ namespace CRM.WebApi.Dto.Places.In
         public string Comment { get; set; }
         public decimal? Latitude { get; set; }
         public decimal? Longitude { get; set; }
+        public string RepoId { get; set; }
     }
 }

@@ -8,5 +8,7 @@ namespace CRM.WebApi.Dto.Notes.In
         public int PlaceId { get; set; }
         public string Description { get; set; }
         public int ScheduleId { get; set; }
+        public string PlaceRepoId { get; set; }
+        public string ScheduleRepoId { get; set; }
     }
 }

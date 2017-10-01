@@ -10,5 +10,7 @@ namespace CRM.WebApi.Dto.ProductretailAudits.In
         public string RetailAuditFormFieldValues { get; set; }
         public bool IsSaved { get; set; }
         public int ScheduleId { get; set; }
+        public string PlaceRepoId { get; set; }
+        public string ScheduleRepoId { get; set; }
     }
 }

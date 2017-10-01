@@ -11,5 +11,6 @@ namespace CRM.WebApi.Dto.TimeMileages.In
         public DateTime? EndTime { get; set; }
         public double Duration { get; set; }
         public double Mileage { get; set; }
+        public string RepoId { get; set; }
     }
 }
