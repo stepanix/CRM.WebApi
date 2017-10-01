@@ -11,7 +11,7 @@ namespace CRM.WebApi.Dto.Schedules.In
         public DateTime VisitDate { get; set; }
         public DateTime? VisitTime { get; set; }
         public string VisitNote { get; set; }
-        public bool IsRecurring { get; set; }
+        public bool IsRepeat { get; set; }
         public int? RepeatCycle { get; set; }
         public bool IsVisited { get; set; }
         public bool IsScheduled { get; set; }

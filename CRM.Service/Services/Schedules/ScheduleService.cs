@@ -107,18 +107,7 @@ namespace CRM.Service.Services.Schedules
             return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(dateFrom, dateTo, rep, place));
         }
 
-        private async Task<bool> ScheduleExists(ScheduleModel schedule)
-        {
-           var scheduleVar =  await scheduleRepository.GetSchedule(schedule.Id);
-            if(scheduleVar != null)
-            {
-                return true;
-            }else
-            {
-                return false;
-            }
-        }
-
+        
         public async Task<IEnumerable<ScheduleModel>> InsertScheduleListAsync(IEnumerable<ScheduleModel> schedules)
         {
             var user = await userRepository.GetUser();
@@ -127,7 +116,8 @@ namespace CRM.Service.Services.Schedules
 
             foreach (var schedule in schedules)
             {
-                if(await ScheduleExists(schedule) == false)
+               
+                if(schedule.Id == 0)
                 {
                     var scheduleVar = new ScheduleModel
                     {
@@ -157,7 +147,8 @@ namespace CRM.Service.Services.Schedules
                 }
                 else
                 {
-                   await UpdateScheduleAsync(schedule);
+                    scheduleList.Add(schedule);
+                    await UpdateScheduleAsync(schedule);
                 }
             }
             return scheduleList;
