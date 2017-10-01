@@ -121,6 +121,7 @@ namespace CRM.Service.Services.Schedules
                 {
                     var scheduleVar = new ScheduleModel
                     {
+                        RepoId = schedule.SyncId,
                         SyncId = schedule.SyncId,
                         PlaceId = schedule.PlaceId,
                         CheckInTime = schedule.CheckInTime,
