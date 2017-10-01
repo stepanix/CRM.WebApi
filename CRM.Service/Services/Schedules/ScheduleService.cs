@@ -107,43 +107,64 @@ namespace CRM.Service.Services.Schedules
             return mapper.Map<IEnumerable<ScheduleModel>>(await scheduleRepository.GetSchedules(dateFrom, dateTo, rep, place));
         }
 
+        private async Task<bool> ScheduleExists(ScheduleModel schedule)
+        {
+           var scheduleVar =  await scheduleRepository.GetSchedule(schedule.Id);
+            if(scheduleVar != null)
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
+
         public async Task<IEnumerable<ScheduleModel>> InsertScheduleListAsync(IEnumerable<ScheduleModel> schedules)
         {
-           
             var user = await userRepository.GetUser();
 
             List<ScheduleModel> scheduleList = new List<ScheduleModel>();
 
             foreach (var schedule in schedules)
             {
-                var scheduleVar = new ScheduleModel
+                if(await ScheduleExists(schedule) == false)
                 {
-                    SyncId = schedule.SyncId,
-                    PlaceId = schedule.PlaceId,
-                    CheckInTime = schedule.CheckInTime,
-                    CheckOutTime = schedule.CheckOutTime,
-                    IsMissed = schedule.IsMissed,
-                    IsRepeat = schedule.IsRepeat,
-                    IsUnScheduled = schedule.IsUnScheduled,
-                    IsVisited = schedule.IsVisited,
-                    RepeatCycle = schedule.RepeatCycle,
-                    UserId = schedule.UserId,
-                    VisitDate = schedule.VisitDate,
-                    VisitNote = schedule.VisitNote,
-                    VisitTime = schedule.VisitTime,
-                    VisitStatus = schedule.VisitStatus,
-                    IsScheduled = schedule.IsScheduled,
-                    AddedDate = DateTime.Now,
-                    TenantId = user.TenantId,
-                    CreatorUserId = requestIdentityProvider.UserId,
-                    LastModifierUserId = requestIdentityProvider.UserId
-                };
-                scheduleList.Add(scheduleVar);
+                    var scheduleVar = new ScheduleModel
+                    {
+                        SyncId = schedule.SyncId,
+                        PlaceId = schedule.PlaceId,
+                        CheckInTime = schedule.CheckInTime,
+                        CheckOutTime = schedule.CheckOutTime,
+                        IsMissed = schedule.IsMissed,
+                        IsRepeat = schedule.IsRepeat,
+                        IsUnScheduled = schedule.IsUnScheduled,
+                        IsVisited = schedule.IsVisited,
+                        RepeatCycle = schedule.RepeatCycle,
+                        UserId = schedule.UserId,
+                        VisitDate = schedule.VisitDate,
+                        VisitNote = schedule.VisitNote,
+                        VisitTime = schedule.VisitTime,
+                        VisitStatus = schedule.VisitStatus,
+                        IsScheduled = schedule.IsScheduled,
+                        AddedDate = DateTime.Now,
+                        TenantId = user.TenantId,
+                        CreatorUserId = requestIdentityProvider.UserId,
+                        LastModifierUserId = requestIdentityProvider.UserId
+                    };
+                    scheduleList.Add(scheduleVar);
+                    var newScheduleList = scheduleRepository.InsertScheduleList(mapper.Map<IEnumerable<Schedule>>(scheduleList));
+                    await scheduleRepository.SaveChangesAsync();
+                }
+                else
+                {
+                   await UpdateScheduleAsync(schedule);
+                }
             }
-            var newScheduleList = scheduleRepository.InsertScheduleList(mapper.Map<IEnumerable<Schedule>>(scheduleList));
-            await scheduleRepository.SaveChangesAsync();
             return scheduleList;
-        
         }
     }
+
+    
+
+
 }
