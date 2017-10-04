@@ -72,7 +72,7 @@ namespace CRM.WebApi.Providers
 
             string fullName = user.FirstName + " " + user.Surname;
 
-            AuthenticationProperties properties = CreateProperties(user.UserName, rolesString,user.TenantId.ToString(), fullName);
+            AuthenticationProperties properties = CreateProperties(user.UserName, rolesString,user.TenantId.ToString(), fullName,user.Id);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -114,10 +114,11 @@ namespace CRM.WebApi.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string username, string roles,string tenantid,string fullname)
+        public static AuthenticationProperties CreateProperties(string username, string roles,string tenantid,string fullname,string userid)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
+                { "userid", userid },
                 { "fullname", fullname },
                 { "username", username },
                 { "roles", roles },

@@ -116,12 +116,11 @@ namespace CRM.Service.Services.Schedules
 
             foreach (var schedule in schedules)
             {
-               
                 if(schedule.Id == 0)
                 {
                     var scheduleVar = new ScheduleModel
                     {
-                        RepoId = schedule.SyncId,
+                        RepoId = schedule.RepoId,
                         SyncId = schedule.SyncId,
                         PlaceId = schedule.PlaceId,
                         CheckInTime = schedule.CheckInTime,
