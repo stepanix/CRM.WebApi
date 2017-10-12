@@ -7,6 +7,7 @@ namespace CRM.Domain.Repositories
 {
     public interface IScheduleRepository : IBaseRepository<Schedule>
     {
+        Task<IEnumerable<Schedule>> GetNewSchedules();
         Task<IEnumerable<Schedule>> GetSchedules();
         Task<IEnumerable<Schedule>> GetMissedSchedules();
         Task<IEnumerable<Schedule>> GetSchedules(bool isVisited,bool isScheduled,bool isUnScheduled,bool isMissed);

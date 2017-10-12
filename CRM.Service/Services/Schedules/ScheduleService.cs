@@ -142,7 +142,7 @@ namespace CRM.Service.Services.Schedules
                         LastModifierUserId = requestIdentityProvider.UserId
                     };
                     scheduleList.Add(scheduleVar);
-                    var newScheduleList = scheduleRepository.InsertScheduleList(mapper.Map<IEnumerable<Schedule>>(scheduleList));
+                    var newScheduleList = scheduleRepository.InsertAsync(mapper.Map<Schedule>(scheduleVar));
                     await scheduleRepository.SaveChangesAsync();
                 }
                 else

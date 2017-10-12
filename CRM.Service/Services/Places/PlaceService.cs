@@ -95,5 +95,43 @@ namespace CRM.Service.Services.Places
         {
             return mapper.Map<IEnumerable<PlaceModel>>(await placeRepository.GetPlaces(dateFrom, dateTo,rep, place));
         }
+
+        public async Task<IEnumerable<PlaceModel>> InsertPlaceListAsync(IEnumerable<PlaceModel> places)
+        {
+            var user = await userRepository.GetUser();
+
+            List<PlaceModel> placeList = new List<PlaceModel>();
+
+            foreach (var place in places)
+            {
+                if (place.Id == 0)
+                {
+                    var placeVar = new PlaceModel
+                    {
+                        RepoId = place.RepoId,
+                        Name = place.Name,
+                        StatusId = place.StatusId,
+                        StreetAddress = place.StreetAddress,
+                        Latitude = place.Latitude,
+                        Longitude = place.Longitude,
+                        WebSite = place.WebSite,
+                        Phone = place.Phone,
+                        CellPhone = place.CellPhone,
+                        Comment = place.Comment,
+                        ContactName = place.ContactName,
+                        ContactTitle = place.ContactTitle,
+                        Email = place.Email,
+                        AddedDate = DateTime.Now,
+                        TenantId = user.TenantId,
+                        CreatorUserId = requestIdentityProvider.UserId,
+                        LastModifierUserId = requestIdentityProvider.UserId
+                    };
+                    placeList.Add(placeVar);
+                    var newPlaceList = placeRepository.InsertPlaceList(mapper.Map<IEnumerable<Place>>(placeList));
+                    await placeRepository.SaveChangesAsync();
+                }
+            }
+            return placeList;
+        }
     }
 }

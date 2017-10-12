@@ -1,8 +1,6 @@
 ﻿using CRM.Domain.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CRM.Service.Services.Places
@@ -16,6 +14,7 @@ namespace CRM.Service.Services.Places
         Task<IEnumerable<PlaceModel>> GetPlacesAsync(DateTime dateFrom, DateTime dateTo,string rep, int place);
         Task<PlaceModel> GetPlaceAsync(int id);
         Task<PlaceModel> InsertPlaceAsync(PlaceModel place);
+        Task<IEnumerable<PlaceModel>> InsertPlaceListAsync(IEnumerable<PlaceModel> place);
         Task<PlaceModel> UpdatePlaceAsync(PlaceModel place);
         void DeletePlace(int id);
     }

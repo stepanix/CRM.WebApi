@@ -9,6 +9,7 @@ using CRM.Domain.Model;
 using System.Threading.Tasks;
 using CRM.WebApi.Dto.Places.In;
 using System;
+using System.Collections.Generic;
 
 namespace CRM.WebApi.Controllers
 {
@@ -47,6 +48,19 @@ namespace CRM.WebApi.Controllers
             }
 
             var created = await placeService.UpdatePlaceAsync(mapper.Map<PlaceModel>(place));
+            return Ok(created);
+        }
+
+        [HttpPost]
+        [Route("List")]
+        public async Task<IHttpActionResult> CreateList([FromBody]IEnumerable<PlaceDtoIn> places)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var created = await placeService.InsertPlaceListAsync(mapper.Map<IEnumerable<PlaceModel>>(places));
             return Ok(created);
         }
 

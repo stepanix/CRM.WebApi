@@ -75,6 +75,12 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Place> InsertPlaceList(IEnumerable<Place> places)
+        {
+            GetDataContext().Places.AddRange(places);
+            return places;
+        }
+
         public Task<Place> UpdatePlace(Place place)
         {
             throw new NotImplementedException();

@@ -43,6 +43,17 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
+        public async Task<IEnumerable<Schedule>> GetNewSchedules()
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .Schedules
+               .Where(t => t.TenantId == user.TenantId && t.IsDeleted == false)
+               .Include(p => p.Place)
+               .Include(u => u.User)
+               .ToListAsync();
+        }
+
         public async Task<Schedule> GetSchedule(int id)
         {
             return await GetDataContext()

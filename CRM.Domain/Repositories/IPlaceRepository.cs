@@ -15,6 +15,7 @@ namespace CRM.Domain.Repositories
         Task<IEnumerable<Place>> GetPlaces(DateTime dateFrom, DateTime dateTo, int place);
         Task<Place> GetPlace(int id);
         Task<Place> InsertPlace(Place place);
+        IEnumerable<Place> InsertPlaceList(IEnumerable<Place> places);
         Task<Place> UpdatePlace(Place place);
         void DeletePlace(int id);
     }
