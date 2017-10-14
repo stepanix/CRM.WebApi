@@ -16,6 +16,7 @@ namespace CRM.Service.Services.Photos
         Task<IEnumerable<PhotoModel>> GetPhotosAsync(DateTime dateFrom, DateTime dateTo, string rep,int place);
         Task<PhotoModel> GetPhotoAsync(int id);
         Task<PhotoModel> InsertPhotoAsync(PhotoModel photo);
+        Task<IEnumerable<PhotoModel>> InsertPhotoList(IEnumerable<PhotoModel> photos);
         Task<PhotoModel> UpdatePhotoAsync(PhotoModel photo);
         void DeletePhoto(int id);
     }

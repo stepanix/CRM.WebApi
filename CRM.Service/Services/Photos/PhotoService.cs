@@ -86,5 +86,32 @@ namespace CRM.Service.Services.Photos
         {
             return mapper.Map<IEnumerable<PhotoModel>>(await photoRepository.GetPhotos(dateFrom, dateTo,rep,place));
         }
+
+        public async Task<IEnumerable<PhotoModel>> InsertPhotoList(IEnumerable<PhotoModel> photos)
+        {
+            var user = await userRepository.GetUser();
+
+            List<PhotoModel> photoList = new List<PhotoModel>();
+
+            foreach (var photo in photos)
+            {
+                var photoVar = new PhotoModel
+                {
+                    SyncId = photo.SyncId,
+                    PlaceId = photo.PlaceId,
+                    ScheduleId = photo.ScheduleId,
+                    Note = photo.Note,
+                    PictureUrl = photo.PictureUrl,
+                    AddedDate = DateTime.Now,
+                    TenantId = user.TenantId,
+                    CreatorUserId = requestIdentityProvider.UserId,
+                    LastModifierUserId = requestIdentityProvider.UserId
+                };
+                photoList.Add(photoVar);
+            }
+            var newPhotoList = photoRepository.InsertPhotoList(mapper.Map<IEnumerable<Photo>>(photoList));
+            await photoRepository.SaveChangesAsync();
+            return photoList;
+        }
     }
 }

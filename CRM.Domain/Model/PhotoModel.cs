@@ -7,6 +7,7 @@ namespace CRM.Domain.Model
     public class PhotoModel
     {
         public int Id { get; set; }
+        public string SyncId { get; set; }
         public string PictureUrl { get; set; }
         public string Note { get; set; }
         public int PlaceId { get; set; }

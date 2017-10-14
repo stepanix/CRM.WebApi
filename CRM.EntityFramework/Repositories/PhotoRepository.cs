@@ -93,7 +93,13 @@ namespace CRM.EntityFramework.Repositories
                .ToListAsync();
         }
 
-        public Task<Photo> InsertPhoto(Photo place)
+        public IEnumerable<Photo> InsertPhotoList(IEnumerable<Photo> photos)
+        {
+            GetDataContext().Photos.AddRange(photos);
+            return photos;
+        }
+
+        public Task<Photo> InsertPhoto(Photo photo)
         {
             throw new NotImplementedException();
         }

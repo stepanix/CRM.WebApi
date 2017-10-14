@@ -7,6 +7,7 @@ using CRM.Service.Services.Photos;
 using CRM.WebApi.Controllers.Base;
 using CRM.WebApi.Dto.Photos.In;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -34,6 +35,19 @@ namespace CRM.WebApi.Controllers
             }
 
             var created = await photoService.InsertPhotoAsync(mapper.Map<PhotoModel>(photo));
+            return Ok(created);
+        }
+
+        [HttpPost]
+        [Route("List")]
+        public async Task<IHttpActionResult> CreateList([FromBody]IEnumerable<PhotoDtoIn> photos)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var created = await photoService.InsertPhotoList(mapper.Map<IEnumerable<PhotoModel>>(photos));
             return Ok(created);
         }
 
