@@ -98,6 +98,11 @@ namespace CRM.Service.Services.ProductRetailAudits
             {
                 var productRetailVar = new ProductRetailAuditModel
                 {
+                    Available = productRetailAudit.Available,
+                    Promoted = productRetailAudit.Promoted,
+                    Price = productRetailAudit.Price,
+                    StockLevel = productRetailAudit.StockLevel,
+                    Note = productRetailAudit.Note,
                     SyncId = productRetailAudit.SyncId,
                     PlaceId = productRetailAudit.PlaceId,
                     ScheduleId = productRetailAudit.ScheduleId,
