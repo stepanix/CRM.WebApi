@@ -36,4 +36,3 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\bin\Debug\Microsoft.AspNet.Id
 C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\obj\Debug\CRM.Domain.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\obj\Debug\CRM.Domain.pdb
-C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\obj\Debug\CRM.Domain.csprojResolveAssemblyReference.cache
