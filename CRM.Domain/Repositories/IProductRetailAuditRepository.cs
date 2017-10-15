@@ -14,6 +14,7 @@ namespace CRM.Domain.Repositories
         Task<IEnumerable<ProductRetailAudit>> GetProductRetailAudits(DateTime dateFrom, DateTime dateTo, int place);
         Task<ProductRetailAudit> GetProductRetailAudit(int id);
         Task<ProductRetailAudit> InsertProductRetailAudit(ProductRetailAudit productRetailAudit);
+        IEnumerable<ProductRetailAudit> InsertProductRetailAuditList(IEnumerable<ProductRetailAudit> productRetailAudits);
         Task<ProductRetailAudit> UpdateProductRetailAudit(ProductRetailAudit productRetailAudit);
         void DeleteProductRetailAudit(int id);
     }

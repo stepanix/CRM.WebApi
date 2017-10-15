@@ -87,5 +87,32 @@ namespace CRM.Service.Services.ProductRetailAudits
         {
             return mapper.Map<IEnumerable<ProductRetailAuditModel>>(await productRetailAuditRepository.GetProductRetailAudits(dateFrom, dateTo, rep, place));
         }
+
+        public async Task<IEnumerable<ProductRetailAuditModel>> InsertProductRetailAuditListAsync(IEnumerable<ProductRetailAuditModel> productRetailAudits)
+        {
+            var user = await userRepository.GetUser();
+
+            List<ProductRetailAuditModel> productRetailList = new List<ProductRetailAuditModel>();
+
+            foreach (var productRetailAudit in productRetailAudits)
+            {
+                var productRetailVar = new ProductRetailAuditModel
+                {
+                    SyncId = productRetailAudit.SyncId,
+                    PlaceId = productRetailAudit.PlaceId,
+                    ScheduleId = productRetailAudit.ScheduleId,
+                    RetailAuditFormId = productRetailAudit.RetailAuditFormId,
+                    RetailAuditFormFieldValues = productRetailAudit.RetailAuditFormFieldValues,
+                    AddedDate = DateTime.Now,
+                    TenantId = user.TenantId,
+                    CreatorUserId = requestIdentityProvider.UserId,
+                    LastModifierUserId = requestIdentityProvider.UserId
+                };
+                productRetailList.Add(productRetailVar);
+            }
+            var newProductRetailAuditList = productRetailAuditRepository.InsertProductRetailAuditList(mapper.Map<IEnumerable<ProductRetailAudit>>(productRetailList));
+            await productRetailAuditRepository.SaveChangesAsync();
+            return productRetailList;
+        }
     }
 }

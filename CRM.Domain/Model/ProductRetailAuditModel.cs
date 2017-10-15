@@ -5,6 +5,7 @@ namespace CRM.Domain.Model
     public class ProductRetailAuditModel
     {
         public int Id { get; set; }
+        public string SyncId { get; set; }
         public int PlaceId { get; set; }
         public PlaceModel Place { get; set; }
         public int RetailAuditFormId { get; set; }

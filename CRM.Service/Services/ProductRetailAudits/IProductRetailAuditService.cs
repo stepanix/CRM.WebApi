@@ -15,6 +15,7 @@ namespace CRM.Service.Services.ProductRetailAudits
         Task<IEnumerable<ProductRetailAuditModel>> GetProductRetailAuditsAsync(DateTime dateFrom, DateTime dateTo,string rep, int place);
         Task<ProductRetailAuditModel> GetProductRetailAuditAsync(int id);
         Task<ProductRetailAuditModel> InsertProductRetailAuditAsync(ProductRetailAuditModel productRetailAudit);
+        Task<IEnumerable<ProductRetailAuditModel>> InsertProductRetailAuditListAsync(IEnumerable<ProductRetailAuditModel> formValue);
         Task<ProductRetailAuditModel> UpdateProductRetailAuditAsync(ProductRetailAuditModel productRetailAudit);
         void DeleteProductRetailAudit(int id);
     }

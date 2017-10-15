@@ -95,6 +95,12 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public IEnumerable<ProductRetailAudit> InsertProductRetailAuditList(IEnumerable<ProductRetailAudit> productRetailAudits)
+        {
+            GetDataContext().ProductRetailAudits.AddRange(productRetailAudits);
+            return productRetailAudits;
+        }
+
         public Task<ProductRetailAudit> UpdateProductRetailAudit(ProductRetailAudit productRetailAudit)
         {
             throw new NotImplementedException();
