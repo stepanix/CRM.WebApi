@@ -88,5 +88,31 @@ namespace CRM.Service.Services.Notes
         {
             return mapper.Map<IEnumerable<NoteModel>>(await noteRepository.GetNotes(dateFrom, dateTo, rep, place));
         }
+
+        public async Task<IEnumerable<NoteModel>> InsertNoteListAsync(IEnumerable<NoteModel> notes)
+        {
+            var user = await userRepository.GetUser();
+
+            List<NoteModel> noteList = new List<NoteModel>();
+
+            foreach (var note in notes)
+            {
+                var noteVar = new NoteModel
+                {
+                    SyncId = note.SyncId,
+                    PlaceId = note.PlaceId,
+                    ScheduleId = note.ScheduleId,
+                    Description = note.Description,                    
+                    AddedDate = DateTime.Now,
+                    TenantId = user.TenantId,
+                    CreatorUserId = requestIdentityProvider.UserId,
+                    LastModifierUserId = requestIdentityProvider.UserId
+                };
+                noteList.Add(noteVar);
+            }
+            var newNoteList = noteRepository.InsertNoteList(mapper.Map<IEnumerable<Note>>(noteList));
+            await noteRepository.SaveChangesAsync();
+            return noteList;
+        }
     }
 }

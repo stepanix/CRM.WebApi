@@ -97,6 +97,12 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Note> InsertNoteList(IEnumerable<Note> notes)
+        {
+            GetDataContext().Notes.AddRange(notes);
+            return notes;
+        }
+
         public Task<Note> UpdateNote(Note note)
         {
             throw new NotImplementedException();

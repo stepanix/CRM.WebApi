@@ -5,6 +5,7 @@ using CRM.Service.Services.Notes;
 using CRM.WebApi.Controllers.Base;
 using CRM.WebApi.Dto.Notes.In;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -33,6 +34,19 @@ namespace CRM.WebApi.Controllers
             }
 
             var created = await noteService.InsertNoteAsync(mapper.Map<NoteModel>(note));
+            return Ok(created);
+        }
+
+        [HttpPost]
+        [Route("List")]
+        public async Task<IHttpActionResult> CreateList([FromBody]IEnumerable<NoteDtoIn> notes)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var created = await noteService.InsertNoteListAsync(mapper.Map<IEnumerable<NoteModel>>(notes));
             return Ok(created);
         }
 

@@ -14,6 +14,7 @@ namespace CRM.Domain.Repositories
         Task<IEnumerable<Note>> GetNotes(DateTime dateFrom, DateTime dateTo, int place);
         Task<Note> GetNote(int id);
         Task<Note> InsertNote(Note note);
+        IEnumerable<Note> InsertNoteList(IEnumerable<Note> notes);
         Task<Note> UpdateNote(Note note);
         void DeleteNote(int id);
     }
