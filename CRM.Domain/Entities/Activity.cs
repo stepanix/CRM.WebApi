@@ -1,5 +1,6 @@
 ﻿using CRM.Domain.Entity.Base;
 using CRM.Domain.Identity;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,5 +21,6 @@ namespace CRM.Domain.Entities
         [ForeignKey("Tenant")]
         public int TenantId { get; set; }
         public Tenant Tenant { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

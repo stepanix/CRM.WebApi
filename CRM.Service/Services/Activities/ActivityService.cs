@@ -41,6 +41,7 @@ namespace CRM.Service.Services.Activities
                 {
                     PlaceId = activity.PlaceId,
                     ActivityLog = activity.ActivityLog,
+                    DateCreated = activity.DateCreated,
                     AddedDate = DateTime.Now,
                     TenantId = user.TenantId,
                     UserId = requestIdentityProvider.UserId

@@ -14,5 +14,6 @@ namespace CRM.Domain.Model
         public int TenantId { get; set; }
         public TenantModel Tenant { get; set; }
         public DateTime AddedDate { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }
