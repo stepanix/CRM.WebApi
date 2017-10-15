@@ -267,6 +267,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\FormValueController.cs" />
@@ -288,6 +289,7 @@
     <Compile Include="Controllers\VisitLogController.cs" />
     <Compile Include="DtoMapperModule.cs" />
     <Compile Include="DtoMapperProfile.cs" />
+    <Compile Include="Dto\Activities\In\ActivityDtoIn.cs" />
     <Compile Include="Dto\Forms\In\FormDtoIn.cs" />
     <Compile Include="Dto\FormValues\In\FormValueDtoIn.cs" />
     <Compile Include="Dto\Notes\In\NoteDtoIn.cs" />
@@ -375,6 +377,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Activity\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\FormValue\" />
     <Folder Include="Views\Form\" />

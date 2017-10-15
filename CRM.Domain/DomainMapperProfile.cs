@@ -9,6 +9,7 @@ namespace CRM.Domain
     {
         public DomainMapperProfile()
         {
+            CreateMap<Activity, ActivityModel>().ReverseMap();
             CreateMap<Note, NoteModel>().ReverseMap();
             CreateMap<Photo, PhotoModel>().ReverseMap();
             CreateMap<TimeMileage, TimeMileageModel>().ReverseMap();
