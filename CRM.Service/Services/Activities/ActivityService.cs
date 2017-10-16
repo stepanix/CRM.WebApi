@@ -50,7 +50,7 @@ namespace CRM.Service.Services.Activities
             }
             var newActivityList = activityRepository.InsertActivityList(mapper.Map<IEnumerable<Activity>>(activityList));
             await activityRepository.SaveChangesAsync();
-            return activityList; throw new NotImplementedException();
+            return activityList;
         }
     }
 
