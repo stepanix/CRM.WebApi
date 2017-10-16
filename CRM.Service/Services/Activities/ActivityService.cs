@@ -39,6 +39,7 @@ namespace CRM.Service.Services.Activities
             {
                 var activityVar = new ActivityModel
                 {
+                    SyncId = activity.SyncId,
                     PlaceId = activity.PlaceId,
                     ActivityLog = activity.ActivityLog,
                     DateCreated = activity.DateCreated,

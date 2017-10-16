@@ -6,6 +6,7 @@ namespace CRM.Domain.Model
     public class ActivityModel
     {
         public int Id { get; set; }
+        public string SyncId { get; set; }
         public string UserId { get; set; }
         public UserModel User { get; set; }       
         public int PlaceId { get; set; }
