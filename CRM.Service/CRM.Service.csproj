@@ -53,6 +53,8 @@
     <Compile Include="Services\FormValues\IFormValueService.cs" />
     <Compile Include="Services\Notes\INoteService.cs" />
     <Compile Include="Services\Notes\NoteService.cs" />
+    <Compile Include="Services\Orders\IOrderService.cs" />
+    <Compile Include="Services\Orders\OrderService.cs" />
     <Compile Include="Services\Photos\IPhotoService.cs" />
     <Compile Include="Services\Photos\PhotoService.cs" />
     <Compile Include="Services\Places\IPlaceService.cs" />

@@ -4,6 +4,7 @@ using CRM.WebApi.Dto.Activities.In;
 using CRM.WebApi.Dto.Form.In;
 using CRM.WebApi.Dto.FormValues.In;
 using CRM.WebApi.Dto.Notes.In;
+using CRM.WebApi.Dto.Orders.In;
 using CRM.WebApi.Dto.Photos.In;
 using CRM.WebApi.Dto.Places.In;
 using CRM.WebApi.Dto.ProductretailAudits.In;
@@ -20,6 +21,7 @@ namespace CRM.WebApi
     {
         public DtoMapperProfile()
         {
+            CreateMap<OrderModel, OrderDtoIn>().ReverseMap();
             CreateMap<ActivityModel, ActivityDtoIn>().ReverseMap();
             CreateMap<PhotoModel, PhotoDtoIn>().ReverseMap();
             CreateMap<TimeMileageModel, TimeMileageDtoIn>().ReverseMap();

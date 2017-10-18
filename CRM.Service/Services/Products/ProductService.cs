@@ -59,6 +59,7 @@ namespace CRM.Service.Services.Products
 
             productForUpdate.ModifiedDate = DateTime.Now;
             productForUpdate.Name = product.Name;
+            productForUpdate.Price = product.Price;
             productForUpdate.TenantId = user.TenantId;
             productForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
             await productRepository.SaveChangesAsync();

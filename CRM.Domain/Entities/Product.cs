@@ -11,6 +11,7 @@ namespace CRM.Domain.Entities
         [Column(TypeName = "VARCHAR")]
         [StringLength(500)]
         public string Name { get; set; }
+        public double Price { get; set; }
         [Required]
         [ForeignKey("CreatorUser")]
         public string CreatorUserId { get; set; }

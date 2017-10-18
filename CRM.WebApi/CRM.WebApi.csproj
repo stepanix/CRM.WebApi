@@ -273,6 +273,7 @@
     <Compile Include="Controllers\FormValueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Controllers\PlaceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -293,6 +294,7 @@
     <Compile Include="Dto\Forms\In\FormDtoIn.cs" />
     <Compile Include="Dto\FormValues\In\FormValueDtoIn.cs" />
     <Compile Include="Dto\Notes\In\NoteDtoIn.cs" />
+    <Compile Include="Dto\Orders\In\OrderDtoIn.cs" />
     <Compile Include="Dto\Photos\In\PhotoDtoIn.cs" />
     <Compile Include="Dto\Places\In\PlaceDtoIn.cs" />
     <Compile Include="Dto\ProductretailAudits\In\ProductRetailAuditDtoIn.cs" />
@@ -382,6 +384,7 @@
     <Folder Include="Views\FormValue\" />
     <Folder Include="Views\Form\" />
     <Folder Include="Views\Note\" />
+    <Folder Include="Views\Order\" />
     <Folder Include="Views\Photo\" />
     <Folder Include="Views\Place\" />
     <Folder Include="Views\ProductRetailAudit\" />
