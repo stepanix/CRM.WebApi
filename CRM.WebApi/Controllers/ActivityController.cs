@@ -4,6 +4,7 @@ using CRM.Domain.RequestIdentity;
 using CRM.Service.Services.Activities;
 using CRM.WebApi.Controllers.Base;
 using CRM.WebApi.Dto.Activities.In;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -39,6 +40,14 @@ namespace CRM.WebApi.Controllers
         public async Task<IHttpActionResult> ReadAll()
         {
             var created = await activityService.GetActivitiesAsync();
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("Summary")]
+        public async Task<IHttpActionResult> ReadSummary(string userId, DateTime dateFrom,DateTime dateTo)
+        {
+            var created = await activityService.GetActivitiesAsync(userId, dateFrom, dateTo);
             return Ok(created);
         }
 

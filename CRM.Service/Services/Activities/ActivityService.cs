@@ -53,6 +53,11 @@ namespace CRM.Service.Services.Activities
             await activityRepository.SaveChangesAsync();
             return activityList;
         }
+
+        public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync(string userId, DateTime dateFrom, DateTime dateTo)
+        {
+            return mapper.Map<IEnumerable<ActivityModel>>(await activityRepository.GetActivities(userId, dateFrom, dateTo));
+        }
     }
 
 }
