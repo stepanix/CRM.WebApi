@@ -27,9 +27,9 @@ namespace CRM.Domain.Entities
         public double TaxRate { get; set; }
         public double TaxAmount { get; set; }
         public double TotalAmount { get; set; }
-        public DateTime OrderDate { get; set; }
-        public int DueDays { get; set; }
-        public DateTime DueDate { get; set; }
+        public DateTime? OrderDate { get; set; }
+        public int? DueDays { get; set; }
+        public DateTime? DueDate { get; set; }
         public string Note { get; set; }
         public string signature { get; set; }
         [Required]
