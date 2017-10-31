@@ -40,13 +40,3 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\bin\Debug\AutoMapper
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.csprojResolveAssemblyReference.cache
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.pdb
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.init.resources
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.csproj.GenerateResource.Cache
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.updates.resources
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.newfields.resources
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.activitytable.resources
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.newactivityfield.resources
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.orders.resources
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.modification.resources
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.orderitems.resources
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.removeproductid.resources
