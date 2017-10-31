@@ -9,9 +9,7 @@ namespace CRM.Domain.Model
         public int ScheduleId { get; set; }
         public ScheduleModel Schedule { get; set; }
         public int PlaceId { get; set; }
-        public PlaceModel Place { get; set; }
-        public int ProductId { get; set; }
-        public ProductModel Product { get; set; }
+        public PlaceModel Place { get; set; }       
         public int Quantity { get; set; }
         public double Amount { get; set; }
         public double DiscountRate { get; set; }

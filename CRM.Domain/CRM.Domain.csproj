@@ -75,6 +75,7 @@
     <Compile Include="Entities\FormValue.cs" />
     <Compile Include="Entities\Note.cs" />
     <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderItem.cs" />
     <Compile Include="Entities\Photo.cs" />
     <Compile Include="Entities\Place.cs" />
     <Compile Include="Entities\Product.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Model\FormModel.cs" />
     <Compile Include="Model\FormValueModel.cs" />
     <Compile Include="Model\NoteModel.cs" />
+    <Compile Include="Model\OrderItemModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
     <Compile Include="Model\PhotoModel.cs" />
     <Compile Include="Model\PlaceModel.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="Repositories\IFormRepository.cs" />
     <Compile Include="Repositories\IFormValueRepository.cs" />
     <Compile Include="Repositories\INoteRepository.cs" />
+    <Compile Include="Repositories\IOrderItemRepository.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
     <Compile Include="Repositories\IPhotoRepository.cs" />
     <Compile Include="Repositories\IPlaceRepository.cs" />

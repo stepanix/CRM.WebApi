@@ -6,9 +6,8 @@ namespace CRM.WebApi.Dto.Orders.In
     {
         public int Id { get; set; }
         public string SyncId { get; set; }
-        public int ScheduleId { get; set; }       
-        public int PlaceId { get; set; }        
-        public int ProductId { get; set; }
+        public int ScheduleId { get; set; }
+        public int PlaceId { get; set; }
         public int Quantity { get; set; }
         public double Amount { get; set; }
         public double DiscountRate { get; set; }

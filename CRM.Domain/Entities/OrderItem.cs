@@ -1,33 +1,22 @@
 ﻿using CRM.Domain.Entity.Base;
 using CRM.Domain.Identity;
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CRM.Domain.Entities
 {
-    public class Order : BaseEntity<int>
+    public class OrderItem : BaseEntity<int>
     {
         [Required]
-        [ForeignKey("Schedule")]
-        public int ScheduleId { get; set; }
-        public Schedule Schedule { get; set; }
+        [ForeignKey("Order")]
+        public int OrderId { get; set; }
+        public Order Order { get; set; }
         [Required]
-        [ForeignKey("Place")]
-        public int PlaceId { get; set; }
-        public Place Place { get; set; }
+        [ForeignKey("Product")]
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
         public int Quantity { get; set; }
         public double Amount { get; set; }
-        public double DiscountRate { get; set; }
-        public double DiscountAmount { get; set; }
-        public double TaxRate { get; set; }
-        public double TaxAmount { get; set; }
-        public double TotalAmount { get; set; }
-        public DateTime? OrderDate { get; set; }
-        public int? DueDays { get; set; }
-        public DateTime? DueDate { get; set; }
-        public string Note { get; set; }
-        public string signature { get; set; }
         [Required]
         [ForeignKey("CreatorUser")]
         public string CreatorUserId { get; set; }

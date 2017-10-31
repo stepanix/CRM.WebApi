@@ -22,6 +22,7 @@ namespace CRM.EntityFramework
             return new DataContext();
         }
 
+        public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Activity> Activities { get; set; }
         public virtual DbSet<Photo> Photos { get; set; }
