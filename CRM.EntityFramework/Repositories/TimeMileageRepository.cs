@@ -44,7 +44,7 @@ namespace CRM.EntityFramework.Repositories
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
                .TimeMileages
-               .Where(t => t.TenantId == user.TenantId && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo)
+               .Where(t => t.TenantId == user.TenantId && (DbFunctions.TruncateTime(t.DateCreated) >= dateFrom && DbFunctions.TruncateTime(t.DateCreated) <= dateTo)
                && t.CreatorUserId == rep)
                .Include(u=>u.CreatorUser)
                .ToListAsync();
