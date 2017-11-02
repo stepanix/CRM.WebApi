@@ -11,7 +11,7 @@ namespace CRM.Domain.Model
         public UserModel User { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime? EndTime { get; set; }
-        public double Duration { get; set; }
+        public string Duration { get; set; }
         public double Mileage { get; set; }
         public string CreatorUserId { get; set; }
         public string LastModifierUserId { get; set; }

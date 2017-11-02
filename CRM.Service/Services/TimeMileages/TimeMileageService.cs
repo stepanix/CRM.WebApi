@@ -58,11 +58,11 @@ namespace CRM.Service.Services.TimeMileages
 
             var timeMileageForUpdate = await timeMileageRepository.GetAsync(timeMileage.Id);
 
-            TimeSpan duration = DateTime.Now.Subtract(timeMileage.StartTime);
+            //TimeSpan duration = DateTime.Now.Subtract(timeMileage.StartTime);
 
             timeMileageForUpdate.ModifiedDate = DateTime.Now;
             timeMileageForUpdate.EndTime = timeMileage.EndTime;
-            timeMileageForUpdate.Duration = duration.TotalDays;
+            timeMileageForUpdate.Duration = timeMileage.Duration;
             timeMileageForUpdate.TenantId = user.TenantId;
             timeMileageForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
             await timeMileageRepository.SaveChangesAsync();

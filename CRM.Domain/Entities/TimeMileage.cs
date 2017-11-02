@@ -16,7 +16,7 @@ namespace CRM.Domain.Entities
         public User User { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime? EndTime { get; set; }
-        public double Duration { get; set; }
+        public string Duration { get; set; }
         public double Mileage { get; set; }
         [Required]
         [ForeignKey("CreatorUser")]
