@@ -61,7 +61,6 @@ namespace CRM.Service.Services.TimeMileages
             TimeSpan duration = DateTime.Now.Subtract(timeMileage.StartTime);
 
             timeMileageForUpdate.ModifiedDate = DateTime.Now;
-            timeMileageForUpdate.PlaceId = timeMileage.PlaceId;
             timeMileageForUpdate.EndTime = timeMileage.EndTime;
             timeMileageForUpdate.Duration = duration.TotalDays;
             timeMileageForUpdate.TenantId = user.TenantId;
@@ -86,7 +85,6 @@ namespace CRM.Service.Services.TimeMileages
                 var timeMileageVar = new TimeMileageModel
                 {
                     SyncId = timeMileage.SyncId,
-                    PlaceId = timeMileage.PlaceId,
                     StartTime =  timeMileage.StartTime,
                     EndTime = timeMileage.EndTime,
                     Duration = timeMileage.Duration,

@@ -9,8 +9,6 @@ namespace CRM.Domain.Model
         public string SyncId { get; set; }
         public string UserId { get; set; }
         public UserModel User { get; set; }
-        public int? PlaceId { get; set; }
-        public PlaceModel Place { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime? EndTime { get; set; }
         public double Duration { get; set; }
@@ -19,8 +17,7 @@ namespace CRM.Domain.Model
         public string LastModifierUserId { get; set; }
         public int TenantId { get; set; }
         public DateTime AddedDate { get; set; }
-        public DateTime? ModifiedDate { get; set; }
-        public string RepoId { get; set; }
+        public DateTime? ModifiedDate { get; set; }        
         public DateTime DateCreated { get; set; }
     }
 }

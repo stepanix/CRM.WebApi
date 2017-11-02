@@ -64,17 +64,9 @@
   <ItemGroup>
     <Compile Include="DataContext.cs" />
     <Compile Include="DataContextExecutionStrategy.cs" />
-    <Compile Include="Migrations\201711011159193_Initial.cs" />
-    <Compile Include="Migrations\201711011159193_Initial.Designer.cs">
-      <DependentUpon>201711011159193_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711020204418_datecreated.cs" />
-    <Compile Include="Migrations\201711020204418_datecreated.Designer.cs">
-      <DependentUpon>201711020204418_datecreated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711020341117_placeid.cs" />
-    <Compile Include="Migrations\201711020341117_placeid.Designer.cs">
-      <DependentUpon>201711020341117_placeid.cs</DependentUpon>
+    <Compile Include="Migrations\201711020350006_timemileagechange.cs" />
+    <Compile Include="Migrations\201711020350006_timemileagechange.Designer.cs">
+      <DependentUpon>201711020350006_timemileagechange.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,14 +103,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711011159193_Initial.resx">
-      <DependentUpon>201711011159193_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711020204418_datecreated.resx">
-      <DependentUpon>201711020204418_datecreated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711020341117_placeid.resx">
-      <DependentUpon>201711020341117_placeid.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711020350006_timemileagechange.resx">
+      <DependentUpon>201711020350006_timemileagechange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
