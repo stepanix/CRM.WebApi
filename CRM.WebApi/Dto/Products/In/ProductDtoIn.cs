@@ -7,5 +7,6 @@ namespace CRM.WebApi.Dto.Products.In
         public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
+        public string EanCode { get; set; }
     }
 }

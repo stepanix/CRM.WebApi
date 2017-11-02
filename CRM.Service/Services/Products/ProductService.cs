@@ -61,6 +61,7 @@ namespace CRM.Service.Services.Products
             productForUpdate.Name = product.Name;
             productForUpdate.Price = product.Price;
             productForUpdate.TenantId = user.TenantId;
+            productForUpdate.EanCode = product.EanCode;
             productForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
             await productRepository.SaveChangesAsync();
             return mapper.Map<ProductModel>(productForUpdate);

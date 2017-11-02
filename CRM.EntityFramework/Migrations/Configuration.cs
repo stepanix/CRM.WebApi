@@ -1,32 +1,19 @@
 namespace CRM.EntityFramework.Migrations
 {
     using Domain.Entities;
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+    using System;    
+    using System.Data.Entity.Migrations;    
 
     internal sealed class Configuration : DbMigrationsConfiguration<CRM.EntityFramework.DataContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            //AutomaticMigrationsEnabled = true;
+            //AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(CRM.EntityFramework.DataContext context)
-        {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+        {           
             context.QuestionTypes.AddOrUpdate(
               p => p.Name,
               new QuestionType { Name = "Short Text",AddedDate = DateTime.Today,IsDeleted = false },

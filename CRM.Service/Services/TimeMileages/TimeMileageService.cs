@@ -43,7 +43,6 @@ namespace CRM.Service.Services.TimeMileages
         public async Task<TimeMileageModel> InsertTimeMileageAsync(TimeMileageModel timeMileage)
         {
             var user = await userRepository.GetUser();
-
             timeMileage.AddedDate = DateTime.Now;
             timeMileage.TenantId = user.TenantId;
             timeMileage.CreatorUserId = requestIdentityProvider.UserId;
@@ -74,6 +73,34 @@ namespace CRM.Service.Services.TimeMileages
         public async Task<IEnumerable<TimeMileageModel>> GetTimeMileageAsync(DateTime dateFrom, DateTime dateTo, string rep)
         {
             return mapper.Map<IEnumerable<TimeMileageModel>>(await timeMileageRepository.GetTimeMileage(dateFrom, dateTo,rep));
+        }
+
+        public async Task<IEnumerable<TimeMileageModel>> InsertTimeMileageListAsync(IEnumerable<TimeMileageModel> timeMileages)
+        {
+            var user = await userRepository.GetUser();
+
+            List<TimeMileageModel> timeMileageList = new List<TimeMileageModel>();
+
+            foreach (var timeMileage in timeMileages)
+            {
+                var timeMileageVar = new TimeMileageModel
+                {
+                    SyncId = timeMileage.SyncId,
+                    PlaceId = timeMileage.PlaceId,
+                    StartTime =  timeMileage.StartTime,
+                    EndTime = timeMileage.EndTime,
+                    Duration = timeMileage.Duration,
+                    Mileage = timeMileage.Mileage,
+                    DateCreated = timeMileage.DateCreated,
+                    AddedDate = DateTime.Now,
+                    TenantId = user.TenantId,
+                    UserId = requestIdentityProvider.UserId
+                };
+                timeMileageList.Add(timeMileageVar);
+            }
+            var newActivityList = timeMileageRepository.InsertTimeMileageList(mapper.Map<IEnumerable<TimeMileage>>(timeMileageList));
+            await timeMileageRepository.SaveChangesAsync();
+            return timeMileageList;
         }
     }
 }

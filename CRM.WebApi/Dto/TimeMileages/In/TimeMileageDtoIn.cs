@@ -5,6 +5,7 @@ namespace CRM.WebApi.Dto.TimeMileages.In
     public class TimeMileageDtoIn
     {
         public int Id { get; set; }
+        public string SyncId { get; set; }
         public string UserId { get; set; }
         public int PlaceId { get; set; }
         public DateTime StartTime { get; set; }
@@ -12,5 +13,6 @@ namespace CRM.WebApi.Dto.TimeMileages.In
         public double Duration { get; set; }
         public double Mileage { get; set; }
         public string RepoId { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

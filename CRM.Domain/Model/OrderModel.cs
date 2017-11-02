@@ -30,5 +30,6 @@ namespace CRM.Domain.Model
         public TenantModel Tenant { get; set; }
         public DateTime AddedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
+        public string RepoId { get; set; }
     }
 }

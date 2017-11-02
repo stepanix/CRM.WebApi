@@ -69,6 +69,12 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public IEnumerable<TimeMileage> InsertTimeMileageList(IEnumerable<TimeMileage> timeMileages)
+        {
+            GetDataContext().TimeMileages.AddRange(timeMileages);
+            return timeMileages;
+        }
+
         public Task<TimeMileage> UpdateTimeMileage(TimeMileage timeMileage)
         {
             throw new NotImplementedException();

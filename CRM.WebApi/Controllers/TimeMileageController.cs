@@ -7,6 +7,7 @@ using CRM.WebApi.Dto.TimeMileages.In;
 using System.Threading.Tasks;
 using CRM.Domain.Model;
 using System;
+using System.Collections.Generic;
 
 namespace CRM.WebApi.Controllers
 {
@@ -35,6 +36,18 @@ namespace CRM.WebApi.Controllers
             return Ok(created);
         }
 
+        [HttpPost]
+        [Route("List")]
+        public async Task<IHttpActionResult> CreateList([FromBody]IEnumerable<TimeMileageDtoIn> timeMileages)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var created = await timeMileageService.InsertTimeMileageListAsync(mapper.Map<IEnumerable<TimeMileageModel>>(timeMileages));
+            return Ok(created);
+        }
 
         [HttpPut]
         [Route("")]

@@ -6,6 +6,7 @@ namespace CRM.Domain.Model
     public class TimeMileageModel
     {
         public int Id { get; set; }
+        public string SyncId { get; set; }
         public string UserId { get; set; }
         public UserModel User { get; set; }
         public int PlaceId { get; set; }
@@ -20,5 +21,6 @@ namespace CRM.Domain.Model
         public DateTime AddedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public string RepoId { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

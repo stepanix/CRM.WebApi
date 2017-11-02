@@ -85,6 +85,7 @@ namespace CRM.Service.Services.Orders
             {
                 var orderVar = new OrderModel
                 {
+                    RepoId = order.RepoId,
                     SyncId = order.SyncId,
                     PlaceId = order.PlaceId,
                     ScheduleId = order.ScheduleId,
@@ -101,7 +102,7 @@ namespace CRM.Service.Services.Orders
                     TaxRate = order.TaxRate,
                     TotalAmount = order.TotalAmount,
                     AddedDate = DateTime.Now,
-                    TenantId = user.TenantId,
+                    TenantId = user.TenantId,                    
                     CreatorUserId = requestIdentityProvider.UserId,
                     LastModifierUserId = requestIdentityProvider.UserId
                 };

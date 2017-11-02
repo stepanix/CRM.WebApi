@@ -20,5 +20,6 @@ namespace CRM.WebApi.Dto.Orders.In
         public DateTime? DueDate { get; set; }
         public string Note { get; set; }
         public string signature { get; set; }
+        public string RepoId { get; set; }
     }
 }

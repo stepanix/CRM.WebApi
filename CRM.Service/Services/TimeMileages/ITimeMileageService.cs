@@ -12,6 +12,7 @@ namespace CRM.Service.Services.TimeMileages
         Task<IEnumerable<TimeMileageModel>> GetTimeMileageAsync(DateTime dateFrom, DateTime dateTo);
         Task<IEnumerable<TimeMileageModel>> GetTimeMileageAsync(DateTime dateFrom, DateTime dateTo,string rep);
         Task<TimeMileageModel> InsertTimeMileageAsync(TimeMileageModel timeMileage);
+        Task<IEnumerable<TimeMileageModel>> InsertTimeMileageListAsync(IEnumerable<TimeMileageModel> timeMileages);
         Task<TimeMileageModel> UpdateTimeMileageAsync(TimeMileageModel timeMileage);
     }
 }

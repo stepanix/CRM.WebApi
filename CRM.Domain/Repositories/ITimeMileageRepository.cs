@@ -14,6 +14,7 @@ namespace CRM.Domain.Repositories
         Task<IEnumerable<TimeMileage>> GetTimeMileage(DateTime dateFrom, DateTime dateTo,int place);
         Task<IEnumerable<TimeMileage>> GetTimeMileage(DateTime dateFrom, DateTime dateTo,string rep, int place);
         Task<TimeMileage> InsertTimeMileage(TimeMileage timeMileage);
+        IEnumerable<TimeMileage> InsertTimeMileageList(IEnumerable<TimeMileage> timeMileages);
         Task<TimeMileage> UpdateTimeMileage(TimeMileage timeMileage);
     }
 }

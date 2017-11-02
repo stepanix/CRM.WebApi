@@ -35,5 +35,6 @@ namespace CRM.Domain.Entities
         public int TenantId { get; set; }
         public Tenant Tenant { get; set; }
         public string RepoId { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }
