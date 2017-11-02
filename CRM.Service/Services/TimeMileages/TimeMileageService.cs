@@ -91,10 +91,12 @@ namespace CRM.Service.Services.TimeMileages
                     EndTime = timeMileage.EndTime,
                     Duration = timeMileage.Duration,
                     Mileage = timeMileage.Mileage,
+                    CreatorUserId = requestIdentityProvider.UserId,
+                    LastModifierUserId = requestIdentityProvider.UserId,
                     DateCreated = timeMileage.DateCreated,
                     AddedDate = DateTime.Now,
                     TenantId = user.TenantId,
-                    UserId = requestIdentityProvider.UserId
+                    UserId = requestIdentityProvider.UserId                   
                 };
                 timeMileageList.Add(timeMileageVar);
             }

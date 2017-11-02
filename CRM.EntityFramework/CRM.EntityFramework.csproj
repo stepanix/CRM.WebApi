@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201711020204418_datecreated.Designer.cs">
       <DependentUpon>201711020204418_datecreated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711020341117_placeid.cs" />
+    <Compile Include="Migrations\201711020341117_placeid.Designer.cs">
+      <DependentUpon>201711020341117_placeid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ActivityRepository.cs" />
@@ -112,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711020204418_datecreated.resx">
       <DependentUpon>201711020204418_datecreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711020341117_placeid.resx">
+      <DependentUpon>201711020341117_placeid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

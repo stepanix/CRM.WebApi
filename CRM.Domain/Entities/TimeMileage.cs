@@ -16,7 +16,7 @@ namespace CRM.Domain.Entities
         public User User { get; set; }
         [Required]
         [ForeignKey("Place")]
-        public int PlaceId { get; set; }
+        public int? PlaceId { get; set; }
         public Place Place { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime? EndTime { get; set; }
