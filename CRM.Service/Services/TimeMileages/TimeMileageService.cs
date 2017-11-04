@@ -55,11 +55,7 @@ namespace CRM.Service.Services.TimeMileages
         public async Task<TimeMileageModel> UpdateTimeMileageAsync(TimeMileageModel timeMileage)
         {
             var user = await userRepository.GetUser();
-
             var timeMileageForUpdate = await timeMileageRepository.GetAsync(timeMileage.Id);
-
-            //TimeSpan duration = DateTime.Now.Subtract(timeMileage.StartTime);
-
             timeMileageForUpdate.ModifiedDate = DateTime.Now;
             timeMileageForUpdate.EndTime = timeMileage.EndTime;
             timeMileageForUpdate.Duration = timeMileage.Duration;
@@ -80,26 +76,35 @@ namespace CRM.Service.Services.TimeMileages
 
             List<TimeMileageModel> timeMileageList = new List<TimeMileageModel>();
 
+            var date = new DateTime();
+
             foreach (var timeMileage in timeMileages)
             {
-                var timeMileageVar = new TimeMileageModel
+                if (timeMileage.DateCreated.ToString("yyyy-MM-dd") != date.ToString("yyyy-MM-dd"))
                 {
-                    SyncId = timeMileage.SyncId,
-                    StartTime =  timeMileage.StartTime,
-                    EndTime = timeMileage.EndTime,
-                    Duration = timeMileage.Duration,
-                    Mileage = timeMileage.Mileage,
-                    CreatorUserId = requestIdentityProvider.UserId,
-                    LastModifierUserId = requestIdentityProvider.UserId,
-                    DateCreated = timeMileage.DateCreated,
-                    AddedDate = DateTime.Now,
-                    TenantId = user.TenantId,
-                    UserId = requestIdentityProvider.UserId                   
-                };
-                timeMileageList.Add(timeMileageVar);
+                    var timeMileageVar = new TimeMileageModel
+                    {
+                        SyncId = timeMileage.SyncId,
+                        StartTime = timeMileage.StartTime,
+                        EndTime = timeMileage.EndTime,
+                        Duration = timeMileage.Duration,
+                        Mileage = timeMileage.Mileage,
+                        CreatorUserId = requestIdentityProvider.UserId,
+                        LastModifierUserId = requestIdentityProvider.UserId,
+                        DateCreated = timeMileage.DateCreated,
+                        AddedDate = DateTime.Now,
+                        TenantId = user.TenantId,
+                        UserId = requestIdentityProvider.UserId
+                    };
+                    timeMileageList.Add(timeMileageVar);
+                    var newActivityList = timeMileageRepository.InsertTimeMileageList(mapper.Map<IEnumerable<TimeMileage>>(timeMileageList));
+                    await timeMileageRepository.SaveChangesAsync();
+                }else
+                {
+                    timeMileageList.Add(timeMileage);
+                    await UpdateTimeMileageAsync(timeMileage);
+                }
             }
-            var newActivityList = timeMileageRepository.InsertTimeMileageList(mapper.Map<IEnumerable<TimeMileage>>(timeMileageList));
-            await timeMileageRepository.SaveChangesAsync();
             return timeMileageList;
         }
     }
