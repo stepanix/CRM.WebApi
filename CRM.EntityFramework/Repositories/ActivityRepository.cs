@@ -32,12 +32,16 @@ namespace CRM.EntityFramework.Repositories
                 return await GetDataContext()
               .Activities
               .Where(u => u.UserId == userId && (DbFunctions.TruncateTime(u.AddedDate) >= dateFrom && DbFunctions.TruncateTime(u.AddedDate) <= dateTo))
+              .Include(u=>u.User)
+              .Include(p=>p.Place)
               .ToListAsync();
             }else
             {
                return await GetDataContext()
               .Activities
               .Where(u => u.UserId == userId && (DbFunctions.TruncateTime(u.AddedDate) >= dateFrom && DbFunctions.TruncateTime(u.AddedDate) <= dateTo) && u.PlaceId==placeId)
+              .Include(u => u.User)
+              .Include(p => p.Place)
               .ToListAsync();
             }
         }
