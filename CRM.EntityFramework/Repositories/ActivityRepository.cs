@@ -29,7 +29,7 @@ namespace CRM.EntityFramework.Repositories
         {
             if(placeId == 0)
             {
-                return await GetDataContext()
+               return await GetDataContext()
               .Activities
               .Where(u => u.UserId == userId && (DbFunctions.TruncateTime(u.AddedDate) >= dateFrom && DbFunctions.TruncateTime(u.AddedDate) <= dateTo))
               .Include(u=>u.User)
