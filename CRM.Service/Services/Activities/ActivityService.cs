@@ -54,9 +54,9 @@ namespace CRM.Service.Services.Activities
             return activityList;
         }
 
-        public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync(string userId, DateTime dateFrom, DateTime dateTo)
+        public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync(string userId, DateTime dateFrom, DateTime dateTo, int placeId)
         {
-            return mapper.Map<IEnumerable<ActivityModel>>(await activityRepository.GetActivities(userId, dateFrom, dateTo));
+            return mapper.Map<IEnumerable<ActivityModel>>(await activityRepository.GetActivities(userId, dateFrom, dateTo, placeId));
         }
     }
 

@@ -25,12 +25,21 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Activity>> GetActivities(string userId, DateTime dateFrom, DateTime dateTo)
+        public async Task<IEnumerable<Activity>> GetActivities(string userId, DateTime dateFrom, DateTime dateTo, int placeId)
         {
-            return await GetDataContext()
-               .Activities
-               .Where(u => u.UserId == userId && (DbFunctions.TruncateTime(u.AddedDate) >= dateFrom && DbFunctions.TruncateTime(u.AddedDate) <= dateTo))
-               .ToListAsync();
+            if(placeId == 0)
+            {
+                return await GetDataContext()
+              .Activities
+              .Where(u => u.UserId == userId && (DbFunctions.TruncateTime(u.AddedDate) >= dateFrom && DbFunctions.TruncateTime(u.AddedDate) <= dateTo))
+              .ToListAsync();
+            }else
+            {
+               return await GetDataContext()
+              .Activities
+              .Where(u => u.UserId == userId && (DbFunctions.TruncateTime(u.AddedDate) >= dateFrom && DbFunctions.TruncateTime(u.AddedDate) <= dateTo) && u.PlaceId==placeId)
+              .ToListAsync();
+            }
         }
 
         public IEnumerable<Activity> InsertActivityList(IEnumerable<Activity> activities)

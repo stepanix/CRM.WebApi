@@ -45,9 +45,9 @@ namespace CRM.WebApi.Controllers
 
         [HttpGet]
         [Route("Summary")]
-        public async Task<IHttpActionResult> ReadSummary(string userId, DateTime dateFrom,DateTime dateTo)
+        public async Task<IHttpActionResult> ReadSummary(string userId, DateTime dateFrom,DateTime dateTo, int placeId)
         {
-            var created = await activityService.GetActivitiesAsync(userId, dateFrom, dateTo);
+            var created = await activityService.GetActivitiesAsync(userId, dateFrom, dateTo, placeId);
             return Ok(created);
         }
 
