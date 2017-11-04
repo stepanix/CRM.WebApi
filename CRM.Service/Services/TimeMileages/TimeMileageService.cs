@@ -77,10 +77,13 @@ namespace CRM.Service.Services.TimeMileages
             List<TimeMileageModel> timeMileageList = new List<TimeMileageModel>();
 
             var date = new DateTime();
+            var currentDate = date.ToString("yyyy-MM-dd");
 
             foreach (var timeMileage in timeMileages)
             {
-                if (timeMileage.DateCreated.ToString("yyyy-MM-dd") != date.ToString("yyyy-MM-dd"))
+                var timeMileageDate = timeMileage.DateCreated.ToString("yyyy-MM-dd");
+
+                if (timeMileageDate != currentDate)
                 {
                     var timeMileageVar = new TimeMileageModel
                     {
