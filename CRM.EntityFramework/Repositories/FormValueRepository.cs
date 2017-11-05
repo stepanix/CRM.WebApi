@@ -35,6 +35,8 @@ namespace CRM.EntityFramework.Repositories
             return await GetDataContext()
                .FormValues
                .Where(t => t.TenantId == user.TenantId && t.IsDeleted == false)
+               .Include(f =>f.Form)
+               .Include(f => f.Schedule)
                .ToListAsync();
         }
 
@@ -49,6 +51,7 @@ namespace CRM.EntityFramework.Repositories
                .Include(u=>u.CreatorUser)
                .Include(p=>p.Place)
                .Include(f=> f.Form)
+               .Include(f => f.Schedule)
                .ToListAsync();
         }
 
@@ -64,6 +67,7 @@ namespace CRM.EntityFramework.Repositories
                .Include(u=>u.CreatorUser)
                .Include(p=>p.Place)
                .Include(f => f.Form)
+               .Include(f => f.Schedule)
                .ToListAsync();
         }
 
@@ -79,6 +83,7 @@ namespace CRM.EntityFramework.Repositories
                .Include(u=>u.CreatorUser)
                .Include(p=>p.Place)
                .Include(f => f.Form)
+               .Include(f => f.Schedule)
                .ToListAsync();
         }
 
@@ -94,6 +99,7 @@ namespace CRM.EntityFramework.Repositories
                .Include(u=>u.CreatorUser)
                .Include(p=>p.Place)
                .Include(f => f.Form)
+               .Include(f => f.Schedule)
                .ToListAsync();
         }
 
