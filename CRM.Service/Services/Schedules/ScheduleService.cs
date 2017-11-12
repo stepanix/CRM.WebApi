@@ -73,6 +73,8 @@ namespace CRM.Service.Services.Schedules
             scheduleForUpdate.VisitStatus = shedule.VisitStatus;
             scheduleForUpdate.CheckInTime = shedule.CheckInTime;
             scheduleForUpdate.CheckOutTime = shedule.CheckOutTime;
+            scheduleForUpdate.CheckInDistance = shedule.CheckInDistance;
+            scheduleForUpdate.CheckOutDistance = shedule.CheckOutDistance;
             await scheduleRepository.SaveChangesAsync();
             return mapper.Map<ScheduleModel>(scheduleForUpdate);
         }

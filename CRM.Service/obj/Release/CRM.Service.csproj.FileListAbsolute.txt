@@ -1,0 +1,17 @@
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\CRM.Service.dll
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\CRM.Service.pdb
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\AutoMapper.dll
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\CRM.Domain.dll
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\Autofac.dll
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\EntityFramework.dll
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\CRM.Domain.pdb
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\AutoMapper.xml
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\Autofac.xml
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Release\EntityFramework.xml
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\obj\Release\CRM.Service.csprojResolveAssemblyReference.cache
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\obj\Release\CRM.Service.dll
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\obj\Release\CRM.Service.pdb
