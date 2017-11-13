@@ -141,7 +141,9 @@ namespace CRM.Service.Services.Schedules
                         AddedDate = DateTime.Now,
                         TenantId = user.TenantId,
                         CreatorUserId = requestIdentityProvider.UserId,
-                        LastModifierUserId = requestIdentityProvider.UserId
+                        LastModifierUserId = requestIdentityProvider.UserId,
+                        CheckInDistance = schedule.CheckInDistance,
+                        CheckOutDistance = schedule.CheckOutDistance
                     };
                     scheduleList.Add(scheduleVar);
                     var newScheduleList = scheduleRepository.InsertAsync(mapper.Map<Schedule>(scheduleVar));
