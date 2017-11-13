@@ -19,6 +19,16 @@ namespace CRM.EntityFramework.Repositories
             this.requestIdentityProvider = requestIdentityProvider;
         }
 
+        public async Task<TimeMileage> GetTimeMileage(DateTime dateCreated)
+        {
+            var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
+            return await GetDataContext()
+               .TimeMileages
+               .Where(t => t.TenantId == user.TenantId && DbFunctions.TruncateTime(t.DateCreated) == dateCreated && t.UserId== user.Id)
+               .Include(u => u.CreatorUser)
+               .FirstOrDefaultAsync();
+        }
+
         public Task<TimeMileage> GetTimeMileage(int id)
         {
             throw new NotImplementedException();

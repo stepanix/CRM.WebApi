@@ -9,6 +9,7 @@ namespace CRM.Domain.Repositories
     {
         Task<IEnumerable<TimeMileage>> GetTimeMileages();
         Task<TimeMileage> GetTimeMileage(int id);
+        Task<TimeMileage> GetTimeMileage(DateTime dateCreated);
         Task<IEnumerable<TimeMileage>> GetTimeMileage(DateTime dateFrom,DateTime dateTo);
         Task<IEnumerable<TimeMileage>> GetTimeMileage(DateTime dateFrom, DateTime dateTo,string rep);
         Task<IEnumerable<TimeMileage>> GetTimeMileage(DateTime dateFrom, DateTime dateTo,int place);

@@ -22,3 +22,4 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Release\CRM.Enti
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Release\CRM.EntityFramework.csproj.GenerateResource.Cache
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Release\CRM.EntityFramework.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Release\CRM.EntityFramework.pdb
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Release\CRM.EntityFramework.Migrations.scheduleupdate.resources
