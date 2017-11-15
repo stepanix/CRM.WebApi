@@ -44,3 +44,5 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.Entity
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.csproj.GenerateResource.Cache
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.changefield.resources
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.scheduleupdate.resources
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.activityupdate.resources
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.dbchange.resources

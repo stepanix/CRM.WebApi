@@ -20,7 +20,6 @@ namespace CRM.Domain.Model
         public int TenantId { get; set; }
         public int ScheduleId { get; set; }
         public ScheduleModel Schedule { get; set; }
-        public string PlaceRepoId { get; set; }
-        public string ScheduleRepoId { get; set; }
+        public string RepoId { get; set; }
     }
 }

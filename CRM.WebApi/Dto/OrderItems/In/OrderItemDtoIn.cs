@@ -9,5 +9,6 @@ namespace CRM.WebApi.Dto.OrderItems.In
         public int ProductId { get; set; }       
         public int Quantity { get; set; }
         public double Amount { get; set; }
+        public string RepoId { get; set; }
     }
 }

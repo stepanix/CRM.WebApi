@@ -37,6 +37,7 @@ namespace CRM.Service.Services.OrderItems
                 var orderItemVar = new OrderItemModel
                 {
                     SyncId = orderItem.SyncId,
+                    RepoId = orderItem.RepoId,
                     Amount = orderItem.Amount,
                     OrderId = orderItem.OrderId,
                     ProductId = orderItem.ProductId,

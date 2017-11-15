@@ -9,5 +9,6 @@ namespace CRM.WebApi.Dto.Photos.In
         public string Note { get; set; }
         public int PlaceId { get; set; }
         public int ScheduleId { get; set; }
+        public string RepoId { get; set; }
     }
 }

@@ -12,6 +12,7 @@ namespace CRM.Domain.Model
         public int PlaceId { get; set; }
         public PlaceModel Place { get; set; }
         public string ActivityLog { get; set; }
+        public string ActivityTypeId { get; set; }
         public int TenantId { get; set; }
         public TenantModel Tenant { get; set; }
         public DateTime AddedDate { get; set; }

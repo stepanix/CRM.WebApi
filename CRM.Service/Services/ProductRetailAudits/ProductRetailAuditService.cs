@@ -98,6 +98,7 @@ namespace CRM.Service.Services.ProductRetailAudits
             {
                 var productRetailVar = new ProductRetailAuditModel
                 {
+                    RepoId = productRetailAudit.RepoId,
                     Available = productRetailAudit.Available,
                     Promoted = productRetailAudit.Promoted,
                     Price = productRetailAudit.Price,

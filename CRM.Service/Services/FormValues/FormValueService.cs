@@ -71,6 +71,7 @@ namespace CRM.Service.Services.FormValues
                     FormFieldValues = formValue.FormFieldValues,
                     AddedDate = DateTime.Now,
                     TenantId = user.TenantId,
+                    RepoId = formValue.RepoId,
                     CreatorUserId = requestIdentityProvider.UserId,
                     LastModifierUserId = requestIdentityProvider.UserId
                 };
@@ -92,6 +93,7 @@ namespace CRM.Service.Services.FormValues
             formValueForUpdate.PlaceId = formValue.PlaceId;
             formValueForUpdate.ScheduleId = formValue.ScheduleId;
             formValueForUpdate.TenantId = user.TenantId;
+            formValueForUpdate.RepoId = formValue.RepoId;
             formValueForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
             await formValueRepository.SaveChangesAsync();
             return mapper.Map<FormValueModel>(formValueForUpdate);

@@ -17,6 +17,7 @@ namespace CRM.Domain.Entities
         public int PlaceId { get; set; }
         public Place Place { get; set; }
         public string ActivityLog { get; set; }
+        public string ActivityTypeId { get; set; }
         [Required]
         [ForeignKey("Tenant")]
         public int TenantId { get; set; }

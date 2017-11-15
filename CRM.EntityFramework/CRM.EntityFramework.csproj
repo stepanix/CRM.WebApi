@@ -76,6 +76,14 @@
     <Compile Include="Migrations\201711122344074_scheduleupdate.Designer.cs">
       <DependentUpon>201711122344074_scheduleupdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711141724078_activityupdate.cs" />
+    <Compile Include="Migrations\201711141724078_activityupdate.Designer.cs">
+      <DependentUpon>201711141724078_activityupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711150423428_dbchange.cs" />
+    <Compile Include="Migrations\201711150423428_dbchange.Designer.cs">
+      <DependentUpon>201711150423428_dbchange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ActivityRepository.cs" />
@@ -119,6 +127,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711122344074_scheduleupdate.resx">
       <DependentUpon>201711122344074_scheduleupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141724078_activityupdate.resx">
+      <DependentUpon>201711141724078_activityupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711150423428_dbchange.resx">
+      <DependentUpon>201711150423428_dbchange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

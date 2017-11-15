@@ -42,6 +42,7 @@ namespace CRM.Service.Services.Activities
                     SyncId = activity.SyncId,
                     PlaceId = activity.PlaceId,
                     ActivityLog = activity.ActivityLog,
+                    ActivityTypeId = activity.ActivityTypeId,
                     DateCreated = activity.DateCreated,
                     AddedDate = DateTime.Now,
                     TenantId = user.TenantId,

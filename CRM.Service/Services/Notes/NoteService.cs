@@ -48,7 +48,7 @@ namespace CRM.Service.Services.Notes
             note.TenantId = user.TenantId;
             note.CreatorUserId = requestIdentityProvider.UserId;
             note.LastModifierUserId = requestIdentityProvider.UserId;
-
+            note.RepoId = note.RepoId;
             var newNote = await noteRepository.InsertAsync(mapper.Map<Note>(note));
             await noteRepository.SaveChangesAsync();
             return mapper.Map<NoteModel>(newNote);
@@ -64,7 +64,7 @@ namespace CRM.Service.Services.Notes
             noteForUpdate.Description = note.Description;
             noteForUpdate.TenantId = user.TenantId;
             noteForUpdate.LastModifierUserId = requestIdentityProvider.UserId;
-
+            noteForUpdate.RepoId = note.RepoId;
             await noteRepository.SaveChangesAsync();
             return mapper.Map<NoteModel>(noteForUpdate);
         }
@@ -106,7 +106,8 @@ namespace CRM.Service.Services.Notes
                     AddedDate = DateTime.Now,
                     TenantId = user.TenantId,
                     CreatorUserId = requestIdentityProvider.UserId,
-                    LastModifierUserId = requestIdentityProvider.UserId
+                    LastModifierUserId = requestIdentityProvider.UserId,
+                    RepoId = note.RepoId,
                 };
                 noteList.Add(noteVar);
             }

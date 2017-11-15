@@ -18,5 +18,6 @@ namespace CRM.WebApi.Dto.ProductretailAudits.In
         public double? Price { get; set; }
         public double? StockLevel { get; set; }
         public string Note { get; set; }
+        public string RepoId { get; set; }
     }
 }

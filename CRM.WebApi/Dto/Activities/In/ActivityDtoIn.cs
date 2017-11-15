@@ -9,6 +9,7 @@ namespace CRM.WebApi.Dto.Activities.In
         public string SyncId { get; set; }
         public int PlaceId { get; set; }
         public string ActivityLog { get; set; }
+        public string ActivityTypeId { get; set; }
         public DateTime DateCreated { get; set; }
     }
 }
