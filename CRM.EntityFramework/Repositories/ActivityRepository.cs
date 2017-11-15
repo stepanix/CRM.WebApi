@@ -25,6 +25,26 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<Activity>> GetActivities(string userId)
+        {
+            return await GetDataContext()
+             .Activities
+             .Where(u => u.UserId == userId && (u.DateCreated.Month == DateTime.Now.Month && u.DateCreated.Year==DateTime.Now.Year))
+             .Include(u => u.User)
+             .Include(p => p.Place)
+             .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Activity>> GetActivities(DateTime dateFrom, DateTime dateTo)
+        {
+            return await GetDataContext()
+             .Activities
+             .Where(u => DbFunctions.TruncateTime(u.DateCreated) >= dateFrom && DbFunctions.TruncateTime(u.DateCreated) <= dateTo)
+             .Include(u => u.User)
+             .Include(p => p.Place)
+             .ToListAsync();
+        }
+
         public async Task<IEnumerable<Activity>> GetActivities(string userId, DateTime dateFrom, DateTime dateTo, int placeId)
         {
             if(placeId == 0)

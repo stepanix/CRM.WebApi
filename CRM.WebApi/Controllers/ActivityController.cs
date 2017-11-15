@@ -51,6 +51,22 @@ namespace CRM.WebApi.Controllers
             return Ok(created);
         }
 
+        [HttpGet]
+        [Route("RepSummary")]
+        public async Task<IHttpActionResult> ReadRepSummary(string userId)
+        {
+            var created = await activityService.GetActivitiesAsync(userId);
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("AllSummary")]
+        public async Task<IHttpActionResult> ReadAllSummary(DateTime dateFrom, DateTime dateTo)
+        {
+            var created = await activityService.GetActivitiesAsync(dateFrom, dateTo);
+            return Ok(created);
+        }
+
 
 
     }

@@ -64,6 +64,16 @@ namespace CRM.Service.Services.Activities
         {
             throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync(string userId)
+        {
+            return mapper.Map<IEnumerable<ActivityModel>>(await activityRepository.GetActivities(userId));
+        }
+
+        public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync(DateTime dateFrom, DateTime dateTo)
+        {
+            return mapper.Map<IEnumerable<ActivityModel>>(await activityRepository.GetActivities(dateFrom, dateTo));
+        }
     }
 
 }
