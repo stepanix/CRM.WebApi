@@ -69,7 +69,7 @@ namespace CRM.EntityFramework.Repositories
             var user = await GetDataContext().Users.Where(u => u.Id == requestIdentityProvider.UserId).FirstOrDefaultAsync();
             return await GetDataContext()
                .Schedules
-               .Where(t => t.TenantId == user.TenantId && t.IsDeleted==false)
+               .Where(t => t.TenantId == user.TenantId && t.IsDeleted==false && t.UserId== user.Id && t.VisitDate.Month == DateTime.Now.Month && t.VisitDate.Year == DateTime.Now.Year)
                .Include(p => p.Place)
                .Include(u => u.User)
                .ToListAsync();

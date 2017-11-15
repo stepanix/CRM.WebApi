@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace CRM.Domain.Model
 {
     public class ActivityModel
@@ -15,6 +14,11 @@ namespace CRM.Domain.Model
         public string ActivityTypeId { get; set; }
         public int TenantId { get; set; }
         public TenantModel Tenant { get; set; }
+        public FormValueModel FormValue { get; set; }
+        public PhotoModel Photo { get; set; }
+        public NoteModel Note { get; set; }
+        public ProductRetailAuditModel ProductRetailAudit { get; set; }
+        public OrderModel Order { get; set; }        
         public DateTime AddedDate { get; set; }
         public DateTime DateCreated { get; set; }
     }

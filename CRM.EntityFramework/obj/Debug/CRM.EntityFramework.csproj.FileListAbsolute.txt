@@ -38,11 +38,11 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\bin\Debug\Microsoft.
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\bin\Debug\Autofac.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\bin\Debug\AutoMapper.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.csprojResolveAssemblyReference.cache
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.dll
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.pdb
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.timemileagechange.resources
-C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.csproj.GenerateResource.Cache
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.changefield.resources
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.scheduleupdate.resources
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.activityupdate.resources
 C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.Migrations.dbchange.resources
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.csproj.GenerateResource.Cache
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.dll
+C:\Practice Projects\_github\CRM.WebApi\CRM.EntityFramework\obj\Debug\CRM.EntityFramework.pdb
