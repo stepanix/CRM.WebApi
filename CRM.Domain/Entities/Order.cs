@@ -42,6 +42,6 @@ namespace CRM.Domain.Entities
         public int TenantId { get; set; }
         public Tenant Tenant { get; set; }
         public string RepoId { get; set; }
-        public IEnumerable<OrderItem> OrderItemList { get; set; }
+        public ICollection<OrderItem> OrderItemList { get; set; }
     }
 }
