@@ -185,7 +185,7 @@ namespace CRM.Service.Services.Activities
         public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync(string userId)
         {
             IList<ActivityModel> lstActivities = new List<ActivityModel>();
-            var allActivities = await activityRepository.GetActivities(userId);
+            var allActivities =  mapper.Map<IEnumerable<ActivityModel>>(await activityRepository.GetActivities(userId));
 
             FormValueModel formValue = null;
             NoteModel note = null;
@@ -213,7 +213,10 @@ namespace CRM.Service.Services.Activities
                     Order = orders,
                     Photo = photo,
                     ProductRetailAudit = productRetailAudit,
-                    UserId = requestIdentityProvider.UserId
+                    UserId = requestIdentityProvider.UserId,
+                    User = activity.User,
+                    Place = activity.Place,
+                    Submitted = 4
                 };
                 lstActivities.Add(activityVar);
             }

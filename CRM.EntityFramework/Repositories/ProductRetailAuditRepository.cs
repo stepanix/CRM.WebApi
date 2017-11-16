@@ -29,6 +29,7 @@ namespace CRM.EntityFramework.Repositories
             return await GetDataContext()
                .ProductRetailAudits
                .Where(r => r.RepoId == repoId)
+               .Include(f=> f.RetailAuditForm)
                .FirstOrDefaultAsync();
         }
 

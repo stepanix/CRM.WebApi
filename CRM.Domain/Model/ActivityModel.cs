@@ -32,5 +32,6 @@ namespace CRM.Domain.Model
         public int? MissedVisitCount { get; set; }
         public int? VisitCount { get; set; }
         public string OrderTotal { get; set; }
+        public int Submitted { get; set; }
     }
 }
