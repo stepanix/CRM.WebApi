@@ -13,6 +13,7 @@ namespace CRM.Domain.Repositories
         Task<IEnumerable<Note>> GetNotes(DateTime dateFrom, DateTime dateTo, string rep);
         Task<IEnumerable<Note>> GetNotes(DateTime dateFrom, DateTime dateTo, int place);
         Task<Note> GetNote(int id);
+        Task<Note> GetNote(string repoId);
         Task<Note> InsertNote(Note note);
         IEnumerable<Note> InsertNoteList(IEnumerable<Note> notes);
         Task<Note> UpdateNote(Note note);

@@ -13,6 +13,7 @@ namespace CRM.Domain.Repositories
         Task<IEnumerable<Order>> GetOrders(DateTime dateFrom, DateTime dateTo, string rep);
         Task<IEnumerable<Order>> GetOrders(DateTime dateFrom, DateTime dateTo, int place);
         Task<Order> GetOrder(int id);
+        Task<Order> GetOrder(string repoId);
         Task<Order> InsertOrder(Order order);
         IEnumerable<Order> InsertOrderList(IEnumerable<Order> orders);
         Task<Order> UpdateOrder(Order order);

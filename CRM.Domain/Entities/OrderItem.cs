@@ -1,5 +1,6 @@
 ﻿using CRM.Domain.Entity.Base;
 using CRM.Domain.Identity;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,5 +31,6 @@ namespace CRM.Domain.Entities
         public int TenantId { get; set; }
         public Tenant Tenant { get; set; }
         public string RepoId { get; set; }
+        public IEnumerable<OrderItem> OrderItemList { get; set; }
     }
 }

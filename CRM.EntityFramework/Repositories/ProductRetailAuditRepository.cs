@@ -24,6 +24,14 @@ namespace CRM.EntityFramework.Repositories
            throw new NotImplementedException();
         }
 
+        public async Task<ProductRetailAudit> GetProductRetailAudit(string repoId)
+        {
+            return await GetDataContext()
+               .ProductRetailAudits
+               .Where(r => r.RepoId == repoId)
+               .FirstOrDefaultAsync();
+        }
+
         public Task<ProductRetailAudit> GetProductRetailAudit(int id)
         {
             throw new NotImplementedException();

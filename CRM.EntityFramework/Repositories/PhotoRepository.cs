@@ -108,5 +108,13 @@ namespace CRM.EntityFramework.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public async Task<Photo> GetPhoto(string repoId)
+        {
+            return await GetDataContext()
+               .Photos
+               .Where(r => r.RepoId == repoId)
+               .FirstOrDefaultAsync();
+        }
     }
 }

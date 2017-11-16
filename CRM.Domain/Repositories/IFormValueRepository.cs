@@ -14,6 +14,7 @@ namespace CRM.Domain.Repositories
         Task<IEnumerable<FormValue>> GetFormValues(DateTime dateFrom, DateTime dateTo);
         IEnumerable<FormValue> InsertFormValueList(IEnumerable<FormValue> formValues);
         Task<FormValue> GetFormValue(int id);
+        Task<FormValue> GetFormValue(string repoId);
         Task<FormValue> InsertFormValue(FormValue formValue);
         Task<FormValue> UpdateFormValue(FormValue formValue);
         void DeleteFormValue(int id);

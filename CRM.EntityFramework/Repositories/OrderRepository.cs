@@ -24,6 +24,15 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public async Task<Order> GetOrder(string repoId)
+        {
+            return await GetDataContext()
+               .Orders
+               .Where(r => r.RepoId ==repoId)
+               .Include(o=> o.OrderItemList)
+               .FirstOrDefaultAsync();
+        }
+
         public Task<Order> GetOrder(int id)
         {
             throw new NotImplementedException();

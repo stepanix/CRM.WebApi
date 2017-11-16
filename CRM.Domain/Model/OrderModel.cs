@@ -32,6 +32,6 @@ namespace CRM.Domain.Model
         public DateTime AddedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public string RepoId { get; set; }
-        public IEnumerable<OrderItemModel> OrderItem { get; set; }
+        public IEnumerable<OrderItemModel> OrderItemList { get; set; }
     }
 }

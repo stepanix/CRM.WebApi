@@ -15,6 +15,7 @@ namespace CRM.Domain.Repositories
         Task<IEnumerable<Photo>> GetPhotos(DateTime dateFrom, DateTime dateTo, string rep);
         Task<IEnumerable<Photo>> GetPhotos(DateTime dateFrom, DateTime dateTo, int place);
         Task<Photo> GetPhoto(int id);
+        Task<Photo> GetPhoto(string repoId);
         Task<Photo> InsertPhoto(Photo photo);
         IEnumerable<Photo> InsertPhotoList(IEnumerable<Photo> photos);
         Task<Photo> UpdatePhoto(Photo place);

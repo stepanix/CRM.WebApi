@@ -15,13 +15,23 @@ namespace CRM.Service.Services.Activities
         IMapper mapper;
         IUserRepository userRepository;
         IRequestIdentityProvider requestIdentityProvider;
+        IFormValueRepository formValueRepository;
+        INoteRepository noteRepository;
+        IOrderRepository orderRepository;
+        IProductRetailAuditRepository productRetailAuditRepository;
+        IPhotoRepository photoRepository;
 
-        public ActivityService(IMapper mapper, IActivityRepository activityRepository, IUserRepository userRepository, IRequestIdentityProvider requestIdentityProvider)
+        public ActivityService(IPhotoRepository photoRepository,IProductRetailAuditRepository productRetailAuditRepository,IOrderRepository orderRepository,INoteRepository noteRepository,IFormValueRepository formValueRepository,IMapper mapper, IActivityRepository activityRepository, IUserRepository userRepository, IRequestIdentityProvider requestIdentityProvider)
         {
             this.mapper = mapper;
             this.activityRepository = activityRepository;
             this.userRepository = userRepository;
             this.requestIdentityProvider = requestIdentityProvider;
+            this.photoRepository = photoRepository;
+            this.productRetailAuditRepository = productRetailAuditRepository;
+            this.orderRepository = orderRepository;
+            this.noteRepository = noteRepository;
+            this.formValueRepository = formValueRepository;
         }
 
         public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync()
@@ -33,7 +43,7 @@ namespace CRM.Service.Services.Activities
         {
             var user = await userRepository.GetUser();
 
-            List<ActivityModel> activityList = new List<ActivityModel>();
+            IList<ActivityModel> activityList = new List<ActivityModel>();
 
             foreach (var activity in activities)
             {
@@ -67,7 +77,40 @@ namespace CRM.Service.Services.Activities
 
         public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync(string userId)
         {
-            return mapper.Map<IEnumerable<ActivityModel>>(await activityRepository.GetActivities(userId));
+            IList<ActivityModel> lstActivities = new List<ActivityModel>();
+            var allActivities = await activityRepository.GetActivities(userId);
+
+            FormValueModel formValue = null;
+            NoteModel note = null;
+            OrderModel orders = null;
+            PhotoModel photo = null;
+            ProductRetailAuditModel productRetailAudit = null;
+
+            foreach (var activity in allActivities)
+            {
+                formValue = mapper.Map<FormValueModel>(await formValueRepository.GetFormValue(activity.ActivityTypeId));
+                note = mapper.Map<NoteModel>(await noteRepository.GetNote(activity.ActivityTypeId));
+                orders = mapper.Map<OrderModel>(await orderRepository.GetOrder(activity.ActivityTypeId));
+                photo = mapper.Map<PhotoModel>(await photoRepository.GetPhoto(activity.ActivityTypeId));
+                productRetailAudit = mapper.Map<ProductRetailAuditModel>(await productRetailAuditRepository.GetProductRetailAudit(activity.ActivityTypeId));
+
+                var activityVar = new ActivityModel
+                {
+                    Id = activity.Id,
+                    PlaceId = activity.PlaceId,
+                    ActivityLog = activity.ActivityLog,
+                    ActivityTypeId = activity.ActivityTypeId,
+                    DateCreated = activity.DateCreated,
+                    FormValue = formValue,
+                    Note = note,
+                    Order = orders,
+                    Photo = photo,
+                    ProductRetailAudit = productRetailAudit,
+                    UserId = requestIdentityProvider.UserId
+                };
+                lstActivities.Add(activityVar);
+            }
+            return lstActivities;
         }
 
         public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync(DateTime dateFrom, DateTime dateTo)

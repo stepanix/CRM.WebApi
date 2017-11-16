@@ -24,6 +24,16 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public async Task<FormValue> GetFormValue(string repoId)
+        {
+
+            return await GetDataContext()
+               .FormValues
+               .Where(r => r.RepoId == repoId)
+               .Include(f => f.Form)
+               .FirstOrDefaultAsync();
+        }
+
         public Task<FormValue> GetFormValue(int id)
         {
             throw new NotImplementedException();

@@ -25,6 +25,14 @@ namespace CRM.EntityFramework.Repositories
             throw new NotImplementedException();
         }
 
+        public async Task<Note> GetNote(string repoId)
+        {
+            return await GetDataContext()
+              .Notes
+              .Where(r=>r.RepoId==repoId)
+              .FirstOrDefaultAsync();
+        }
+
         public Task<Note> GetNote(int id)
         {
             throw new NotImplementedException();
