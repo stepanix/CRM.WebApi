@@ -95,11 +95,15 @@
     <Compile Include="Identity\UserLogin.cs" />
     <Compile Include="Identity\UserRole.cs" />
     <Compile Include="Model\ActivityModel.cs" />
+    <Compile Include="Model\FormCountModel.cs" />
     <Compile Include="Model\FormModel.cs" />
     <Compile Include="Model\FormValueModel.cs" />
+    <Compile Include="Model\NoteCountModel.cs" />
     <Compile Include="Model\NoteModel.cs" />
+    <Compile Include="Model\OrderCountModel.cs" />
     <Compile Include="Model\OrderItemModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
+    <Compile Include="Model\PhotoCountModel.cs" />
     <Compile Include="Model\PhotoModel.cs" />
     <Compile Include="Model\PlaceModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
@@ -107,7 +111,9 @@
     <Compile Include="Model\QuestionTypeModel.cs" />
     <Compile Include="Model\RepresentativePlaceModel.cs" />
     <Compile Include="Model\RetailAuditFormModel.cs" />
+    <Compile Include="Model\RetailCountModel.cs" />
     <Compile Include="Model\ScheduleModel.cs" />
+    <Compile Include="Model\ScheduleSummaryModel.cs" />
     <Compile Include="Model\StatusModel.cs" />
     <Compile Include="Model\TenantModel.cs" />
     <Compile Include="Model\TimeMileageModel.cs" />

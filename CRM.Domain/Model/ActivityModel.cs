@@ -21,5 +21,16 @@ namespace CRM.Domain.Model
         public OrderModel Order { get; set; }        
         public DateTime AddedDate { get; set; }
         public DateTime DateCreated { get; set; }
+        public int? FormCount { get; set; }
+        public int? NoteCount { get; set; }
+        public int? RetailAuditCount { get; set; }
+        public int? OrderCount { get; set; }
+        public int? PhotoCount { get; set; }
+        public int? TotalVisitCount { get; set; }
+        public int? ScheduledVisitCount { get; set; }
+        public int? UnScheduledVisitCount { get; set; }
+        public int? MissedVisitCount { get; set; }
+        public int? VisitCount { get; set; }
+        public string OrderTotal { get; set; }
     }
 }
