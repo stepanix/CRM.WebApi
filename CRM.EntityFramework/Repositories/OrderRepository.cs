@@ -56,7 +56,8 @@ namespace CRM.EntityFramework.Repositories
                .Where(t => t.TenantId == user.TenantId
                && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo))
                .Include(u => u.CreatorUser)
-               .Include(p => p.Place)              
+               .Include(p => p.Place)
+               .Include(o => o.OrderItemList)
                .ToListAsync();
         }
 

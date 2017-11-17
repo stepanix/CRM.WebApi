@@ -18,11 +18,13 @@ namespace CRM.Service.Services.Activities
         IFormValueRepository formValueRepository;
         INoteRepository noteRepository;
         IOrderRepository orderRepository;
+        IOrderItemRepository orderItemRepository;
         IProductRetailAuditRepository productRetailAuditRepository;
         IPhotoRepository photoRepository;
         IScheduleRepository scheduleRepository;
 
-        public ActivityService(IScheduleRepository scheduleRepository,
+        public ActivityService(IOrderItemRepository orderItemRepository,
+            IScheduleRepository scheduleRepository,
             IPhotoRepository photoRepository,
             IProductRetailAuditRepository productRetailAuditRepository,
             IOrderRepository orderRepository,
@@ -43,6 +45,7 @@ namespace CRM.Service.Services.Activities
             this.noteRepository = noteRepository;
             this.formValueRepository = formValueRepository;
             this.scheduleRepository = scheduleRepository;
+            this.orderItemRepository = orderItemRepository;
         }
 
         public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync()
@@ -192,6 +195,7 @@ namespace CRM.Service.Services.Activities
             OrderModel orders = null;
             PhotoModel photo = null;
             ProductRetailAuditModel productRetailAudit = null;
+            
 
             foreach (var activity in allActivities)
             {
@@ -226,13 +230,15 @@ namespace CRM.Service.Services.Activities
         public async Task<IEnumerable<ActivityModel>> GetActivitiesAsync(DateTime dateFrom, DateTime dateTo)
         {
             IList<ActivityModel> lstActivities = new List<ActivityModel>();
-            var allActivities = await activityRepository.GetActivities(dateFrom, dateTo);
+            var allActivities = mapper.Map<IEnumerable<ActivityModel>>(await activityRepository.GetActivities(dateFrom, dateTo));
+            //var allActivities = await activityRepository.GetActivities(dateFrom, dateTo);
 
             FormValueModel formValue = null;
             NoteModel note = null;
             OrderModel orders = null;
             PhotoModel photo = null;
             ProductRetailAuditModel productRetailAudit = null;
+            
 
             foreach (var activity in allActivities)
             {
@@ -241,6 +247,7 @@ namespace CRM.Service.Services.Activities
                 orders = mapper.Map<OrderModel>(await orderRepository.GetOrder(activity.ActivityTypeId));
                 photo = mapper.Map<PhotoModel>(await photoRepository.GetPhoto(activity.ActivityTypeId));
                 productRetailAudit = mapper.Map<ProductRetailAuditModel>(await productRetailAuditRepository.GetProductRetailAudit(activity.ActivityTypeId));
+                
 
                 var activityVar = new ActivityModel
                 {
@@ -254,7 +261,10 @@ namespace CRM.Service.Services.Activities
                     Order = orders,
                     Photo = photo,
                     ProductRetailAudit = productRetailAudit,
-                    UserId = requestIdentityProvider.UserId
+                    UserId = requestIdentityProvider.UserId,
+                    User = activity.User,
+                    Place = activity.Place,
+                    Submitted = 4
                 };
                 lstActivities.Add(activityVar);
             }

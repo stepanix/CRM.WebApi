@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CRM.Domain.Model
 {
@@ -18,7 +19,8 @@ namespace CRM.Domain.Model
         public PhotoModel Photo { get; set; }
         public NoteModel Note { get; set; }
         public ProductRetailAuditModel ProductRetailAudit { get; set; }
-        public OrderModel Order { get; set; }        
+        public OrderModel Order { get; set; }
+        public IEnumerable<OrderItemModel> OrderItem { get; set; }
         public DateTime AddedDate { get; set; }
         public DateTime DateCreated { get; set; }
         public int? FormCount { get; set; }
