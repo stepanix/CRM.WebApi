@@ -97,6 +97,7 @@ namespace CRM.Service.Services.Photos
             {
                 var photoVar = new PhotoModel
                 {
+                    RepoId = photo.RepoId,
                     SyncId = photo.SyncId,
                     PlaceId = photo.PlaceId,
                     ScheduleId = photo.ScheduleId,
