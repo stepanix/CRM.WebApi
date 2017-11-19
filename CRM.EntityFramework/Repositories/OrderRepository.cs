@@ -44,6 +44,7 @@ namespace CRM.EntityFramework.Repositories
             return await GetDataContext()
                .Orders
                .Where(t => t.TenantId == user.TenantId && t.IsDeleted == false)
+               .Include(p=> p.Place)
                .ToListAsync();
         }
 
@@ -71,7 +72,7 @@ namespace CRM.EntityFramework.Repositories
                && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo)
                && t.PlaceId == place)
                .Include(u => u.CreatorUser)
-               .Include(p => p.Place)               
+               .Include(p => p.Place)
                .ToListAsync();
         }
 
@@ -99,7 +100,7 @@ namespace CRM.EntityFramework.Repositories
                && (DbFunctions.TruncateTime(t.AddedDate) >= dateFrom && DbFunctions.TruncateTime(t.AddedDate) <= dateTo)
                && t.CreatorUserId == rep && t.PlaceId == place)
                .Include(u => u.CreatorUser)
-               .Include(p => p.Place)               
+               .Include(p => p.Place)
                .ToListAsync();
         }
 

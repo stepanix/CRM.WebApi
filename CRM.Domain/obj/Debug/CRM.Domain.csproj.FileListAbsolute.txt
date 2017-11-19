@@ -34,6 +34,6 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\bin\Debug\EntityFramework.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\bin\Debug\EntityFramework.SqlServer.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\obj\Debug\CRM.Domain.csproj.CoreCompileInputs.cache
 C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\obj\Debug\CRM.Domain.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\obj\Debug\CRM.Domain.pdb
-C:\Practice Projects\_github\CRM.WebApi\CRM.Domain\obj\Debug\CRM.Domain.csprojResolveAssemblyReference.cache

@@ -24,11 +24,13 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Debug\Microsoft.AspNet.I
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Debug\EntityFramework.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Debug\CRM.Domain.pdb
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Debug\CRM.Domain.dll.config
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Debug\AutoMapper.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Debug\Autofac.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\bin\Debug\EntityFramework.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\obj\Debug\CRM.Service.csprojResolveAssemblyReference.cache
+C:\Practice Projects\_github\CRM.WebApi\CRM.Service\obj\Debug\CRM.Service.csproj.CoreCompileInputs.cache
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\obj\Debug\CRM.Service.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.Service\obj\Debug\CRM.Service.pdb

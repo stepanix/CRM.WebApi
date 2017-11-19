@@ -9,6 +9,7 @@ using CRM.WebApi.Dto.OrderItems.In;
 using System.Threading.Tasks;
 using CRM.Domain.Model;
 using System.Collections.Generic;
+using System;
 
 namespace CRM.WebApi.Controllers
 {
@@ -34,6 +35,14 @@ namespace CRM.WebApi.Controllers
             }
 
             var created = await orderItemService.InsertOrderListAsync(mapper.Map<IEnumerable<OrderItemModel>>(orderItems));
+            return Ok(created);
+        }
+
+        [HttpGet]
+        [Route("DateRange")]
+        public async Task<IHttpActionResult> ReadAllByDateRange(DateTime dateFrom, DateTime dateTo)
+        {
+            var created = await orderItemService.GetOrderItemsAsync(dateFrom, dateTo);
             return Ok(created);
         }
     }

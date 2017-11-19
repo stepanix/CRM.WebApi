@@ -26,6 +26,11 @@ namespace CRM.Service.Services.OrderItems
             this.requestIdentityProvider = requestIdentityProvider;
         }
 
+        public async Task<IEnumerable<OrderItemModel>> GetOrderItemsAsync(DateTime dateFrom, DateTime dateTo)
+        {
+            return mapper.Map<IEnumerable<OrderItemModel>>(await orderItemRepository.GetOrderItems(dateFrom, dateTo));
+        }
+
         public async Task<IEnumerable<OrderItemModel>> InsertOrderListAsync(IEnumerable<OrderItemModel> orderItems)
         {
             var user = await userRepository.GetUser();

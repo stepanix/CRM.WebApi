@@ -66,7 +66,9 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\System.Web.WebPages.Razor
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\WebGrease.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\EntityFramework.Filters.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\CRM.Domain.pdb
+C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\CRM.Domain.dll.config
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\CRM.EntityFramework.pdb
+C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\CRM.EntityFramework.dll.config
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\CRM.Service.pdb
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\Autofac.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\Autofac.Integration.Owin.xml
@@ -109,5 +111,6 @@ C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\Microsoft.Owin.Security.G
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\obj\Debug\CRM.WebApi.csprojResolveAssemblyReference.cache
+C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\obj\Debug\CRM.WebApi.csproj.CoreCompileInputs.cache
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\obj\Debug\CRM.WebApi.dll
 C:\Practice Projects\_github\CRM.WebApi\CRM.WebApi\obj\Debug\CRM.WebApi.pdb
